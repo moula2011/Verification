@@ -1,0 +1,61 @@
+#bg 
+{
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 0; 
+  top: 0; 
+  height: 100vh;
+  /* background-size: cover; */
+  /* background-position: center; */
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+
+}
+
+.medi-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+}
+
+.medi-menu{
+  box-shadow: 0px 0px 5px 0px #000;
+  width: 100%;
+}
+
+.medi-container{
+  box-shadow: 0px 0px 3px 0px #000;
+}
+
+.medi-unique{
+  position: absolute; 
+  border-radius: 0px 200px 10px 10px; 
+  width: 330px; 
+  border: 1px solid #09F; 
+  height: 38px; 
+  background-color: #BDF; 
+}
+
+.medi-magic{
+  border-top: 1px solid indigo;
+  border-bottom: 1px solid indigo;
+}
+
+.medi-magic-btn{
+  border-left: 1px solid indigo;
+  border-right: 1px solid indigo;
+}
+
+.medi-magic-btn-l{
+  border-left: 1px solid #1fb6ff;
+  border-right: 1px solid #1fb6ff;
+}
+
+.medi-magic-btn-r{
+  border-left: 1px solid red;
+  border-right: 1px solid red;
+}
