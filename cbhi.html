@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/css/main.css">
     <link rel="stylesheet" href="src/css/medi-style.css">
-
-    <title>.::Verification::. </title>
+    <!-- <script src="jquery-3.3.1.min.js"></script>
+    <script src="TimeCircles/TimeCircles.js"></script>
+    <link rel="stylesheet" href="TimeCircles/TimeCircles.css"> -->
+    <script src="https://cdn.jsdelir.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>.::CBHI::.</title>
 </head>
 <body style="background-image: url('img/31.jpg');" id="bg">
-    <div class="medi-menu  opacity-100 p-0 bg-medimenu">
+    <div class="medi-menu bg-opacity-50 p-2.5 bg-blue-400 bg-medimenu">
         <div class="pt-0 float-left flex">
             <img src="img/logo medi.png" alt="" class="ml-6 ">
-            <h2 class=" hidden md:flex text-1xl text-white float-right align-text-bottom m-1 ml-3  ">hello</h2>
+            <h2 class="hidden md:flex text-2xl text-white align-text-bottom m-1 ml-3">hello</h2>
 
         </div>
         <nav class="relative container mx-auto w-full px-6" >
@@ -29,11 +33,11 @@
         </nav> 
     </div>
     <section id="moula">
-        <div class="absolute inset-x-12 h-20 top-11 bg-white md: w-100">
+        <div class="absolute inset-x-12 h-20 top-11 bg-opacity-80 bg-white md: w-100">
             <div class="medi-unique top-10 flex flex-row">
-                <div class="uppercase tracking-wide text-sm text-black-500 ">
+                <div class="uppercase tracking-wide text-md text-black-500 ">
                     <label for="" class="m-2">MONTH:</label>
-                    <select class="form-select px-16 py-1 border-black rounded-t-lg">
+                    <select class="form-select px-12 py-2 border-black rounded-t-lg" v-model="selperiodes">
                         <option value="">July-2022</option>
                         <option value="">June-2022</option>
                     </select>
@@ -70,7 +74,7 @@
                                 <div class="pr-8 py-4 w-1/2 ">
                                     <div class="border-l-4 rounded-r-md flex flex-row border-indigo-500 bg-blue-500 medi-magic p-3" > 
                                         <img src="img/play2.png" alt="">
-                                        <h1 class="text-2xl text-center">
+                                        <h1 class="text-2xl text-center ml-3">
                                             2398.8 Frw
                                         </h1>
                                     </div>
@@ -141,7 +145,7 @@
                                 </div>
                                 <div class=" pl-4 py-4 w-1/2">
                                     <div class=" border-indigo-500 mx-2 p-1 bg-gray-light" style="border: 2px solid #52dcff;"> 
-                                        <h1 class="text-2xl text-center" >Recovery</h1>
+                                        <h1 class="text-2xl text-center" >Appeal ( <i>Redressement</i> )</h1>
 
                                     </div>
                                     <div class="border-b-4 mx-2 flex flex-row rounded-b-md border-mediblue medi-magic-btn-l p-3" > 
@@ -212,5 +216,29 @@
             <hr style="border-top: 2px solid #52dcff;">
         </div>
     </section>
+    <script>
+        var app  = new Vue({
+        el:'#dynamicselectboxApp',
+        data:{
+            selperiodes:'',
+            periode_data:'',
+        },
+        
+        methods:{
+            fetchPeriodes: function(){
+            axios.post("action.php",{
+                postRequest:'periode'
+                }).then(function(response){
+                app.periode_data = response.data;
+                console.log(response);
+            });
+            },
+        },
+        
+        created:function(){
+            this.fetchPeriodes();
+        },
+        });
+        </script>
 </body>
 </html>
