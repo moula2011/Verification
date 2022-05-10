@@ -46,6 +46,26 @@ function loadDoc() {
         };
         xhttp.open("GET", "src/load/php/veri_rate.php", true);
         xhttp.send();
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("deduct").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "src/load/php/deduct.php", true);
+        xhttp.send();
+
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("deducted").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "src/load/php/deducted.php", true);
+        xhttp.send();
+
     },1000);
 
 }

@@ -20,7 +20,10 @@ while($row=$res->fetch_assoc()){
     $verified= $row['tot'];
 }
 
- echo $tot = round($verified- $deduct,1);
+
+$percentage = round(($deduct*100)/$verified,2);
+echo $percentage;
+
 $link->close();
 
 ?>
