@@ -2,7 +2,7 @@
 
 include 'link.php';
 
-$query = "SELECT SUM(amountde) as deduct FROM verification";
+$query = "SELECT SUM(amountde) as deduct FROM verification WHERE period ='May-2022'";
 
 $res = $link->query($query);
 

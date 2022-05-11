@@ -2,7 +2,7 @@
 
 include 'link.php';
 
-$query = "SELECT SUM(amountde) as deduct FROM verification";
+$query = "SELECT SUM(amountde) as deduct FROM verification WHERE  period ='May-2022'";
 
 $res = $link->query($query);
 
@@ -11,7 +11,11 @@ while($row=$res->fetch_assoc()){
     $deduct = $row['deduct'];
 }
 
-$query = "SELECT SUM(quantity*unityp) AS tot FROM orders WHERE verified = 1 AND musa=1";
+// $query = "SELECT SUM(quantity*unityp) AS tot FROM orders WHERE verified = 1 AND musa=1  AND period ='May-2022'";
+
+$query = "SELECT SUM(orders.quantity*orders.unityp) AS tot 
+FROM orders, clients 
+WHERE orders.client_id=clients.client_id AND clients.insurance='MUSA' AND verified = 1 AND orders.period='May-2022'";
 
 $res = $link->query($query);
 
@@ -20,9 +24,12 @@ while($row=$res->fetch_assoc()){
     $verified= $row['tot'];
 }
 
-
-$percentage = round(($deduct*100)/$verified,2);
-echo $percentage;
+if($verified > 0)
+{
+    $percentage = round(($deduct*100)/$verified,2);
+    echo $percentage;
+}else
+{echo 0;}
 
 $link->close();
 
