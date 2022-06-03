@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "client_id": "987",
+        "day": "2022-05-27",
+        "insurance": "MUSA",
+        "bene": "INEZAYIMANA SAMI ARIELLA",
+        "sex": "F",
+        "age": "3", 
+        "cat": "2",
+        "checked": 1,
+        "verified": 1,
+        "items":{ 
+                 "consultation":
+                 {
+                    "cons_qtty": 1,
+                    "cons_item": "Consultation Infirmier (A2+A1)",
+                    "cases": "0",
+                    "cons_u_p": "300",
+                    "service": "2",
+                    "period": "May-2022",
+                    "date": "2022-05-27",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                },
+                            
+                "laboratory":
+                {
+                    "lab_type": "laboratoire",
+                    "lab_item": "29",
+                    "lab_qtty": 1,
+                    "lab_unityp": "1000"
+                },
+                            
+                "medicines":
+                {
+                    "med_type": "med",
+                    "med_qtty": "1",
+                    "med_item": "NEEDLE HYPO UU 21 G",
+                    "med_u_p": "18"
+                },
+                    
+                "consommables":
+                        {
+                            "conso_type": "consommable",
+                            "conso_quantity": "1",
+                            "conso_item": "\tgant gynecologique mussa",
+                            "conso_u_p": "883.4",
+                            "insured": "1"
+
+                        }
+                            
+                    }            
+    }
+  
+]

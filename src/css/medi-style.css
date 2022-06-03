@@ -59,3 +59,66 @@
   border-left: 1px solid red;
   border-right: 1px solid red;
 }
+
+.medi-container {
+  box-shadow: 0px 0px 3px 0px #000;
+}
+
+.border-mediblue {
+  border: 1px solid #1fb6ff;
+}
+
+.medi-btn {
+  border: 1px solid indigo;
+  /* width: 100%; */
+}
+
+.medi-client {
+  box-shadow: 0px 0px 2px 0px #000;
+
+}
+
+.medi-menu {
+  box-shadow: 0px 0px 5px 0px #000;
+
+}
+
+.medi-unique {
+  position: absolute;
+  border-radius: 0px 200px 10px 10px;
+  width: 530px;
+  border: 1px solid #09F;
+  height: 38px;
+  background-color: #BDF;
+}
+
+.medi-magic-btn-r {
+  border-left: 1px solid red;
+  border-right: 1px solid red;
+}
+
+.medi-magic-btn-l {
+  border-left: 1px solid #1fb6ff;
+  border-right: 1px solid #1fb6ff;
+}
+
+.medi_limit_span_veri {
+  display: block;
+  width: 160px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.medi_limit_span_check {
+  display: inline-block;
+  width: 190px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.medi_list::-webkit-scrollbar { 
+  width: 0 !important;
+  display: none; 
+}
+

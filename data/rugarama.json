@@ -1,0 +1,264 @@
+[
+    {
+        "id": 1,
+        "client_id": "3111",
+        "day": "2022-06-02",
+        "insurance": "MUSA",
+        "bene": "MAZIMPAKA JUNIOR CHRISTIAN\t1",
+        "sex": "M",
+        "age": "26",
+        "cat": "3",
+        "checked": 1,
+        "verified": 0,
+        "items": {
+            "medicines": [
+                {
+                    "med_type": "med",
+                    "med_u_p": "56.4",
+                    "med_quantity": "5",
+                    "med_item": "BUTYLCOPOLAMIN 10 MG",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-02",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1",
+                    "posologie": "DU"
+                },
+                {
+                    "med_type": "med",
+                    "med_u_p": "16.8",
+                    "med_quantity": "30",
+                    "med_item": "OMEPRAZOLE 20MG TAB",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-02",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1",
+                    "posologie": "DU"
+                }
+            ],
+            "consommables": [],
+            "consultation": [
+                {
+                    "cons_type": "consultation",
+                    "cons_u_p": "300",
+                    "cons_quantity": 1,
+                    "cons_item": "Consultation Infirmier (A2+A1)",
+                    "cases": "0",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-02",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "laboratoire": [
+                {
+                    "lab_type": "laboratoire",
+                    "lab_u_p": "1000",
+                    "lab_quantity": 1,
+                    "lab_item": "75",
+                    "cases": null,
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-02",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "soins": [],
+            "hospitalisation": []
+        },
+        "num": 4
+    },
+    {
+        "client_id": "3",
+        "day": "2022-06-02",
+        "insurance": "MUSA",
+        "bene": "IRANKUNDA CHANCE",
+        "sex": "F",
+        "age": "5",
+        "cat": "1",
+        "checked": 1,
+        "verified": 0,
+        "items": {
+            "medicines": [
+                {
+                    "med_type": "med",
+                    "med_u_p": "56.4",
+                    "med_quantity": "50",
+                    "med_item": "BUTYLCOPOLAMIN 10 MG",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-02",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1",
+                    "posologie": "TBD"
+                }
+            ],
+            "consommables": [
+                {
+                    "conso_type": "consommable",
+                    "conso_u_p": "230",
+                    "conso_quantity": "1",
+                    "conso_item": "\tsonde d aspiration",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-02",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "consultation": [
+                {
+                    "cons_type": "consultation",
+                    "cons_u_p": "300",
+                    "cons_quantity": 1,
+                    "cons_item": "cons maty",
+                    "cases": "0",
+                    "service": "11",
+                    "period": "June-2022",
+                    "date": "2022-06-02",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "laboratoire": [],
+            "soins": [],
+            "hospitalisation": []
+        },
+        "id": 2,
+        "num": 4
+    },
+    {
+        "client_id": "4",
+        "day": "2022-06-02",
+        "insurance": "MUSA",
+        "bene": "NIYOGIHOZO EMEBLICE",
+        "sex": "M",
+        "age": "9",
+        "cat": "1",
+        "checked": 1,
+        "verified": 0,
+        "items": {
+            "medicines": [
+                {
+                    "med_type": "med",
+                    "med_u_p": "18",
+                    "med_quantity": "30",
+                    "med_item": "NEEDLE HYPO UU 21 G",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-02",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1",
+                    "posologie": "TBD"
+                }
+            ],
+            "consommables": [
+                {
+                    "conso_type": "consommable",
+                    "conso_u_p": "883.4",
+                    "conso_quantity": "5",
+                    "conso_item": "\tgant gynecologique mussa",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-02",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "consultation": [
+                {
+                    "cons_type": "consultation",
+                    "cons_u_p": "300",
+                    "cons_quantity": 1,
+                    "cons_item": "cons maty",
+                    "cases": "0",
+                    "service": "11",
+                    "period": "June-2022",
+                    "date": "2022-06-02",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "laboratoire": [],
+            "soins": [],
+            "hospitalisation": []
+        },
+        "id": 3,
+        "num": 4
+    },
+    {
+        "client_id": "8",
+        "day": "2022-06-02",
+        "insurance": "MUSA",
+        "bene": "NAKAWOYA RITHA",
+        "sex": "F",
+        "age": "7",
+        "cat": "1",
+        "checked": 1,
+        "verified": 0,
+        "items": {
+            "medicines": [],
+            "consommables": [],
+            "consultation": [
+                {
+                    "cons_type": "consultation",
+                    "cons_u_p": "360",
+                    "cons_quantity": 1,
+                    "cons_item": "Consultation Infirmier (A2+A1)-nuit, weekend, jours ferries",
+                    "cases": "0",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-02",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "laboratoire": [
+                {
+                    "lab_type": "laboratoire",
+                    "lab_u_p": "270",
+                    "lab_quantity": 1,
+                    "lab_item": "107",
+                    "cases": null,
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-02",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                },
+                {
+                    "lab_type": "laboratoire",
+                    "lab_u_p": "1000",
+                    "lab_quantity": 1,
+                    "lab_item": "29",
+                    "cases": null,
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-02",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "soins": [],
+            "hospitalisation": []
+        },
+        "id": 4,
+        "num": 4
+    }
+]

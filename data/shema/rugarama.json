@@ -1,0 +1,169 @@
+[
+    {
+        "id": 1,
+        "client_id": "987",
+        "day": "2022-05-27",
+        "insurance": "MUSA",
+        "bene": "INEZAYIMANA SAMI ARIELLA",
+        "sex": "F",
+        "age": "3",
+        "cat": "2",
+        "checked": 0,
+        "verified": 1,
+        "items": {
+            "consultation": [
+                {
+                    "cons_qtty": 1,
+                    "cons_item": "Consultation Infirmier (A2+A1)",
+                    "cases": "0",
+                    "cons_u_p": "300",
+                    "service": "2",
+                    "period": "May-2022",
+                    "date": "2022-05-27",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1",
+                    "checked": 1,
+                    "verified": 1
+                }
+            ],
+            "laboratory": [
+                {
+                    "lab_type": "laboratoire",
+                    "lab_item": "29",
+                    "lab_qtty": 1,
+                    "lab_unityp": "1000"
+                },
+                {
+                    "lab_type": "laboratoire",
+                    "lab_item": "24",
+                    "lab_qtty": 2,
+                    "lab_unityp": "1000"
+                }
+            ],
+            "medicines": [
+                {
+                    "med_type": "med",
+                    "med_qtty": "1",
+                    "med_item": "NEEDLE HYPO UU 21 G",
+                    "med_u_p": "18"
+                },
+                {
+                    "med_type": "med",
+                    "med_qtty": "10",
+                    "med_item": "ASPIRIN",
+                    "med_u_p": "108"
+                },
+                {
+                    "med_type": "med",
+                    "med_qtty": "12",
+                    "med_item": "ALBENDAZOLE",
+                    "med_u_p": "25"
+                }
+            ],
+            "consommables": [
+                {
+                    "conso_type": "consommable",
+                    "conso_quantity": "1",
+                    "conso_item": "\tgant gynecologique mussa",
+                    "conso_u_p": "883.4"
+                }
+            ]
+        }
+    },
+    {
+        "client_id": "34",
+        "day": "2022-05-29",
+        "insurance": "MUSA",
+        "bene": "AKIMANA CHRISTIN E",
+        "sex": "F",
+        "age": "19",
+        "cat": "3",
+        "id": 2,
+        "checked": 1,
+        "verified": 1,
+        "items": {
+            "consultation": [
+                {
+                    "cons_qtty": 1,
+                    "cons_item": "Consultation Infirmier (A2+A1)",
+                    "cases": "0",
+                    "cons_u_p": "300",
+                    "service": "2",
+                    "period": "May-2022",
+                    "date": "2022-05-27",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1",
+                    "checked": 1,
+                    "verified": 1
+                }
+            ],
+            "laboratory": [],
+            "medicines": [
+                {
+                    "med_type": "med",
+                    "med_qtty": "5",
+                    "med_item": "NEEDLE HYPO UU 21 G",
+                    "med_u_p": "18"
+                }
+            ],
+            "consommables": [
+                {
+                    "conso_type": "consommable",
+                    "conso_quantity": "1",
+                    "conso_item": "\tseringe de 5ml+aigui",
+                    "conso_u_p": "57.6"
+                },
+                {
+                    "conso_type": "consommable",
+                    "conso_quantity": "2",
+                    "conso_item": "\tGant Propre",
+                    "conso_u_p": "20"
+                },
+                {
+                    "conso_type": "consommable",
+                    "conso_quantity": "1",
+                    "conso_item": "\tAmballage",
+                    "conso_u_p": "6"
+                }
+            ]
+        }
+    },
+    {
+        "client_id": "23",
+        "day": "31",
+        "insurance": "MUSA",
+        "bene": "NIRAGIRE LOUIS",
+        "sex": "M",
+        "age": "43",
+        "cat": "3",
+        "checked": 0,
+        "verified": 0,
+        "id": 3,
+        "items": {
+            "Medicament": {
+                "prod": {
+                    "med664": "BUTYLCOPOLAMIN 10 MG"
+                },
+                "qtty": {
+                    "med664": "1"
+                }
+            }
+        },
+        "med_u_p": "insured",
+        "1": "checked"
+    },
+    {
+        "client_id": "3111",
+        "day": "31",
+        "insurance": "MUSA",
+        "bene": "MAZIMPAKA JUNIOR CHRISTIAN\t1",
+        "sex": "M",
+        "age": "26",
+        "cat": "3",
+        "checked": 0,
+        "verified": 0,
+        "id": 4
+    }
+]

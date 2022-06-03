@@ -2,7 +2,7 @@
 
 include 'link.php';
 
-$query = "SELECT DISTINCT act FROM acts WHERE insured = 1";
+$query = "SELECT DISTINCT act FROM acts WHERE insured = 1 AND verified = 0";
 
 $res = $link->query($query);
 
