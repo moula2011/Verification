@@ -102,14 +102,14 @@ function loadDoc() {
         // xhttp.open("GET", "src/load/php/veri_remain_days.php", true);
         // xhttp.send();
 
-        // var xhttp = new XMLHttpRequest();
-        // xhttp.onreadystatechange = function() {
-        //     if (this.readyState == 4 && this.status == 200) {
-        //     document.getElementById("appeal").innerHTML = this.responseText;
-        //     }
-        // };
-        // xhttp.open("GET", "src/load/php/appeal.php", true);
-        // xhttp.send();
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("appeal").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "src/load/php/appeal.php", true);
+        xhttp.send();
         
         // var xhttp = new XMLHttpRequest();
         // xhttp.onreadystatechange = function() {

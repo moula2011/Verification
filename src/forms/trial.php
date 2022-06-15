@@ -12,7 +12,8 @@
 </head>
 <body style="background-image: url('../../img/31.jpg');" id="bg">
     <?php
-        $consult =json_decode(file_get_contents('../../data/rugarama.json'));
+	require('consult.class.php');
+    $consult =json_decode(file_get_contents('../../data/rugarama.json'));
         $data ='../../data/rugarama.json';
     ?>
     <div class="medi-menu bg-opacity-50 p-2.5 bg-blue-400 bg-medimenu">
@@ -56,45 +57,22 @@
                 </a>
             </div>
             <hr style="border-top: 1px solid #52dcff;">
-            <?php 
-                // echo'<pre>';
-                // print_r($consult) ;
-                // echo '</pre>'
-            ?>
-            <?php $v_c=0; $v_v=0; foreach($consult as $check): $v_c += $check->checked; $v_v += $check->verified; endforeach; $v_check =$v_c - $v_v; echo $v_check;?>
-            <?php $cup=0; foreach($consult as $check): $v_c = $check->checked;$v_v += $check->verified; 
-                foreach($check->items->consultation as $consul): $cup+=$consul->cons_u_p; endforeach;
-            
-            endforeach; $v_chek =$v_v; echo $cup;?>
-            <?php //echo $t= $uncheck->client_id; $r=$t+$uncheck->client_id ?><br>
+            <div class="" style="background-color: #ccc;">
+                <form action="trial.php" method="post">
+                    apples:<input type="checkbox" name="fruits[]" value="apples" id=""><br>
+                    oranges:<input type="checkbox" name="fruits[]" value="oranges" id=""><br>
+                    pears:<input type="checkbox" name="fruits[]" value="pears" id=""><br>
+                    <input type="submit" value="Submit" class="m-2 p-2 rounded-md medi-btn">
+                </form>
+                <?php
+                    $fruits = $_POST["fruits"];
+                    foreach($fruits as $key => $value ){
 
-            <div class="m-6" style="background-color:#aaa; color:black;">
-                <input type="text" id="search" name="search" placeholder="Search..." class="w-100 rounded-md p-2 m-4 medi-btn" >
+                        echo $value.' ';
+                    }
+                ?>
             </div>
-            
-
-            <div  class="m-6" style="background-color:#aaa; color:black;"> 
-                <ul id="result"></ul>
-            </div>
-
         </div>
     </section >
-    <script src="load/js/load.js"></script>
 </body>
 </html>
-    <script>
-        $(document).ready(function(){
-            $('#search').keyup(function(){
-                $('#result').html('');
-                var searchField = $('#search').val()
-                var expression = new RegExp(searchField,"i")
-                $.getJSON('../../data/rugarama.json',function(data){
-                    $.each(data,function(key,value){
-                        if(value.bene.search(expression) !=1){
-                            $('#result').append('<div>'+value.bene+'</div>')
-                        }
-                    })
-                })
-            })
-        });
-    </script>

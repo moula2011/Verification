@@ -1,44 +1,24 @@
 [
     {
         "id": 1,
-        "client_id": "3111",
-        "day": "2022-06-02",
+        "client_id": "6",
+        "day": "2022-06-14",
         "insurance": "MUSA",
-        "bene": "MAZIMPAKA JUNIOR CHRISTIAN\t1",
-        "sex": "M",
-        "age": "26",
-        "cat": "3",
+        "chef": "SEREZA CELESTIN",
+        "bene_insu_code": "1199170002183021",
+        "bene": "MUKAMANA ROSINE",
+        "insurance_code": "1198980010455239",
+        "sex": "",
+        "age": "31",
+        "cat": "2",
+        "dep": "Z",
+        "period": "June-2022",
         "checked": 1,
-        "verified": 0,
+        "verified": 1,
+        "done": 0,
+        "served": 1,
         "items": {
-            "medicines": [
-                {
-                    "med_type": "med",
-                    "med_u_p": "56.4",
-                    "med_quantity": "5",
-                    "med_item": "BUTYLCOPOLAMIN 10 MG",
-                    "service": "10",
-                    "period": "June-2022",
-                    "date": "2022-06-02",
-                    "status": "finished",
-                    "insured": "1",
-                    "user": "1",
-                    "posologie": "DU"
-                },
-                {
-                    "med_type": "med",
-                    "med_u_p": "16.8",
-                    "med_quantity": "30",
-                    "med_item": "OMEPRAZOLE 20MG TAB",
-                    "service": "10",
-                    "period": "June-2022",
-                    "date": "2022-06-02",
-                    "status": "finished",
-                    "insured": "1",
-                    "user": "1",
-                    "posologie": "DU"
-                }
-            ],
+            "medicines": [],
             "consommables": [],
             "consultation": [
                 {
@@ -49,82 +29,7 @@
                     "cases": "0",
                     "service": "10",
                     "period": "June-2022",
-                    "date": "2022-06-02",
-                    "status": "finished",
-                    "insured": "1",
-                    "user": "1"
-                }
-            ],
-            "laboratoire": [
-                {
-                    "lab_type": "laboratoire",
-                    "lab_u_p": "1000",
-                    "lab_quantity": 1,
-                    "lab_item": "75",
-                    "cases": null,
-                    "service": "10",
-                    "period": "June-2022",
-                    "date": "2022-06-02",
-                    "status": "finished",
-                    "insured": "1",
-                    "user": "1"
-                }
-            ],
-            "soins": [],
-            "hospitalisation": []
-        },
-        "num": 4
-    },
-    {
-        "client_id": "3",
-        "day": "2022-06-02",
-        "insurance": "MUSA",
-        "bene": "IRANKUNDA CHANCE",
-        "sex": "F",
-        "age": "5",
-        "cat": "1",
-        "checked": 1,
-        "verified": 0,
-        "items": {
-            "medicines": [
-                {
-                    "med_type": "med",
-                    "med_u_p": "56.4",
-                    "med_quantity": "50",
-                    "med_item": "BUTYLCOPOLAMIN 10 MG",
-                    "service": "10",
-                    "period": "June-2022",
-                    "date": "2022-06-02",
-                    "status": "finished",
-                    "insured": "1",
-                    "user": "1",
-                    "posologie": "TBD"
-                }
-            ],
-            "consommables": [
-                {
-                    "conso_type": "consommable",
-                    "conso_u_p": "230",
-                    "conso_quantity": "1",
-                    "conso_item": "\tsonde d aspiration",
-                    "service": "10",
-                    "period": "June-2022",
-                    "date": "2022-06-02",
-                    "status": "finished",
-                    "insured": "1",
-                    "user": "1"
-                }
-            ],
-            "consultation": [
-                {
-                    "cons_type": "consultation",
-                    "cons_u_p": "300",
-                    "cons_quantity": 1,
-                    "cons_item": "cons maty",
-                    "cases": "0",
-                    "service": "11",
-                    "period": "June-2022",
-                    "date": "2022-06-02",
+                    "date": "2022-06-14",
                     "status": "finished",
                     "insured": "1",
                     "user": "1"
@@ -132,96 +37,127 @@
             ],
             "laboratoire": [],
             "soins": [],
-            "hospitalisation": []
-        },
-        "id": 2,
-        "num": 4
+            "hospitalisation": [],
+            "verification": {
+                "medicines": [],
+                "consommables": [],
+                "consultation": [
+                    {
+                        "item_veri_type": "consultation",
+                        "item_u_p": "300",
+                        "item_quantity": 1,
+                        "item": "Consultation Infirmier (A2+A1)",
+                        "date": "2022-06-14",
+                        "time": "2022-06-14 18:40:39",
+                        "amounted": 0,
+                        "comment": "Consultation Infirmier (A2+A1)"
+                    }
+                ],
+                "laboratoire": [],
+                "soins": [],
+                "hospitalisation": []
+            }
+        }
     },
     {
-        "client_id": "4",
-        "day": "2022-06-02",
+        "client_id": "12",
+        "day": "2022-06-14",
         "insurance": "MUSA",
-        "bene": "NIYOGIHOZO EMEBLICE",
-        "sex": "M",
-        "age": "9",
-        "cat": "1",
-        "checked": 1,
-        "verified": 0,
-        "items": {
-            "medicines": [
-                {
-                    "med_type": "med",
-                    "med_u_p": "18",
-                    "med_quantity": "30",
-                    "med_item": "NEEDLE HYPO UU 21 G",
-                    "service": "10",
-                    "period": "June-2022",
-                    "date": "2022-06-02",
-                    "status": "finished",
-                    "insured": "1",
-                    "user": "1",
-                    "posologie": "TBD"
-                }
-            ],
-            "consommables": [
-                {
-                    "conso_type": "consommable",
-                    "conso_u_p": "883.4",
-                    "conso_quantity": "5",
-                    "conso_item": "\tgant gynecologique mussa",
-                    "service": "10",
-                    "period": "June-2022",
-                    "date": "2022-06-02",
-                    "status": "finished",
-                    "insured": "1",
-                    "user": "1"
-                }
-            ],
-            "consultation": [
-                {
-                    "cons_type": "consultation",
-                    "cons_u_p": "300",
-                    "cons_quantity": 1,
-                    "cons_item": "cons maty",
-                    "cases": "0",
-                    "service": "11",
-                    "period": "June-2022",
-                    "date": "2022-06-02",
-                    "status": "finished",
-                    "insured": "1",
-                    "user": "1"
-                }
-            ],
-            "laboratoire": [],
-            "soins": [],
-            "hospitalisation": []
-        },
-        "id": 3,
-        "num": 4
-    },
-    {
-        "client_id": "8",
-        "day": "2022-06-02",
-        "insurance": "MUSA",
-        "bene": "NAKAWOYA RITHA",
+        "chef": "MUKARWIBASIRA SAFINA",
+        "bene_insu_code": "1194270000277005",
+        "bene": "MUKARWIBASIRA SAFINA",
+        "insurance_code": "1194270000277005",
         "sex": "F",
-        "age": "7",
-        "cat": "1",
+        "age": "80",
+        "cat": "2",
+        "dep": "Z",
+        "period": "June-2022",
         "checked": 1,
-        "verified": 0,
+        "verified": 1,
+        "done": 0,
+        "served": 1,
         "items": {
             "medicines": [],
             "consommables": [],
+            "consultation": [],
+            "laboratoire": [],
+            "soins": [],
+            "hospitalisation": [],
+            "verification": {
+                "medicines": [],
+                "consommables": [],
+                "consultation": [],
+                "laboratoire": [],
+                "soins": [],
+                "hospitalisation": []
+            }
+        },
+        "id": 2
+    },
+    {
+        "client_id": "3",
+        "day": "2022-06-14",
+        "insurance": "MUSA",
+        "chef": "MUHIRE ATHANASE",
+        "bene_insu_code": "",
+        "bene": "IRANKUNDA CHANCE",
+        "insurance_code": "1198480007334079",
+        "sex": "F",
+        "age": "5",
+        "cat": "1",
+        "dep": "Z",
+        "period": "June-2022",
+        "checked": 1,
+        "verified": 1,
+        "done": 1,
+        "served": 1,
+        "items": {
+            "medicines": [
+                {
+                    "med_type": "med",
+                    "med_order_id": "58027",
+                    "med_u_p": "36",
+                    "med_quantity": "5",
+                    "med_item": "AMOXY CAPSULES 250 MG",
+                    "med_id": "662",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-14",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1",
+                    "posologie": "TBD",
+                    "checked": 1,
+                    "verified": 0
+                }
+            ],
+            "consommables": [
+                {
+                    "conso_type": "consommable",
+                    "conso_order_id": "58028",
+                    "conso_u_p": "57.6",
+                    "conso_quantity": "1",
+                    "conso_item": "\tseringe de 5ml+aigui",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-14",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1",
+                    "checked": 1,
+                    "verified": 0
+                }
+            ],
             "consultation": [
                 {
                     "cons_type": "consultation",
-                    "cons_u_p": "360",
+                    "cons_u_p": "300",
                     "cons_quantity": 1,
-                    "cons_item": "Consultation Infirmier (A2+A1)-nuit, weekend, jours ferries",
+                    "cons_item": "Consultation Infirmier (A2+A1)",
                     "cases": "0",
                     "service": "10",
                     "period": "June-2022",
-                    "date": "2022-06-02",
+                    "date": "2022-06-14",
                     "status": "finished",
                     "insured": "1",
                     "user": "1"
@@ -230,35 +166,103 @@
             "laboratoire": [
                 {
                     "lab_type": "laboratoire",
-                    "lab_u_p": "270",
-                    "lab_quantity": 1,
-                    "lab_item": "107",
-                    "cases": null,
-                    "service": "10",
-                    "period": "June-2022",
-                    "date": "2022-06-02",
-                    "status": "finished",
-                    "insured": "1",
-                    "user": "1"
-                },
-                {
-                    "lab_type": "laboratoire",
+                    "lab_order_id": "58026",
                     "lab_u_p": "1000",
                     "lab_quantity": 1,
-                    "lab_item": "29",
+                    "lab_item": "Crachat BK",
                     "cases": null,
                     "service": "10",
                     "period": "June-2022",
-                    "date": "2022-06-02",
+                    "date": "2022-06-14",
                     "status": "finished",
                     "insured": "1",
                     "user": "1"
                 }
             ],
-            "soins": [],
-            "hospitalisation": []
+            "soins": [
+                {
+                    "act_med_type": "soins",
+                    "act_med_order_id": "58029",
+                    "act_med_u_p": "240",
+                    "act_med_quantity": "1",
+                    "act_med_item": "Ablation des fils",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-14",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "hospitalisation": [],
+            "verification": {
+                "medicines": [
+                    {
+                        "item_veri_type": "medicines",
+                        "item_order_id": "58027",
+                        "item_u_p": "36",
+                        "item_quantity": "5",
+                        "item": "AMOXY CAPSULES 250 MG",
+                        "date": "2022-06-14",
+                        "time": "2022-06-14 19:53:38",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ],
+                "consommables": [
+                    {
+                        "item_veri_type": "consommables",
+                        "item_order_id": "58028",
+                        "item_u_p": "57.6",
+                        "item_quantity": "1",
+                        "item": "\tseringe de 5ml+aigui",
+                        "date": "2022-06-14",
+                        "time": "2022-06-14 19:53:56",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ],
+                "consultation": [
+                    {
+                        "item_veri_type": "consultation",
+                        "item_u_p": "200",
+                        "item_quantity": "1",
+                        "item": "Consultation Infirmier (A2 A1)",
+                        "date": "2022-06-14",
+                        "time": "2022-06-14 18:46:48",
+                        "amounted": "100",
+                        "comment": "Consultation Infirmier (A2 A1)"
+                    }
+                ],
+                "laboratoire": [
+                    {
+                        "item_veri_type": "laboratoire",
+                        "item_order_id": "58026",
+                        "item_u_p": "1000",
+                        "item_quantity": 1,
+                        "item": "Crachat BK",
+                        "date": "2022-06-14",
+                        "time": "2022-06-14 19:53:10",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ],
+                "soins": [
+                    {
+                        "item_veri_type": "soins",
+                        "item_order_id": "58029",
+                        "item_u_p": "240",
+                        "item_quantity": "1",
+                        "item": "Ablation des fils",
+                        "date": "2022-06-14",
+                        "time": "2022-06-14 19:54:04",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ],
+                "hospitalisation": []
+            }
         },
-        "id": 4,
-        "num": 4
+        "id": 3
     }
 ]

@@ -1,0 +1,131 @@
+[
+    {
+        "id": 1,
+        "client_id": "3111",
+        "day": "2022-06-03",
+        "insurance": "MUSA",
+        "bene": "MAZIMPAKA JUNIOR CHRISTIAN\t1",
+        "sex": "M",
+        "age": "26",
+        "cat": "3",
+        "checked": 1,
+        "verified": 1,
+        "items": {
+            "medicines": [
+                {
+                    "med_type": "med",
+                    "med_u_p": "56.4",
+                    "med_quantity": "5",
+                    "med_item": "BUTYLCOPOLAMIN 10 MG",
+                    "service": "11",
+                    "period": "June-2022",
+                    "date": "2022-06-03",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1",
+                    "posologie": "DU"
+                }
+            ],
+            "consommables": [
+                {
+                    "conso_type": "consommable",
+                    "conso_u_p": "883.4",
+                    "conso_quantity": "5",
+                    "conso_item": "\tgant gynecologique mussa",
+                    "service": "11",
+                    "period": "June-2022",
+                    "date": "2022-06-03",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "consultation": [
+                {
+                    "cons_type": "consultation",
+                    "cons_u_p": "300",
+                    "cons_quantity": 1,
+                    "cons_item": "Consultation Infirmier (A2+A1)",
+                    "cases": "0",
+                    "service": "11",
+                    "period": "June-2022",
+                    "date": "2022-06-03",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "laboratoire": [
+                {
+                    "lab_type": "laboratoire",
+                    "lab_u_p": "1000",
+                    "lab_quantity": 1,
+                    "lab_item": "29",
+                    "cases": null,
+                    "service": "11",
+                    "period": "June-2022",
+                    "date": "2022-06-03",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "soins": [
+                {
+                    "act_med_type": "soins",
+                    "act_med_u_p": "240",
+                    "act_med_quantity": "1",
+                    "act_med_item": "44",
+                    "service": "11",
+                    "period": "June-2022",
+                    "date": "2022-06-03",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "hospitalisation": [
+                {
+                    "hosp_type": "hospitalisation",
+                    "hosp_u_p": "180",
+                    "hosp_quantity": "1",
+                    "hosp_item": "6",
+                    "entry_date": "2022-06-03",
+                    "exit_date": "2022-06-03",
+                    "time": "2022-06-03 07:11:48",
+                    "service": "11",
+                    "status": "finished",
+                    "period": "June-2022",
+                    "date": " 2022-06-03",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "verification": [
+                {
+                    "veri_type":"medicines",
+                    "med_u_p": "50.4",
+                    "med_quantity": "5",
+                    "med_item": "BUTYLCOPOLAMIN 10 MG",
+                    "amounted":"6",
+                    "explanation": "BUTYLCOPOLAMIN 10 MG, over pricing",
+                    "time":"2022-06-03 07:11:48",
+                    "date":" 2022-06-03",
+                    "comment":null
+                },
+                {
+                    "veri_type":"consultation",
+                    "cons_u_p": "300",
+                    "cons_quantity": 1,
+                    "cons_item": "Consultation Infirmier (A2+A1)",
+                    "cases": "0",
+                    "amounted":"0",
+                    "explanation": "Consultation Infirmier (A2+A1)",
+                    "time":"2022-06-03 07:11:48",
+                    "date":" 2022-06-03",
+                    "comment":null
+                }
+            ]
+        }
+    }
+]

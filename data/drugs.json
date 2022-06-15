@@ -1,0 +1,2572 @@
+[
+    {
+        "id": 1,
+        "prod_id": "12",
+        "description": "CADISTIN SP",
+        "unit_price": "840",
+        "date": "2018-11-12",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 2,
+        "prod_id": "26",
+        "description": "COTRIMOXAZOLE SP",
+        "unit_price": "498.24",
+        "date": "2022-03-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 3,
+        "prod_id": "27",
+        "description": "DEXAMETHASONE 0.1% C",
+        "unit_price": "406",
+        "date": "2017-08-10",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 4,
+        "prod_id": "32",
+        "description": "EAU DISTILLEE",
+        "unit_price": "57.96",
+        "date": "2022-03-30",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 5,
+        "prod_id": "36",
+        "description": "HYDROCORTISONE COLLY",
+        "unit_price": "447",
+        "date": "2019-01-07",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 6,
+        "prod_id": "39",
+        "description": "INDOCID 25MG",
+        "unit_price": "5",
+        "date": "2020-08-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 7,
+        "prod_id": "40",
+        "description": "LAME BISTOURI ",
+        "unit_price": "52.92",
+        "date": "2021-11-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 8,
+        "prod_id": "43",
+        "description": "METOCLOPRAMIDE TABS",
+        "unit_price": "50.004",
+        "date": "2022-03-28",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 9,
+        "prod_id": "44",
+        "description": "METRONIDAZOLE  SP",
+        "unit_price": "515.52",
+        "date": "2022-03-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 10,
+        "prod_id": "45",
+        "description": "METRONIDAZOLE 250 MG",
+        "unit_price": "8.4",
+        "date": "2022-04-04",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 11,
+        "prod_id": "47",
+        "description": "MULTIVITAMINE CP",
+        "unit_price": "4.956",
+        "date": "2022-03-17",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 12,
+        "prod_id": "52",
+        "description": "PARACETAMOL 100MG",
+        "unit_price": "2.76",
+        "date": "2022-04-08",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 13,
+        "prod_id": "58",
+        "description": "POLYGLACTILE ACID (C",
+        "unit_price": "2580",
+        "date": "2016-05-27",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 14,
+        "prod_id": "59",
+        "description": "PPF",
+        "unit_price": "365",
+        "date": "2016-10-04",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 15,
+        "prod_id": "61",
+        "description": "PROMETHAZINE 25MG IN",
+        "unit_price": "440.64",
+        "date": "2021-10-14",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 16,
+        "prod_id": "69",
+        "description": "SParadrap ",
+        "unit_price": "3502.08",
+        "date": "2022-03-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 17,
+        "prod_id": "73",
+        "description": "VIT BC INJ.",
+        "unit_price": "155",
+        "date": "2021-02-20",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 18,
+        "prod_id": "76",
+        "description": "INDOCID SUPP",
+        "unit_price": "90.996",
+        "date": "2022-03-07",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 19,
+        "prod_id": "79",
+        "description": "NYSTATINE SP",
+        "unit_price": "660.72",
+        "date": "2022-03-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 20,
+        "prod_id": "80",
+        "description": "GLUCOSE 5%",
+        "unit_price": "624.864",
+        "date": "2022-03-17",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 21,
+        "prod_id": "83",
+        "description": "CANDIDERME PDE",
+        "unit_price": "1440",
+        "date": "2017-02-21",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 22,
+        "prod_id": "84",
+        "description": "DACOLD SP (COLD CAP ",
+        "unit_price": "600",
+        "date": "2020-01-30",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 23,
+        "prod_id": "87",
+        "description": "OXYTOCIN INJ",
+        "unit_price": "0",
+        "date": "2022-03-14",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 24,
+        "prod_id": "97",
+        "description": "COARTEM 24CES",
+        "unit_price": "324",
+        "date": "2022-03-16",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 25,
+        "prod_id": "99",
+        "description": "COARTEM 12CES",
+        "unit_price": "216",
+        "date": "2022-03-28",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 26,
+        "prod_id": "100",
+        "description": "DIOZEPAN CES",
+        "unit_price": "2",
+        "date": "2015-07-06",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 27,
+        "prod_id": "101",
+        "description": "VIOLETTE DE GENTIANN",
+        "unit_price": "500",
+        "date": "2021-06-20",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 28,
+        "prod_id": "115",
+        "description": "ABACOF CP",
+        "unit_price": "0",
+        "date": "2020-03-13",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 29,
+        "prod_id": "116",
+        "description": "Extensiline ",
+        "unit_price": "453.6",
+        "date": "2022-03-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 30,
+        "prod_id": "123",
+        "description": "NEGRAM CE 50MG",
+        "unit_price": "55",
+        "date": "2017-08-01",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 31,
+        "prod_id": "129",
+        "description": "AMINOPHIRINE 250MG C",
+        "unit_price": "3.996",
+        "date": "2021-11-16",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 32,
+        "prod_id": "132",
+        "description": "COARTEM 18CES",
+        "unit_price": "324",
+        "date": "2022-03-16",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 33,
+        "prod_id": "136",
+        "description": "GENTAMICE A",
+        "unit_price": "61.584",
+        "date": "2022-03-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 34,
+        "prod_id": "138",
+        "description": "CAF COLLYRE",
+        "unit_price": "105",
+        "date": "2022-03-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 35,
+        "prod_id": "144",
+        "description": "POLYVIDONE 10 CAL 20",
+        "unit_price": "1678.86",
+        "date": "2022-03-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 36,
+        "prod_id": "145",
+        "description": "ROULON GAZ",
+        "unit_price": "1425.6",
+        "date": "2021-11-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 37,
+        "prod_id": "150",
+        "description": "Temponnement",
+        "unit_price": "300",
+        "date": "2015-07-14",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 38,
+        "prod_id": "152",
+        "description": "pde cotrimazaxole",
+        "unit_price": "528",
+        "date": "2017-08-01",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 39,
+        "prod_id": "154",
+        "description": "curage",
+        "unit_price": "900",
+        "date": "2015-07-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 40,
+        "prod_id": "156",
+        "description": "pde diclofenac",
+        "unit_price": "450",
+        "date": "2018-12-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 41,
+        "prod_id": "158",
+        "description": "abacof sp",
+        "unit_price": "540",
+        "date": "2021-04-30",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 42,
+        "prod_id": "159",
+        "description": "diclofenac pommade",
+        "unit_price": "348",
+        "date": "2019-04-20",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 43,
+        "prod_id": "163",
+        "description": "diazepan inj",
+        "unit_price": "414",
+        "date": "2022-04-08",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 44,
+        "prod_id": "167",
+        "description": "MEBENDAZOLE SP",
+        "unit_price": "276",
+        "date": "2021-06-22",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 45,
+        "prod_id": "172",
+        "description": "CLOTRIMAZOLE CREME",
+        "unit_price": "240",
+        "date": "2017-08-01",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 46,
+        "prod_id": "175",
+        "description": "METOCLOPROMADE INJ.",
+        "unit_price": "144",
+        "date": "2022-03-17",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 47,
+        "prod_id": "176",
+        "description": "AMPICILLIN 500MG",
+        "unit_price": "180",
+        "date": "2020-02-19",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 48,
+        "prod_id": "180",
+        "description": "FLAMAZINE PDE",
+        "unit_price": "528",
+        "date": "2015-08-03",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 49,
+        "prod_id": "201",
+        "description": "PARACETAMOL SP",
+        "unit_price": "451.2",
+        "date": "2022-03-30",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 50,
+        "prod_id": "211",
+        "description": "CALCIUM GLUCONATE A.",
+        "unit_price": "0",
+        "date": "2021-01-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 51,
+        "prod_id": "213",
+        "description": "HYDROCORTISONE INJ.",
+        "unit_price": "469.2",
+        "date": "2022-04-01",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 52,
+        "prod_id": "220",
+        "description": "IBUPROFENE SP 100ML",
+        "unit_price": "576",
+        "date": "2022-03-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 53,
+        "prod_id": "222",
+        "description": "QUININE 300 MG ",
+        "unit_price": "12",
+        "date": "2022-02-12",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 54,
+        "prod_id": "225",
+        "description": "Coldarest ces",
+        "unit_price": "26",
+        "date": "2018-05-10",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 55,
+        "prod_id": "227",
+        "description": "Pommade Ichtyolee",
+        "unit_price": "2376",
+        "date": "2017-08-01",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 56,
+        "prod_id": "229",
+        "description": "ALBENDAZOLE SP",
+        "unit_price": "228",
+        "date": "2019-04-22",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 57,
+        "prod_id": "239",
+        "description": "CIMETIDINE INJ",
+        "unit_price": "144",
+        "date": "2022-03-17",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 58,
+        "prod_id": "240",
+        "description": "DEXAMETHASONE INJ",
+        "unit_price": "120.888",
+        "date": "2022-03-02",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 59,
+        "prod_id": "243",
+        "description": "BETHAMETAZONE",
+        "unit_price": "296",
+        "date": "2017-08-01",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 60,
+        "prod_id": "254",
+        "description": "acide ascrbique",
+        "unit_price": "12.12",
+        "date": "2022-04-08",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 61,
+        "prod_id": "255",
+        "description": "adrenaline 1 amp inj",
+        "unit_price": "1241.28",
+        "date": "2022-04-01",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 62,
+        "prod_id": "256",
+        "description": "ALCOOL DE NATURE 95%",
+        "unit_price": "4",
+        "date": "2020-04-13",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 63,
+        "prod_id": "262",
+        "description": "ARTESINATE 60MG PAWD",
+        "unit_price": "324",
+        "date": "2022-03-16",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 64,
+        "prod_id": "265",
+        "description": "BANDE ElASTIQUE ADHE",
+        "unit_price": "417.6",
+        "date": "2022-02-24",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 65,
+        "prod_id": "268",
+        "description": "BISACODYL 5MG TAB",
+        "unit_price": "231.6",
+        "date": "2022-03-28",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 66,
+        "prod_id": "269",
+        "description": "BUSCOPAN INJECT",
+        "unit_price": "273.24",
+        "date": "2022-02-13",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 67,
+        "prod_id": "273",
+        "description": "Cadestin sirup",
+        "unit_price": "950",
+        "date": "2018-11-09",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 68,
+        "prod_id": "274",
+        "description": "Camphere 10%pommade",
+        "unit_price": "642.24",
+        "date": "2022-03-07",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 69,
+        "prod_id": "275",
+        "description": "CAPTOPRIL 25MG CP",
+        "unit_price": "27.6",
+        "date": "2022-04-08",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 70,
+        "prod_id": "276",
+        "description": "Cefotaxime poudre in",
+        "unit_price": "775",
+        "date": "2019-09-10",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 71,
+        "prod_id": "278",
+        "description": "cell pack 20l",
+        "unit_price": "149",
+        "date": "2019-06-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 72,
+        "prod_id": "283",
+        "description": "chlorhexidine 1.5%+c",
+        "unit_price": "7128",
+        "date": "2022-02-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 73,
+        "prod_id": "287",
+        "description": "cimethine 200mg cp",
+        "unit_price": "34.968",
+        "date": "2022-03-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 74,
+        "prod_id": "288",
+        "description": "Ibuprophene 200mg cp",
+        "unit_price": "8.88",
+        "date": "2021-11-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 75,
+        "prod_id": "300",
+        "description": "cold cap gel",
+        "unit_price": "60",
+        "date": "2022-02-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 76,
+        "prod_id": "301",
+        "description": "compresse parrafinee",
+        "unit_price": "336",
+        "date": "2019-03-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 77,
+        "prod_id": "303",
+        "description": "cotrimoxazol 480 mgc",
+        "unit_price": "17.004",
+        "date": "2022-04-01",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 78,
+        "prod_id": "304",
+        "description": "cotrimoxazol 240 mg ",
+        "unit_price": "498.24",
+        "date": "2022-01-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 79,
+        "prod_id": "305",
+        "description": "cotrimoxazole ovule",
+        "unit_price": "66",
+        "date": "2021-01-21",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 80,
+        "prod_id": "306",
+        "description": "cotton wool",
+        "unit_price": "3000",
+        "date": "2019-03-05",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 81,
+        "prod_id": "307",
+        "description": "cotton hydroohile 50",
+        "unit_price": "2203.2",
+        "date": "2022-03-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 82,
+        "prod_id": "308",
+        "description": "cromo-glycate 2.0%ey",
+        "unit_price": "1296",
+        "date": "2022-03-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 83,
+        "prod_id": "309",
+        "description": "diazepan5mg cp",
+        "unit_price": "0",
+        "date": "2021-02-22",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 84,
+        "prod_id": "318",
+        "description": "ERYTROMICINE 250 MG C",
+        "unit_price": "40.176",
+        "date": "2022-04-04",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 85,
+        "prod_id": "319",
+        "description": "FICELE OMBILICALE",
+        "unit_price": "2160",
+        "date": "2020-05-26",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 86,
+        "prod_id": "320",
+        "description": "INDOMETHAZINE 100 MG SP",
+        "unit_price": "86.88",
+        "date": "2022-02-24",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 87,
+        "prod_id": "321",
+        "description": "LODE POLYVIDONE 10% ",
+        "unit_price": "3168",
+        "date": "2020-08-06",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 88,
+        "prod_id": "322",
+        "description": "KETOCONAZOLE CREME 2",
+        "unit_price": "414",
+        "date": "2020-04-13",
+        "insured": "1",
+        "qtty": "9899",
+        "verified": "1"
+    },
+    {
+        "id": 89,
+        "prod_id": "323",
+        "description": "BUSTOURIE N22",
+        "unit_price": "134.004",
+        "date": "2022-02-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 90,
+        "prod_id": "324",
+        "description": "LAME COUVRE OBJECT 2",
+        "unit_price": "8.4",
+        "date": "2021-09-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 91,
+        "prod_id": "325",
+        "description": "LIDOCAINNE 2%  FL IN",
+        "unit_price": "1498.8",
+        "date": "2022-03-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 92,
+        "prod_id": "326",
+        "description": "LYSINE ACETYSAL",
+        "unit_price": "780",
+        "date": "2018-11-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 93,
+        "prod_id": "327",
+        "description": "MAGNESIUM TRIS+ HYDR",
+        "unit_price": "4200",
+        "date": "2019-11-13",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 94,
+        "prod_id": "328",
+        "description": "MEBENDAZOLE  100MG  ",
+        "unit_price": "10.8",
+        "date": "2022-03-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 95,
+        "prod_id": "331",
+        "description": "FER-SULFATE +ACIDE F",
+        "unit_price": "14.16",
+        "date": "2022-02-24",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 96,
+        "prod_id": "332",
+        "description": "FUROSEMIDE 40 MG CP",
+        "unit_price": "6",
+        "date": "2022-03-24",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 97,
+        "prod_id": "333",
+        "description": "NIFEDIPINE RETARD 20",
+        "unit_price": "11.52",
+        "date": "2022-04-08",
+        "insured": "1",
+        "qtty": "9899",
+        "verified": "1"
+    },
+    {
+        "id": 98,
+        "prod_id": "334",
+        "description": "NITROFUNTOINE 100 MG",
+        "unit_price": "11.88",
+        "date": "2022-03-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 99,
+        "prod_id": "336",
+        "description": "prednisolone 5mg cp",
+        "unit_price": "11",
+        "date": "2021-07-22",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 100,
+        "prod_id": "338",
+        "description": "promethazine 25 mg c",
+        "unit_price": "7.008",
+        "date": "2022-03-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 101,
+        "prod_id": "342",
+        "description": "serum anti AB  monoc",
+        "unit_price": "6607.2",
+        "date": "2021-11-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 102,
+        "prod_id": "343",
+        "description": "serum anti B  monocl",
+        "unit_price": "5062",
+        "date": "2020-08-27",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 103,
+        "prod_id": "344",
+        "description": "serum anti AB  monoc",
+        "unit_price": "5062",
+        "date": "2018-11-09",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 104,
+        "prod_id": "345",
+        "description": "serum glucose iso a ",
+        "unit_price": "625.2",
+        "date": "2021-11-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 105,
+        "prod_id": "346",
+        "description": "set de perfusion+aig",
+        "unit_price": "259.2",
+        "date": "2021-11-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 106,
+        "prod_id": "348",
+        "description": "stromatolyder WH 3X ",
+        "unit_price": "176",
+        "date": "2018-11-09",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 107,
+        "prod_id": "349",
+        "description": "Sulfate de zinc 20mg",
+        "unit_price": "12",
+        "date": "2021-10-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 108,
+        "prod_id": "350",
+        "description": "tetracycline 1%opht ",
+        "unit_price": "294.84",
+        "date": "2022-04-08",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 109,
+        "prod_id": "366",
+        "description": "SALBUTAMOL 500MICRO ",
+        "unit_price": "604",
+        "date": "2019-12-22",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 110,
+        "prod_id": "369",
+        "description": "ORS",
+        "unit_price": "100.8",
+        "date": "2022-03-30",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 111,
+        "prod_id": "374",
+        "description": "PARACETAMOL SUPP 125",
+        "unit_price": "64.8",
+        "date": "2022-03-30",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 112,
+        "prod_id": "380",
+        "description": "LASIX 40MG",
+        "unit_price": "6",
+        "date": "2021-04-12",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 113,
+        "prod_id": "381",
+        "description": "Ringer lactate flaco",
+        "unit_price": "725.34",
+        "date": "2022-03-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 114,
+        "prod_id": "385",
+        "description": "ambalage med",
+        "unit_price": "6",
+        "date": "2022-03-30",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 115,
+        "prod_id": "387",
+        "description": "trousse de perfusion",
+        "unit_price": "263.88",
+        "date": "2022-03-31",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 116,
+        "prod_id": "389",
+        "description": "Catheter IV N 18",
+        "unit_price": "152.64",
+        "date": "2022-04-08",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 117,
+        "prod_id": "390",
+        "description": "Catheter IV N 22",
+        "unit_price": "170.568",
+        "date": "2022-03-31",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 118,
+        "prod_id": "391",
+        "description": "Catheter IV N 20",
+        "unit_price": "151.2",
+        "date": "2022-03-31",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 119,
+        "prod_id": "392",
+        "description": "Catheter IV N 24",
+        "unit_price": "157.2",
+        "date": "2022-03-31",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 120,
+        "prod_id": "397",
+        "description": "whitfield pd tube de",
+        "unit_price": "0",
+        "date": "2022-04-09",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 121,
+        "prod_id": "398",
+        "description": "mosquito net white",
+        "unit_price": "1",
+        "date": "2018-11-24",
+        "insured": "0",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 122,
+        "prod_id": "400",
+        "description": "quinine injectable 3",
+        "unit_price": "44",
+        "date": "2018-11-24",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 123,
+        "prod_id": "401",
+        "description": "Aspegic 500mg inj",
+        "unit_price": "1728",
+        "date": "2019-09-30",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 124,
+        "prod_id": "402",
+        "description": "Lame de Bistaurie",
+        "unit_price": "100",
+        "date": "2022-02-23",
+        "insured": "0",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 125,
+        "prod_id": "404",
+        "description": "chloramphenicol eye ",
+        "unit_price": "1179",
+        "date": "2022-03-27",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 126,
+        "prod_id": "406",
+        "description": "Catgut chrome 2\/0 12",
+        "unit_price": "399.96",
+        "date": "2022-03-30",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 127,
+        "prod_id": "407",
+        "description": "FILS NO RESORBABLE",
+        "unit_price": "386.401",
+        "date": "2021-10-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 128,
+        "prod_id": "410",
+        "description": "MULITIVITAMINE SP DE",
+        "unit_price": "478.08",
+        "date": "2022-03-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 129,
+        "prod_id": "411",
+        "description": "salbutamol 4mg cp",
+        "unit_price": "2.004",
+        "date": "2022-03-12",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 130,
+        "prod_id": "412",
+        "description": "Diclofenac 50 mg cp",
+        "unit_price": "4.38",
+        "date": "2022-03-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 131,
+        "prod_id": "414",
+        "description": "NYSTATINE 100000 ui ",
+        "unit_price": "660.72",
+        "date": "2022-03-30",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 132,
+        "prod_id": "416",
+        "description": "thermometre med",
+        "unit_price": "2635",
+        "date": "2019-12-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 133,
+        "prod_id": "417",
+        "description": "Gliseofluvine 500mg",
+        "unit_price": "115.2",
+        "date": "2022-03-30",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 134,
+        "prod_id": "418",
+        "description": "Sonde Vescal",
+        "unit_price": "812.16",
+        "date": "2021-09-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 135,
+        "prod_id": "419",
+        "description": "daonil\/glibenclamide",
+        "unit_price": "3.996",
+        "date": "2022-02-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 136,
+        "prod_id": "420",
+        "description": "METHYLDOPA 250 MG CP",
+        "unit_price": "70.68",
+        "date": "2022-02-24",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 137,
+        "prod_id": "421",
+        "description": "hydrochlothiazid 50m",
+        "unit_price": "7.2",
+        "date": "2022-03-30",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 138,
+        "prod_id": "422",
+        "description": "seringe de 2ml+aigui",
+        "unit_price": "48.912",
+        "date": "2022-02-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 139,
+        "prod_id": "423",
+        "description": "seringe de 5ml+aigui",
+        "unit_price": "57.6",
+        "date": "2022-04-08",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 140,
+        "prod_id": "424",
+        "description": "seringe de 10ml+aigu",
+        "unit_price": "72",
+        "date": "2022-04-04",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 141,
+        "prod_id": "426",
+        "description": "clotrimazol ovule\/va",
+        "unit_price": "80.16",
+        "date": "2022-03-17",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 142,
+        "prod_id": "427",
+        "description": "sonde d aspiration",
+        "unit_price": "230",
+        "date": "2019-12-06",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 143,
+        "prod_id": "428",
+        "description": "pregnancy test",
+        "unit_price": "155",
+        "date": "2018-11-24",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 144,
+        "prod_id": "429",
+        "description": "amitriptyllin tab 25",
+        "unit_price": "5.856",
+        "date": "2022-03-04",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 145,
+        "prod_id": "430",
+        "description": "Heloperidol 5mg",
+        "unit_price": "6",
+        "date": "2022-03-30",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 146,
+        "prod_id": "431",
+        "description": "chlorpromazine 500mg",
+        "unit_price": "120",
+        "date": "2021-06-13",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 147,
+        "prod_id": "433",
+        "description": "phenobarbutal inj 10",
+        "unit_price": "893",
+        "date": "2020-09-14",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 148,
+        "prod_id": "434",
+        "description": "serum anti A monoclo",
+        "unit_price": "2.4",
+        "date": "2021-11-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 149,
+        "prod_id": "435",
+        "description": "stool and salva",
+        "unit_price": "87.6",
+        "date": "2021-11-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 150,
+        "prod_id": "438",
+        "description": "Urine 3 Parametres",
+        "unit_price": "70.8",
+        "date": "2022-02-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 151,
+        "prod_id": "441",
+        "description": "gant propre prv",
+        "unit_price": "150",
+        "date": "2021-11-01",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 152,
+        "prod_id": "442",
+        "description": "Bisturie prv",
+        "unit_price": "100",
+        "date": "2019-12-22",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 153,
+        "prod_id": "443",
+        "description": "TULLES GRAS PIECE",
+        "unit_price": "500",
+        "date": "2020-08-04",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 154,
+        "prod_id": "444",
+        "description": "gant sterille prv",
+        "unit_price": "300",
+        "date": "2021-02-04",
+        "insured": "0",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 155,
+        "prod_id": "445",
+        "description": "Lunnette prv",
+        "unit_price": "1000",
+        "date": "2021-04-01",
+        "insured": "0",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 156,
+        "prod_id": "446",
+        "description": "fil nylon2\/0",
+        "unit_price": "540",
+        "date": "2022-04-01",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 157,
+        "prod_id": "447",
+        "description": "GANT STERILLE musa",
+        "unit_price": "417.6",
+        "date": "2022-03-17",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 158,
+        "prod_id": "448",
+        "description": "BENZOIC ACIDE OINTME",
+        "unit_price": "1584",
+        "date": "2020-11-27",
+        "insured": "1",
+        "qtty": "9895",
+        "verified": "1"
+    },
+    {
+        "id": 159,
+        "prod_id": "452",
+        "description": "Mosquitors",
+        "unit_price": "5000",
+        "date": "2019-01-28",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 160,
+        "prod_id": "453",
+        "description": "Albendazol",
+        "unit_price": "91.2",
+        "date": "2022-02-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 161,
+        "prod_id": "456",
+        "description": "gant gynecologique s",
+        "unit_price": "883.464",
+        "date": "2022-03-17",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 162,
+        "prod_id": "457",
+        "description": "chlorpromazine 25mg\/",
+        "unit_price": "8.628",
+        "date": "2022-03-28",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 163,
+        "prod_id": "458",
+        "description": "test de grossesse pc",
+        "unit_price": "69.048",
+        "date": "2021-11-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 164,
+        "prod_id": "460",
+        "description": "benzyl benzoate fl 1",
+        "unit_price": "648",
+        "date": "2022-04-04",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 165,
+        "prod_id": "461",
+        "description": "hydrocortizone 1% cr",
+        "unit_price": "760",
+        "date": "2020-08-27",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 166,
+        "prod_id": "462",
+        "description": "giemsa sol 0.75% fl ",
+        "unit_price": "21085.2",
+        "date": "2022-02-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 167,
+        "prod_id": "472",
+        "description": "pot a urine ",
+        "unit_price": "82.08",
+        "date": "2021-11-18",
+        "insured": "0",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 168,
+        "prod_id": "481",
+        "description": "Abaisse langue",
+        "unit_price": "10.32",
+        "date": "2022-02-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 169,
+        "prod_id": "483",
+        "description": "Chloremphenicol ear drops",
+        "unit_price": "480",
+        "date": "2022-04-08",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 170,
+        "prod_id": "484",
+        "description": "Fil RsynthT(0)SPR 1\/",
+        "unit_price": "1224",
+        "date": "2019-05-01",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 171,
+        "prod_id": "485",
+        "description": "ULTRASOUND GEL 250ML",
+        "unit_price": "1749.6",
+        "date": "2022-02-28",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 172,
+        "prod_id": "486",
+        "description": "ATENELOL 50MG CP",
+        "unit_price": "30.816",
+        "date": "2022-02-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 173,
+        "prod_id": "487",
+        "description": "metformine",
+        "unit_price": "13.2",
+        "date": "2022-03-14",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 174,
+        "prod_id": "488",
+        "description": "Chlorpromazine",
+        "unit_price": "8.4",
+        "date": "2022-03-29",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 175,
+        "prod_id": "494",
+        "description": "Normal saline",
+        "unit_price": "835.2",
+        "date": "2022-03-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 176,
+        "prod_id": "502",
+        "description": "diclofenac supp 100m",
+        "unit_price": "92.4",
+        "date": "2022-04-08",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 177,
+        "prod_id": "504",
+        "description": "ibuprofene 400mg",
+        "unit_price": "16.92",
+        "date": "2022-03-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 178,
+        "prod_id": "514",
+        "description": "sparadrap tisse 5cm ",
+        "unit_price": "742",
+        "date": "2022-02-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 179,
+        "prod_id": "517",
+        "description": "miconazole 15g creme",
+        "unit_price": "298",
+        "date": "2021-03-05",
+        "insured": "1",
+        "qtty": "9810",
+        "verified": "1"
+    },
+    {
+        "id": 180,
+        "prod_id": "518",
+        "description": "sodium chl 0.9% FL 5",
+        "unit_price": "695.52",
+        "date": "2022-02-24",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 181,
+        "prod_id": "525",
+        "description": "hhytominadione 10mg ",
+        "unit_price": "139",
+        "date": "2019-08-28",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 182,
+        "prod_id": "528",
+        "description": "Lamelle couvre objet",
+        "unit_price": "8.46",
+        "date": "2021-10-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 183,
+        "prod_id": "530",
+        "description": "banderette aglucomet",
+        "unit_price": "338.4",
+        "date": "2021-11-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 184,
+        "prod_id": "538",
+        "description": "Nystatine 500000 ui ",
+        "unit_price": "44.604",
+        "date": "2022-02-24",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 185,
+        "prod_id": "541",
+        "description": "RPR CARBON 150 TESTS",
+        "unit_price": "15403.7",
+        "date": "2021-11-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 186,
+        "prod_id": "548",
+        "description": "FRACON URINE Rssb",
+        "unit_price": "150",
+        "date": "2019-10-14",
+        "insured": "0",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 187,
+        "prod_id": "550",
+        "description": "COARTEM 6 CES",
+        "unit_price": "216",
+        "date": "2022-03-17",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 188,
+        "prod_id": "551",
+        "description": "aminophyiline inj",
+        "unit_price": "158",
+        "date": "2020-01-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 189,
+        "prod_id": "553",
+        "description": "SELLE FLACON prv",
+        "unit_price": "100",
+        "date": "2021-05-05",
+        "insured": "0",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 190,
+        "prod_id": "558",
+        "description": "attestation de naissance prv",
+        "unit_price": "1000",
+        "date": "2019-10-07",
+        "insured": "0",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 191,
+        "prod_id": "559",
+        "description": "vitamine complex inj",
+        "unit_price": "135",
+        "date": "2021-05-19",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 192,
+        "prod_id": "560",
+        "description": "lunette prv ",
+        "unit_price": "1000",
+        "date": "2021-04-02",
+        "insured": "0",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 193,
+        "prod_id": "562",
+        "description": "omeprozol 20mg cp",
+        "unit_price": "15.84",
+        "date": "2022-02-24",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 194,
+        "prod_id": "565",
+        "description": "Glibenclamide 5mg cp",
+        "unit_price": "4.404",
+        "date": "2022-03-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 195,
+        "prod_id": "568",
+        "description": "Vitamine B complexe cp",
+        "unit_price": "2.676",
+        "date": "2022-03-03",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 196,
+        "prod_id": "572",
+        "description": "cold cap 100mg surop ",
+        "unit_price": "691",
+        "date": "2020-10-16",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 197,
+        "prod_id": "573",
+        "description": "HYDROXDE D ALMENIUM 500MG",
+        "unit_price": "6",
+        "date": "2022-02-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 198,
+        "prod_id": "574",
+        "description": "promethazin sp",
+        "unit_price": "456",
+        "date": "2022-04-08",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 199,
+        "prod_id": "576",
+        "description": "bandelette prv",
+        "unit_price": "350",
+        "date": "2021-06-10",
+        "insured": "0",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 200,
+        "prod_id": "577",
+        "description": "gliseofulvine 125mg cp",
+        "unit_price": "38.4",
+        "date": "2022-03-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 201,
+        "prod_id": "578",
+        "description": "Dexametazone",
+        "unit_price": "120.888",
+        "date": "2022-01-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 202,
+        "prod_id": "579",
+        "description": "Umbilical Cord Clamp",
+        "unit_price": "59.04",
+        "date": "2022-03-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 203,
+        "prod_id": "581",
+        "description": "Aiguillle Vacutainer g21",
+        "unit_price": "56",
+        "date": "2021-01-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 204,
+        "prod_id": "582",
+        "description": "compress musa",
+        "unit_price": "200",
+        "date": "2020-02-18",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 205,
+        "prod_id": "583",
+        "description": "COMPRES PRAFINISS",
+        "unit_price": "100",
+        "date": "2020-03-09",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 206,
+        "prod_id": "585",
+        "description": "Ceftliaxione",
+        "unit_price": "579.6",
+        "date": "2022-03-17",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 207,
+        "prod_id": "587",
+        "description": "cloxacilline 250mg",
+        "unit_price": "25.2",
+        "date": "2022-03-31",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 208,
+        "prod_id": "591",
+        "description": "Haloperidol 5mg\/ml",
+        "unit_price": "696",
+        "date": "2022-04-01",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 209,
+        "prod_id": "593",
+        "description": "phytominadione 10mg inj(VIT K)",
+        "unit_price": "243.6",
+        "date": "2022-03-30",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 210,
+        "prod_id": "594",
+        "description": "cotrimaxazol 120 mg cp",
+        "unit_price": "5.04",
+        "date": "2022-03-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 211,
+        "prod_id": "598",
+        "description": "flacon urine",
+        "unit_price": "100",
+        "date": "2021-05-05",
+        "insured": "0",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 212,
+        "prod_id": "600",
+        "description": "ciprofloxacine 500mg\tOui\t29",
+        "unit_price": "36.888",
+        "date": "2022-03-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 213,
+        "prod_id": "601",
+        "description": "d04\tDoxycilline 100mg cp\tOui\t25",
+        "unit_price": "23.16",
+        "date": "2022-02-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 214,
+        "prod_id": "603",
+        "description": "phenobalbutal 100mg",
+        "unit_price": "31.584",
+        "date": "2022-03-17",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 215,
+        "prod_id": "604",
+        "description": "Aminophyline 100mg cp",
+        "unit_price": "5.94",
+        "date": "2022-03-12",
+        "insured": "1",
+        "qtty": "9899",
+        "verified": "1"
+    },
+    {
+        "id": 216,
+        "prod_id": "609",
+        "description": "paracetamol 500mg",
+        "unit_price": "9.6",
+        "date": "2022-04-04",
+        "insured": "1",
+        "qtty": "9870",
+        "verified": "1"
+    },
+    {
+        "id": 217,
+        "prod_id": "612",
+        "description": "cloxacilline sp 125mg",
+        "unit_price": "565.92",
+        "date": "2022-03-31",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 218,
+        "prod_id": "614",
+        "description": "Phenoxymethilpenicilline 250mg cp",
+        "unit_price": "21.12",
+        "date": "2022-04-08",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 219,
+        "prod_id": "615",
+        "description": "Nifedipine  10mg cp",
+        "unit_price": "10.26",
+        "date": "2022-03-17",
+        "insured": "1",
+        "qtty": "9899",
+        "verified": "1"
+    },
+    {
+        "id": 220,
+        "prod_id": "616",
+        "description": "PHENOBARBITAL 30MG TAB",
+        "unit_price": "30.996",
+        "date": "2022-02-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 221,
+        "prod_id": "617",
+        "description": "thiamine chlo.100mg cp",
+        "unit_price": "6",
+        "date": "2022-02-12",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 222,
+        "prod_id": "618",
+        "description": "calcium gluconate 100mg\/ml 10ml inj",
+        "unit_price": "459",
+        "date": "2022-04-01",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 223,
+        "prod_id": "621",
+        "description": "lasix ",
+        "unit_price": "6",
+        "date": "2020-11-21",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 224,
+        "prod_id": "623",
+        "description": "Albation de fil",
+        "unit_price": "240",
+        "date": "2022-02-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 225,
+        "prod_id": "624",
+        "description": "butyscopolamine 20mg \/ml inj",
+        "unit_price": "327.84",
+        "date": "2022-03-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 226,
+        "prod_id": "626",
+        "description": "SPF50+SUN LOTION 15ML",
+        "unit_price": "8057",
+        "date": "2021-01-28",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 227,
+        "prod_id": "628",
+        "description": "diazepan 5mg ",
+        "unit_price": "4.92",
+        "date": "2022-02-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 228,
+        "prod_id": "629",
+        "description": "PEP",
+        "unit_price": "10000",
+        "date": "2021-07-29",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 229,
+        "prod_id": "630",
+        "description": "GANT ALL INS",
+        "unit_price": "142.8",
+        "date": "2022-04-08",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 230,
+        "prod_id": "631",
+        "description": "ibuprofen 200mg       10",
+        "unit_price": "12",
+        "date": "2022-02-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 231,
+        "prod_id": "632",
+        "description": "18\tAmoxicillin 500mg\tOui\t43",
+        "unit_price": "36",
+        "date": "2022-05-17",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 232,
+        "prod_id": "634",
+        "description": "Erytromycine 125mg\/5ml suspfi de 10",
+        "unit_price": "879.84",
+        "date": "2022-03-17",
+        "insured": "1",
+        "qtty": "9899",
+        "verified": "1"
+    },
+    {
+        "id": 233,
+        "prod_id": "635",
+        "description": "DICLOFENAC INJ.75\/ML",
+        "unit_price": "61.416",
+        "date": "2022-03-25",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 234,
+        "prod_id": "636",
+        "description": "carbamazepine 200mg",
+        "unit_price": "30",
+        "date": "2022-02-11",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 235,
+        "prod_id": "638",
+        "description": "NYSTATINE OVULE",
+        "unit_price": "73.2",
+        "date": "2022-03-11",
+        "insured": "0",
+        "qtty": "9893",
+        "verified": "1"
+    },
+    {
+        "id": 236,
+        "prod_id": "639",
+        "description": "amoxy sp 125ml",
+        "unit_price": "538.56",
+        "date": "2022-03-17",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 237,
+        "prod_id": "640",
+        "description": "ciproflaxacine 250mg cp",
+        "unit_price": "37.2",
+        "date": "2022-03-17",
+        "insured": "1",
+        "qtty": "9885",
+        "verified": "1"
+    },
+    {
+        "id": 238,
+        "prod_id": "642",
+        "description": "salbutamol spray",
+        "unit_price": "2554.56",
+        "date": "2022-04-04",
+        "insured": "1",
+        "qtty": "9899",
+        "verified": "1"
+    },
+    {
+        "id": 239,
+        "prod_id": "643",
+        "description": "Stool exam",
+        "unit_price": "838.8",
+        "date": "2021-08-03",
+        "insured": "0",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 240,
+        "prod_id": "647",
+        "description": "Acetylsaliclique acide 100mg cp",
+        "unit_price": "4.368",
+        "date": "2022-02-11",
+        "insured": "1",
+        "qtty": "9899",
+        "verified": "1"
+    },
+    {
+        "id": 241,
+        "prod_id": "648",
+        "description": "ATENOROL-25MG",
+        "unit_price": "31.2",
+        "date": "2022-03-23",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 242,
+        "prod_id": "652",
+        "description": "LIDOCAINNE ml",
+        "unit_price": "420",
+        "date": "2022-02-16",
+        "insured": "0",
+        "qtty": "9889",
+        "verified": "1"
+    },
+    {
+        "id": 243,
+        "prod_id": "654",
+        "description": "paracetamol suppository 250 mg",
+        "unit_price": "68.4",
+        "date": "2022-04-04",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 244,
+        "prod_id": "655",
+        "description": "Acetylsaliclique acide tabs 500 mg",
+        "unit_price": "8.4",
+        "date": "2022-04-04",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 245,
+        "prod_id": "656",
+        "description": "chlorempheniramine tabs 4 mg",
+        "unit_price": "1.44",
+        "date": "2022-04-04",
+        "insured": "1",
+        "qtty": "9900",
+        "verified": "1"
+    },
+    {
+        "id": 246,
+        "prod_id": "657",
+        "description": "Ampicillin 1gr",
+        "unit_price": "208.8",
+        "date": "2022-03-25",
+        "insured": "1",
+        "qtty": "9899",
+        "verified": "1"
+    },
+    {
+        "id": 247,
+        "prod_id": "658",
+        "description": "OMEPRAZOLE 20MG TAB",
+        "unit_price": "16.8",
+        "date": "2022-02-25",
+        "insured": "1",
+        "qtty": "9848",
+        "verified": "1"
+    },
+    {
+        "id": 248,
+        "prod_id": "659",
+        "description": "AMLODIPINE5MG CES\/30",
+        "unit_price": "28.8",
+        "date": "2022-04-08",
+        "insured": "1",
+        "qtty": "9849",
+        "verified": "1"
+    },
+    {
+        "id": 249,
+        "prod_id": "660",
+        "description": "CHLOREMPHENIRAMINE SYRUP",
+        "unit_price": "576",
+        "date": "2022-03-17",
+        "insured": "1",
+        "qtty": "9828",
+        "verified": "1"
+    },
+    {
+        "id": 250,
+        "prod_id": "661",
+        "description": "AMOXY SYRUP 250 MG",
+        "unit_price": "741.6",
+        "date": "2022-04-04",
+        "insured": "1",
+        "qtty": "9857",
+        "verified": "1"
+    },
+    {
+        "id": 251,
+        "prod_id": "662",
+        "description": "AMOXY CAPSULES 250 MG",
+        "unit_price": "36",
+        "date": "2022-05-17",
+        "insured": "1",
+        "qtty": "9693",
+        "verified": "1"
+    },
+    {
+        "id": 252,
+        "prod_id": "664",
+        "description": "BUTYLCOPOLAMIN 10 MG",
+        "unit_price": "56.4",
+        "date": "2022-04-04",
+        "insured": "1",
+        "qtty": "9691",
+        "verified": "1"
+    },
+    {
+        "id": 253,
+        "prod_id": "665",
+        "description": "NEEDLE HYPO UU 21 G",
+        "unit_price": "18",
+        "date": "2022-03-30",
+        "insured": "1",
+        "qtty": "9665",
+        "verified": "1"
+    },
+    {
+        "id": 254,
+        "prod_id": "666",
+        "description": "DEPO qqq",
+        "unit_price": "600",
+        "date": "2022-06-08",
+        "insured": "1",
+        "qtty": "9881",
+        "verified": "1"
+    },
+    {
+        "id": 255,
+        "prod_id": "667",
+        "description": "DEPO ",
+        "unit_price": "696",
+        "date": "2022-06-09",
+        "insured": "1",
+        "qtty": "9886",
+        "verified": "1"
+    },
+    {
+        "id": 256,
+        "prod_id": "668",
+        "description": "DEPO qqq",
+        "unit_price": "696",
+        "date": "2022-06-08",
+        "insured": "1",
+        "qtty": "9881",
+        "verified": "1"
+    },
+    {
+        "id": 257,
+        "prod_id": "669",
+        "description": "AAAAADEPO qqq",
+        "unit_price": "600",
+        "date": "2022-06-08",
+        "insured": "1",
+        "qtty": "9897",
+        "verified": "1"
+    }
+]

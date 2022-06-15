@@ -1,3 +1,7 @@
+<?php 
+include('./../../link.php'); 
+error_reporting(1|0);
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +13,10 @@
     <title>.::CBHI::.</title>
 </head>
 <body style="background-image: url('../../img/31.jpg');" id="bg">
-    <?php $consult =json_decode(file_get_contents('../../data/rugarama.json'))?>
+    <?php 
+        $consult =json_decode(file_get_contents('../../data/rugarama.json'));
+        $consums =json_decode(file_get_contents('../../data/consums.json'));
+    ?>
     <div class="medi-menu bg-opacity-50 p-2.5 bg-blue-400 bg-medimenu">
         <div class="pt-0 float-left flex">
             <img src="../../img/logo_medi.png" alt="" class="ml-6 mb-4">
@@ -30,92 +37,140 @@
     </div>
     <section id="moula">
         <div class="absolute inset-x-12 h-20 top-11 bg-white md: w-100" style="opacity: 0.8;">
-            <div class="medi-unique top-10 flex flex-row">
+            <div class="medi-unique flex flex-row" style="top: 25px; height: 50px; width: 720px;">
                 <div class="uppercase tracking-wide text-md text-black-500 ">
                     <label for="" class="m-2">MONTH:</label>
-                    <select class="form-select px-12 py-2 border-black rounded-t-lg" v-model="selperiodes">
-                        <option value="">May-2022</option>
-                        <option value="">June-2022</option>
+                    <select class="form-select mt-2 px-12 py-2 medi-btn rounded-md" style="width: 172px; height: 30px;" onchange='call(this.value,<?php echo json_encode($consult); ?>)'>
+                        <?php
+                            echo '<option value="">select month...</option>';
+                            $qry=mysqli_query($link,"SELECT DISTINCT period FROM orders ORDER BY date");
+                            if(!$qry){ die('Error :'.mysqli_error($link)); }
+                            while($row=mysqli_fetch_assoc($qry)){
+                                $period=$row['period'];
+                                echo '<option value="'.$period.'">'.$period.'</option>';
+                            }            
+                            
+                            // foreach($consult as $check):
+                            //     $period = $check->period;
+                            // endforeach ; 
+                            // echo '<option value="'.$period.'">'.$period.'</option>';
+                        ?>                        
+                    </select>
+
+                </div>
+                <div class="uppercase tracking-wide text-md text-black-500 ">
+                    <label for="" class="m-2">Holidays:</label>
+                    <select class="form-select mt-2 px-12 py-2 medi-btn rounded-md" style=" height: 30px; width:320px;">
+                    <?php
+                            $qry=mysqli_query($link,"SELECT DISTINCT date,name FROM holidays ORDER BY date");
+                            if(!$qry){ die('Error :'.mysqli_error($link)); }
+                            while($row=mysqli_fetch_assoc($qry)){
+                                $holiday=$row['date'];
+                                $name=$row['name'];
+                                echo '<option value="'.$holiday.'">'.$holiday.' - '.$name.'</option>';
+                            }
+                        ?>        
                     </select>
                 </div>
             </div>
         </div> 
         <div class="medi-container absolute inset-x-12 top-28 bg-white rounded-xl overflow-hidden md:w-100">
             <div class="flex flex-row w-3/5 " style="border-top: 1px solid #52dcff;">
-                <a href="../../cbhi.html" class="mt-4 mx-4 text-2xl">Today</a>
+                <a href="../../cbhi.php" class="mt-4 mx-4 text-2xl">Today</a>
                 <a href="check.php">
-                    <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; <b class="text-3xl text-center" id="unchecked">0</b> &nbsp;Unchecked</div>
+                    <?php $v_c=0; $v_v=0; foreach($consult as $check): $v_c += $check->checked; $v_v += $check->verified; endforeach; $v_check =$v_c;?>
+                    <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; 
+                        <b class="text-3xl text-center" id="unchecked"><?= $v_check; ?></b> &nbsp;Unchecked
+                    </div>
                 </a>                
                 <a href="not_verified.php">
-                    <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; <b class="text-3xl text-center" id="unverified">0</b> &nbsp;Not Verified</div>
+                    <?php $v_v=0; foreach($consult as $check): $v_c = $check->checked;$v_v += $check->verified; endforeach; $v_check =$v_v;?>
+                    <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; 
+                        <b class="text-3xl text-center" id="unverified"><?= $v_check;  ?></b> &nbsp;Not Verified
+                    </div>
                 </a>
             </div>
             <hr style="border-top: 1px solid #52dcff;">
 
-            <!-- ===================body itangirira hano =========================== -->
+            <!-- ================== ni hano boby itangirira ===================================-->
 
-            <div class="tableveri h-auto w-3/4 m-4 medi-client rounded-md border-red-200" style="background-color:#C9DFEC; height:678px;">
-                <?php $i=0; foreach($consult as $uncheck): $i++;?>
-                    <div class="bg-white flex flex-col h-auto w-90 m-4 medi-client rounded-md border-red-200">
-                        <table class="w-90 m-1">
-                            <thead class="bg-white ">
-                                <tr>
-                                <th colspan="7" class="h-20 ">
-                                    <div class="flex flex-row w-100 text-center ">
-                                    <label for="" class=""> <h1 class="text-2xl text-zinc-600">
-                                        <b  class="text-red-400 mb-4 mx-2"><?= $uncheck->client_id;?></b>: <?= $uncheck->bene;  ?></h1>
-                                    </label>
-                                    <button class="ml-6 p-2 w-20 rounded-md medi-btn" style="background-color: #A52A2A;color:whitesmoke"><b>Done</b></button>
-                                    <button class="ml-6 p-2 w-20 rounded-md med-btn"  style="background-color: #66CDAA; "><b>Form</b></button>
-                                    </div>
-                                </th>
-                                </tr>
-                                <tr class=" bg-gray-200 medi-btn">
-                                <th class="h-10 medi-btn w-12">N <sup><u>o</u></sup></th>
-                                <th class="h-10 medi-btn w-50">Item</th>
-                                <th class="h-10 medi-btn w-20">Qtty</th>
-                                <th class="h-10 medi-btn w-20">U-P	</th>
-                                <th class="h-10 medi-btn w-28">Tot-P</th>
-                                <th class="h-10 medi-btn w-28">Deducted</th>
-                                <th class="h-10 medi-btn w-70">Explanations</th>
-                                <th class="h-10 medi-btn w-32"></th>
-                                </tr>
-                            </thead>
+            <div class="tableveri h-auto w-3/4 m-4 medi-client rounded-md flex flex-row" style="background-color:#C9DFEC; height:678px;">
+                <div class="bg-white flex flex-col m-4 medi-client rounded-md border-red-200" style="width: 850px; height:657px; overflow: auto;">
+                    <label for="" class="m-2 ml-6" style="opacity: 0.7;">
+                        <b class=" text-2xl">NOT VERIFIED CONSUMABLES  </b>
+                        <?php $num=0; foreach($consums as $consum): if($consum->verified == 0){ $num +=1;} ?>
+                        <?php  endforeach?>
+                        <b class=" text-2xl ml-6" style="color: red;"><?= $num?></b> CONSUMABLE<?php if($num > 1){ echo"S";}?>
+                    </label>                    
+                    <table class="w-90 m-2 medi-btn">
+                        <thead class="bg-white ">
+                            <tr class="medi-btn" style="background-color:#CCC; height: 50px;">
+                                <th class="h-10 medi-btn w-12">No</th>
+                                <th class="h-10 medi-btn w-50">DESIGNATION</th>
+                                <th class="h-10 medi-btn w-20">INSURED ?</th>
+                                <th class="h-30 medi-btn">PRIX PRECEDENT	</th>
+                                <th class="h-10 medi-btn w-20">PRIX ACTUEL	</th>
+                                <th>Verify</th>
+                            </tr>
+                        </thead >
+                        <?php $i=0; foreach($consums as $consum): if($consum->verified == 0){ $i++; ?>
                             <tbody class="medi-btn">
-                                <tr class=" h-12">
-                                    <td class="medi-btn  text-center w-12"><?= $i;?></td>
-                                    <td class="medi-btn  text-left "> 
-                                        <b class="ml-4 text-zinc-600"><?= $uncheck->med_item;?></b> 
-                                        <input class="ml-6" type="hidden" >
-                                        <input class="ml-6" type="hidden">
-                                        <input class="ml-6" type="hidden">
-                                    </td>
-                                    <td class="medi-btn  text-center">
-                                    <input class="m-2 w-8 p-2"  type="text" placeholder="<?= $uncheck->med_qtty;?>">
-                                    </td>
-                                    <td class="medi-btn  text-center">
-                                    <input class="m-2 w-12 p-2" type="text" placeholder="<?= $uncheck->med_u_p;?>">
-                                    </td>
-                                    <td class="medi-btn  text-center">
-                                    <input class="m-2 w-12 p-2" type="text" placeholder="34.4">
-                                    </td>
-                                    <td class="medi-btn  text-center">
-                                    <input class="m-2 w-12 p-2" type="text" placeholder="34.4">
-                                    </td>
-                                    <td class="medi-btn  text-left "> 
-                                    <input class="ml-6" type="text" placeholder="<?= $uncheck->med_item;?>">
-                                    </td>
-                                    <td class="medi-btn  text-center">
-                                    <div class="w-16  flex flex-row">
-                                        <button class="p-1 px-3 m-2 medi-btn rounded-md" style="background-color:#800000 ; color:whitesmoke; opacity:0.8;">+</button>
-                                        <button class="p-1 px-3 m-2 medi-btn rounded-md" style="background-color:#66CDAA ; color:whitesmoke;">&#10003;</button>
-                                    </div>
+                                <?php if($i%2==0)
+                                echo'<tr>';
+                                else
+                                echo'<tr style="background-color:#C9DFEC;">';
+                                ?>
+                                    <td class=""><?= $i.' .'?></td>
+                                    <td class=""><?= $consum->description?></td>
+                                    <td class="text-center"><?php if($consum->insured == 1){ echo "Yes";}else{echo "NOT";}?></td>
+                                    <td class="text-center"><?= $consum->unit_price?></td>
+                                    <td class="text-center"><?= $consum->unit_price?></td>
+                                    <td class="medi-btn">
+                                        <button class="p-1 px-3 m-2 medi-btn rounded-md" style=" background-color:#66CDAA ; color:whitesmoke;">+</button>
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
-                    </div>
-                <?php endforeach ?>
+                        <?php } endforeach ?>
+                    </table>
+                </div>
+                <div class="bg-white flex flex-col m-4 medi-client rounded-md border-red-200" style="width: 850px; height:657px; overflow: auto;">
+                    <label for="" class="m-2 ml-6" style="opacity: 0.7;">
+                        <b class=" text-2xl">VERIFIED CONSUMABLES  </b>
+                        <?php $num=0; foreach($consums as $consum): if($consum->verified == 1){ $num +=1;} ?>
+                        <?php  endforeach?>
+                        <b class=" text-2xl ml-6" style="color: blue;"><?= $num?></b> CONSUMABLE<?php if($num > 1){ echo"S";}?>
+                    </label>                    
+                    <table class="w-90 m-2 medi-btn">
+                        <thead class="bg-white ">
+                            <tr class="medi-btn" style="background-color:#CCC; height: 50px;">
+                                <th class="h-10 medi-btn w-12">No</th>
+                                <th class="h-10 medi-btn w-50">DESIGNATION</th>
+                                <th class="h-10 medi-btn w-20">INSURED ?</th>
+                                <th class="h-30 medi-btn">PRIX PRECEDENT	</th>
+                                <th class="h-10 medi-btn w-20">PRIX ACTUEL	</th>
+                                <th>Verify</th>
+                            </tr>
+                        </thead >
+                        <?php $i=0; foreach($consums as $consum): if($consum->verified == 1){ $i++; ?>
+                            <tbody class="medi-btn">
+                                <?php if($i%2==0)
+                                echo'<tr>';
+                                else
+                                echo'<tr style="background-color:#C9DFEC;">';
+                                ?>
+                                    <td class=""><?= $i.' .'?></td>
+                                    <td class=""><?= $consum->description?></td>
+                                    <td class="text-center"><?php if($consum->insured == 1){ echo "Yes";}else{echo "NOT";}?></td>
+                                    <td class="text-center"><?= $consum->unit_price?></td>
+                                    <td class="text-center"><?= $consum->unit_price?></td>
+                                    <td class="medi-btn">
+                                        <button class="p-1 px-3 m-2 medi-btn rounded-md" style=" background-color:#66CDAA ; color:whitesmoke;">+</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        <?php } endforeach ?>
+                    </table>
+                </div>
             </div>
         </div>
     </section >

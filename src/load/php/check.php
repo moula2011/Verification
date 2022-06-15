@@ -2,11 +2,17 @@
 
 include 'link.php';
 
-$period=$_REQUEST['period'];
-$query = "SELECT DISTINCT orders.client_id FROM orders, clients WHERE orders.client_id=clients.client_id AND clients.insurance='MUSA' AND checked = 0 AND orders.period='$period'";
-$res = $link->query($query);
-echo $res->num_rows;
- 
-$link->close();
+$consult =json_decode(file_get_contents('../../../data/rugarama.json'));
 
-?>
+$period=$_REQUEST['period']; 
+
+$v_c=0;  
+foreach($consult as $check): 
+    if($check->period == $period && $check->checked == 1){
+        $v_c += $check->checked; 
+    }
+    $v_check =$v_c;
+endforeach; 
+echo $v_check;
+ ?>
+

@@ -1,8 +1,11 @@
 <?php 
 include('src/load/php/link.php'); 
 $consult =json_decode(file_get_contents('data/rugarama.json'));
+$drugs =json_decode(file_get_contents('data/drugs.json'));
+$consums =json_decode(file_get_contents('data/consums.json'));
+$acts =json_decode(file_get_contents('data/acts.json'));
 
-?>
+?> 
 
 <html lang="en">
 <head>
@@ -16,10 +19,6 @@ $consult =json_decode(file_get_contents('data/rugarama.json'));
     <title>.::CBHI::.</title>
     <script>
         let call = (period,data) => {            
-            // let client=data.filter((data) => data.period==period);             
-            // let cnt=0;
-            // let i=client.map(() => cnt++);
-            // document.getElementById('uncheckd').innerHTML=cnt;
 
                 $.get('src/load/php/check.php?period='+period,function(data){
                     $('#unchecked').html(data);
@@ -31,7 +30,7 @@ $consult =json_decode(file_get_contents('data/rugarama.json'));
                     // $('#pm').html('<?= date("m-Y",strtotime('period'))?>');
                     $('#pm').html(period);
                     $('#pm1').html(period);
-                });    
+                });     
                 
                 $.get('src/load/php/verify.php?period='+period,function(data){
                     $('#unverified').html(data);
@@ -49,16 +48,12 @@ $consult =json_decode(file_get_contents('data/rugarama.json'));
                     $('#appeal_amount').html(data);
                 });  
 
-                $.get('src/load/php/drugs.php?period='+period,function(data){
-                    $('#drugs').html(data);
+                $.get('src/load/php/done.php?period='+period,function(data){
+                    $('#done').html(data);
                 });  
-
-                $.get('src/load/php/acts.php?period='+period,function(data){
-                    $('#acts').html(data);
-                }); 
                 
-                $.get('src/load/php/consum.php?period='+period,function(data){
-                    $('#consum').html(data);
+                $.get('src/load/php/unveri_tot.php?period='+period,function(data){
+                    $('#unverify').html(data);
                 });  
 
                 $.get('src/load/php/after_veri.php?period='+period,function(data){
@@ -101,18 +96,17 @@ $consult =json_decode(file_get_contents('data/rugarama.json'));
     </div>
     <section id="moula">
         <div class="absolute inset-x-12 h-20 top-0 bg-white" style="opacity: 0.8;">
-            <div class="medi-unique top-10 flex flex-row" style="width: 720px;">
+            <div class="medi-unique flex flex-row" style="top: 25px; height: 50px; width: 720px;">
                 <div class="uppercase tracking-wide text-md text-black-500 ">
                     <label for="" class="m-2">MONTH:</label>
-                    <select class="form-select px-12 py-2 border-black rounded-t-lg" onchange='call(this.value,<?php echo json_encode($consult); ?>)'>
+                    <select class="form-select mt-2 px-12 py-2 medi-btn rounded-md" style="width: 172px; height: 30px;" onchange='call(this.value,<?php echo json_encode($consult); ?>)'>
                         <?php
-
-                            $qry=mysqli_query($link,"SELECT DISTINCT period FROM orders ORDER BY period");
+                            echo '<option value="">select month...</option>';
+                            $qry=mysqli_query($link,"SELECT DISTINCT period FROM orders ORDER BY date");
                             if(!$qry){ die('Error :'.mysqli_error($link)); }
                             while($row=mysqli_fetch_assoc($qry)){
                                 $period=$row['period'];
                                 echo '<option value="'.$period.'">'.$period.'</option>';
-                                
                             }            
                             
                             // foreach($consult as $check):
@@ -125,7 +119,7 @@ $consult =json_decode(file_get_contents('data/rugarama.json'));
                 </div>
                 <div class="uppercase tracking-wide text-md text-black-500 ">
                     <label for="" class="m-2">Holidays:</label>
-                    <select class="form-select px-12 py-2 border-black rounded-t-lg" style="width:320px;">
+                    <select class="form-select mt-2 px-12 py-2 medi-btn rounded-md" style=" height: 30px; width:320px;">
                     <?php
                             $qry=mysqli_query($link,"SELECT DISTINCT date,name FROM holidays ORDER BY date");
                             if(!$qry){ die('Error :'.mysqli_error($link)); }
@@ -143,47 +137,20 @@ $consult =json_decode(file_get_contents('data/rugarama.json'));
             <div class="flex flex-row w-3/5 " style="border-top: 1px solid #52dcff;">
                 <a href="cbhi.php" class="mt-4 mx-4 text-2xl">Today</a>
                 <a href="src/forms/check.php">
-                    <?php $v_c=0; $v_v=0; foreach($consult as $check): $v_c += $check->checked; $v_v += $check->verified; endforeach; $v_check =$v_c - $v_v;?>
                     <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; 
-                        <b class="text-3xl text-center" id="unchecked"><?= $v_check; ?></b> &nbsp;Unchecked
-                    </div>
+                        <b class="text-3xl text-center" id="unchecked">0</b> &nbsp;Unchecked
+                    </div> 
                 </a>                
                 <a href="src/forms/not_verified.php">
                     <?php $v_v=0; foreach($consult as $check): $v_c = $check->checked;$v_v += $check->verified; endforeach; $v_check =$v_v;?>
                     <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; 
-                        <b class="text-3xl text-center" id="unverified"><?= $v_check;  ?></b> &nbsp;Not Verified
+                        <b class="text-3xl text-center" id="unverified">0</b> &nbsp;Not Verified
                     </div>
                 </a>
             </div>
             <hr style="border-top: 1px solid #52dcff;">
 
             <!--=============================== page zosee zifite ibyaruguru============================= -->
-            <?php
-                // foreach($consult as $check): 
-                    $cqt=0;
-                    $cupp=0;
-                    $cstot=0;
-                foreach($check->items->medicines as $meds): $mqt=$meds->med_quantity; $mup=$meds->med_u_p; $mtot=$qt*$up; endforeach;
-                // foreach($check->items->consommables as $cons): $qt=$cons->conso_quantity; $up=$cons->conso_u_p; $ctot=$qt*$up; endforeach;
-                foreach($check->items->consultation as $consul): $cupp+=$consul->cons_u_p; endforeach;
-                $cstot=$cqt; 
-                $tot=$cstot;
-                // endforeach;
-            ?>
-            <?php 
-                $cup=0; $lab=0; $tot=0; 
-                $mqt=0; $mup=0; $mtot=0; 
-
-                foreach($consult as $check): $v_c = $check->checked;$v_v += $check->verified; 
-                    foreach($check->items->consultation as $consul): $cup+=$consul->cons_u_p; endforeach;
-                    foreach($check->items->laboratoire as $labo): $lab+=$labo->lab_u_p; endforeach;
-                    foreach($check->items->medicines as $meds): $mqt+=$meds->med_quantity; $mup+=$meds->med_u_p; endforeach;
-
-                    $mtot=$mqt*$mup;
-                endforeach;  
-                $tot=$cup+$lab+$mtot; 
-
-            ?>
 
             <div class="container flex flex-col items-center px-0 mx-auto mt-2 space-y-1 md:space-y-1 md:flex-row  ">
                 <div class="flex flex-col m-2 space-y-2 md:w-1/2">
@@ -194,7 +161,7 @@ $consult =json_decode(file_get_contents('data/rugarama.json'));
                                     <div class="border-l-4 rounded-l-md flex flex-row border-indigo-500 medi-magic p-3" > 
                                         <img src="img/play2.png" alt="">
                                         <h1 class="text-2xl text-center">
-                                            <i id="billed"><?= $tot?></i> Frw
+                                            <i id="billed">0</i> Frw
                                         </h1>
                                     </div>
                                     <h1 class="text-1xl text-center">
@@ -260,20 +227,20 @@ $consult =json_decode(file_get_contents('data/rugarama.json'));
                                         <a href="src/forms/not_verified.php">
                                             <div class="flex flex-col w-1/3 ml-10">
                                                 <h1 class="text-3xl text-left" id="remain_days">0</h1>
-                                                <h1 class="text-1xl text-left">Days</h1>
+                                                <h1 class="text-1xl text-left">Patients</h1>
                                                 <br>
                                                 <span>Amount</span>
                                             </div>
                                         </a>
                                         <a href="src/forms/not_verified.php" class="ml-6">
                                             <div class="flex flex-col w-2/3">
-                                                <h1 class="text-2xl text-left" id="pm">Month</h1>
+                                                <h1 class="text-2xl text-left" id="pm">June</h1>
                                                 <h1 class="text-1xl text-left" id="py">&nbsp;</h1>
                                                 <br>
                                                 <span><b id="unverify">0</b> Frw</span>
                                             </div>
                                         </a>
-                                        <br>
+                                        <br> 
                                     </div>
                                 </div>
                                 <div class=" pl-4 py-4 w-1/2">
@@ -284,15 +251,15 @@ $consult =json_decode(file_get_contents('data/rugarama.json'));
                                     <div class="border-b-4 mx-2 flex flex-row rounded-b-md border-mediblue medi-magic-btn-l p-3" > 
                                         <a href="src/forms/appeal.php">
                                             <div class="flex flex-col w-1/3 ml-10">
-                                                <h1 class="text-3xl text-left" id="appeal">0</h1>
-                                                <h1 class="text-1xl text-left">Days</h1>
+                                                <h1 class="text-3xl text-left" id="done">0</h1>
+                                                <h1 class="text-1xl text-left">Patients</h1>
                                                 <br>
                                                 <span>Amount</span>
                                             </div>
                                         </a>
                                         <a href="src/forms/appeal.php" class="ml-10">
                                             <div class="flex flex-col w-2/3 ">
-                                                <h1 class="text-2xl text-left" id="pm1">Month</h1>
+                                                <h1 class="text-2xl text-left" id="pm1">June</h1>
                                                 <h1 class="text-1xl text-left" id="py1">&nbsp;</h1>
                                                 <br>
                                                 <span><b id="appeal_amount">0</b> Frw</span>
@@ -305,25 +272,31 @@ $consult =json_decode(file_get_contents('data/rugarama.json'));
                             </div>
                         </div>
                     </div>
-                    <div class="container flex flex-col my-2 md:flex-row  ">
-                        <div class="flex flex-col mx-2 md:w-full">
+                    <div class="container flex flex-col my-2 md:flex-row ">
+                        <div class="flex flex-col mx-2 md:w-full"> 
                             <div class=" border-indigo-500 mx-3 p-1 w-full" style="border: 2px solid #52dcff;"> 
                                 <h1 class="text-2xl text-center" >Pricing</h1>
                             </div>
                             <div class="flex flex-row gap-2 ml-3 w-full"  style="border: 2px solid #52dcff;">
                                 <a href="src/forms/drug.php" class="w-1/4">
                                     <div class="medi-magic medi-magic-btn m-6 py-4 bg-gradient-to-r bg-gray-light rounded-md" >
-                                        <h1 class="text-1xl text-center" ><b id="drugs">0</b> Drugs</h1>
+                                        <?php $num=0;$anum=0; foreach($drugs as $drug): if($drug->verified == 0 AND $drug->insured == 1){ $num +=1;}else{$anum +=1;} endforeach?>
+                                        <?php if($num > 0){?><b class=" text-2xl ml-6" style="color: red;"><?= $num?></b> DRUG<?php if($num > 1){echo "S";}?>
+                                        <?php }else{?><b class=" text-2xl ml-4" style="color: blue;"><?= $anum?></b> DRUG<?php if($anum > 1){echo "S";}?><?php }?>
                                     </div>
                                 </a>
                                 <a href="src/forms/consum.php" class="w-1/4">
                                     <div class="medi-magic medi-magic-btn m-6 py-4 bg-gradient-to-r bg-gray-light rounded-md" >
-                                        <h1 class="text-1xl text-center" ><b id="consum">0</b> Consumables</h1>
+                                        <?php $num=0;$anum=0; foreach($consums as $consum): if($consum->verified == 0 AND $consum->insured == 1){ $num +=1;}else{$anum +=1;} endforeach?>
+                                        <?php if($num > 0){?><b class=" text-2xl ml-6" style="color: red;"><?= $num?></b> ITEM<?php if($num > 1){echo "S";}?>
+                                        <?php }else{?><b class=" text-2xl ml-4" style="color: blue;"><?= $anum?></b> ITEM<?php if($anum > 1){echo "S";}?><?php }?>
                                     </div>
                                 </a>
                                 <a href="src/forms/medical_act.php" class="w-1/4">
                                     <div class="medi-magic medi-magic-btn m-6 py-4 bg-gradient-to-r bg-gray-light rounded-md" >
-                                        <h1 class="text-1xl text-center" ><b id="acts">0</b> Acts</h1>
+                                    <?php $num=0;$anum=0; foreach($acts as $act): if($act->verified == 0 AND $act->insured == 1){ $num +=1;}else{$anum +=1;} endforeach?>
+                                        <?php if($num > 0){?><b class=" text-2xl ml-6" style="color: red;"><?= $num?></b> ITEM<?php if($num > 1){echo "S";}?>
+                                        <?php }else{?><b class=" text-2xl ml-4" style="color: blue;"><?= $anum?></b> ITEM<?php if($anum > 1){echo "S";}?><?php }?>
                                     </div>
                                 </a>
                             </div>
@@ -338,20 +311,28 @@ $consult =json_decode(file_get_contents('data/rugarama.json'));
                 <div class="flex flex-col m-2 space-y-12 md:w-full">
                     <div class="flex flex-row ">
                         <div class="medi-magic medi-magic-btn w-1/4 my-2 mx-2 py-4 bg-gradient-to-r bg-gray-light rounded-md">
-                            <img width="45px" height="25px" class="medi-center" src="img/clipboard.png" alt="">
-                            <h1 class="text-2xl text-center" >Report of medical verification</h1>
+                            <a href="src/forms/tool.php">
+                                <img width="45px" height="25px" class="medi-center" src="img/clipboard.png" alt="">
+                                <h1 class="text-2xl text-center" >Report of medical verification</h1>
+                            </a>
                         </div>
                         <div class="medi-magic medi-magic-btn w-1/4 my-2 mx-2 py-4 bg-gradient-to-r bg-gray-light rounded-md">
-                            <img width="45px" height="25px" class="medi-center py-2" src="img/health-check.png" alt="">
-                            <h1 class="text-2xl text-center" >CBHI Utilization of medical <br> services Monthly</h1>
+                            <a href="src/forms/utilization.php" target="parent">
+                                <img width="45px" height="25px" class="medi-center py-2" src="img/health-check.png" alt="">
+                                <h1 class="text-2xl text-center" >CBHI Utilization of medical <br> services Monthly</h1>
+                            </a>
                         </div>
                         <div class="medi-magic medi-magic-btn w-1/4 my-2 mx-2 py-4 bg-gradient-to-r bg-gray-light rounded-md">
-                            <img width="45px" height="25px" class="medi-center" src="img/balance-sheet.png" alt="">
-                            <h1 class="text-2xl text-center" > Verification sheet</h1>
+                            <a href="src/forms/sheet.php" target="parent">
+                                <img width="45px" height="25px" class="medi-center" src="img/balance-sheet.png" alt="">
+                                <h1 class="text-2xl text-center" > Verification sheet</h1>
+                            </a>
                         </div>
                         <div class="medi-magic medi-magic-btn w-1/4 my-2 mx-2 py-4 bg-gradient-to-r bg-gray-light rounded-md">
-                            <img width="45px" height="25px" class="medi-center" src="img/invoice.png" alt="">
-                            <h1 class="text-2xl text-center" >Verified invoice</h1>
+                            <a href="src/forms/verified_invoice.php" target="parent">
+                                <img width="45px" height="25px" class="medi-center" src="img/invoice.png" alt="">
+                                <h1 class="text-2xl text-center" >Verified invoice</h1>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -359,6 +340,6 @@ $consult =json_decode(file_get_contents('data/rugarama.json'));
             <hr style="border-top: 2px solid #52dcff;">
         </div>
     </section >
-<script src="src/load/js/load.js"></script>
+<!-- <script src="src/load/js/load.js"></script> -->
 </body>
 </html>

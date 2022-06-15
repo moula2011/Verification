@@ -1,74 +1,9 @@
 [
     {
         "id": 1,
-        "client_id": "3111",
-        "day": "30",
-        "bene": "MAZIMPAKA JUNIOR CHRISTIAN\t1",
-        "age": "26",
-        "cat": "3",
-        "sex": "M",
-        "insurance": "MUSA",
-        "conso_quantity": "1",
-        "med_qtty": "1",
-        "med_u_p": "36",
-        "conso_u_p": "1224",
-        "checked": 1,
-        "verified": 1,
-        "med_item": "AMOXY CAPSULES 250 MG",
-        "conso_item": "\tFil RsynthT(0)SPR 1\/"
-    },
-    {
-        "client_id": "90",
-        "day": "30",
-        "bene": "iryivuze leonard",
-        "age": "49",
-        "cat": "3",
-        "sex": "M",
-        "insurance": "MUSA",
-        "conso_quantity": "1",
-        "med_qtty": "1",
-        "med_u_p": "56.4",
-        "conso_u_p": "57.6",
-        "checked": 1,
-        "verified": 1,
-        "id": 2,
-        "med_item": "BUTYLCOPOLAMIN 10 MG",
-        "conso_item": "\tseringe de 5ml+aigui"
-    },
-    {
-        "client_id": "4",
-        "day": "30",
-        "bene": "NIYOGIHOZO EMEBLICE",
-        "age": "9",
-        "cat": "1",
-        "sex": "M",
-        "insurance": "MUSA",
-        "conso_quantity": "1",
-        "med_qtty": "1",
-        "med_u_p": "18",
-        "conso_u_p": "883.4",
-        "checked": 1,
-        "verified": 1,
-        "id": 3,
-        "med_item": "NEEDLE HYPO UU 21 G",
-        "conso_item": "\tgant gynecologique mussa"
-    },
-    {
-        "client_id": "98",
-        "day": "30",
-        "bene": "NIYOKWIZERA Ernestine\t",
-        "age": "25",
-        "cat": "2",
-        "sex": "F",
-        "insurance": "MUSA",
-        "conso_quantity": "1",
-        "med_qtty": "1",
-        "med_u_p": "741.6",
-        "conso_u_p": "1224",
-        "checked": 1,
-        "verified": 1,
-        "id": 4,
-        "med_item": "AMOXY SYRUP 250 MG",
-        "conso_item": "\tFil RsynthT(0)SPR 1\/"
+        "client_id": "3",
+        "medicines": [
+            "AMOXY CAPSULES 250 MG"
+        ]
     }
 ]

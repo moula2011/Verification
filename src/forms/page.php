@@ -41,15 +41,22 @@
         </div> 
         <div class="medi-container absolute inset-x-12 top-28 bg-white rounded-xl overflow-hidden md:w-100">
             <div class="flex flex-row w-3/5 " style="border-top: 1px solid #52dcff;">
-                <a href="../../cbhi.php" class="mt-4 mx-4 text-2xl">Today</a>
+            <a href="../../cbhi.php" class="mt-4 mx-4 text-2xl">Today</a>
                 <a href="check.php">
-                    <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; <b class="text-3xl text-center" id="unchecked">0</b> &nbsp;Unchecked</div>
+                    <?php $v_c=0; $v_v=0; foreach($consult as $check): $v_c += $check->checked; $v_v += $check->verified; endforeach; $v_check =$v_c;?>
+                    <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; 
+                        <b class="text-3xl text-center" id="unchecked"><?= $v_check; ?></b> &nbsp;Unchecked
+                    </div>
                 </a>                
                 <a href="not_verified.php">
-                    <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; <b class="text-3xl text-center" id="unverified">0</b> &nbsp;Not Verified</div>
+                    <?php $v_v=0; foreach($consult as $check): $v_v += $check->verified; endforeach; $v_check =$v_v;?>
+                    <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; 
+                        <b class="text-3xl text-center" id="unverified"><?= $v_check;  ?></b> &nbsp;Not Verified
+                    </div>
                 </a>
             </div>
             <hr style="border-top: 1px solid #52dcff;">
+        </div>
     </section >
     <script src="load/js/load.js"></script>
 </body>

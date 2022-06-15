@@ -2,10 +2,15 @@
 
 include 'link.php';
 
-$period=$_REQUEST['period'];
-$query = "SELECT DISTINCT orders.client_id FROM orders, clients WHERE orders.client_id=clients.client_id AND clients.insurance='MUSA' AND verified = 0 AND orders.period='$period'";
-$res = $link->query($query);
-echo $res->num_rows;
-$link->close();
+$consult =json_decode(file_get_contents('../../../data/rugarama.json'));
 
-?>
+$period=$_REQUEST['period'];
+
+$v_v=0; 
+foreach($consult as $check): 
+    if($check->period == $period && $check->verified == 1){
+    $v_v += $check->verified; }
+    $v_veri =$v_v;
+endforeach; 
+echo $v_veri;
+ ?>

@@ -1,17 +1,22 @@
 <?php
 
 include 'link.php';
+$consult =json_decode(file_get_contents('../../../data/rugarama.json'));
 
-// $query = "SELECT DISTINCT date FROM orders WHERE verified = 0 AND musa=1 AND period ='May-2022'";
+$period=$_REQUEST['period'];
+ 
+    $served=0;$done=0;$days_left=0;$days_done_to_veri=0;
 
-$query = "SELECT DISTINCT orders.date 
-FROM orders, clients 
-WHERE orders.client_id=clients.client_id AND clients.insurance='MUSA' AND verified = 0 AND orders.period='May-2022';";
+    foreach($consult as $check): 
+        if($check->period == $period){ 
+            $days_done_to_veri += $check->done;
+            $served += $check->served;
+            $done += $check->done; 
+        }
+    endforeach;
 
-$res = $link->query($query);
+    $days_left=$served-$done; 
 
-echo $res->num_rows;
-
-$link->close();
+    echo $days_left;
 
 ?>

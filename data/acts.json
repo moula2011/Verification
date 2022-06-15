@@ -1,0 +1,892 @@
+[
+    {
+        "id": 1,
+        "item_id": "1",
+        "description": "Consultation Infirmier (A2+A1)",
+        "type": "consultation",
+        "unit_price": "300",
+        "date": "2021-08-14",
+        "insured": "1",
+        "verified": "0"
+    },
+    {
+        "id": 2,
+        "item_id": "2",
+        "description": "Consultation Infirmier (A2+A1)-nuit, weekend, jours ferries",
+        "type": "consultation",
+        "unit_price": "360",
+        "date": "2021-08-14",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 3,
+        "item_id": "6",
+        "description": "hospitalisation salle commune ",
+        "type": "hospitalisation",
+        "unit_price": "180",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 4,
+        "item_id": "7",
+        "description": "Hospitalisation chambre prive",
+        "type": "hospitalisation",
+        "unit_price": "600",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 5,
+        "item_id": "8",
+        "description": "GE\/TDR",
+        "type": "laboratoire",
+        "unit_price": "0",
+        "date": "2021-08-14",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 6,
+        "item_id": "9",
+        "description": "Hcte",
+        "type": "laboratoire",
+        "unit_price": "169",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 7,
+        "item_id": "10",
+        "description": "GR\/RBC",
+        "type": "laboratoire",
+        "unit_price": "169",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 8,
+        "item_id": "11",
+        "description": "GB\/WBC",
+        "type": "laboratoire",
+        "unit_price": "169",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 9,
+        "item_id": "12",
+        "description": "plaquettes",
+        "type": "laboratoire",
+        "unit_price": "169",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 10,
+        "item_id": "13",
+        "description": "FL",
+        "type": "laboratoire",
+        "unit_price": "169",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 11,
+        "item_id": "14",
+        "description": "GS Rhesus",
+        "type": "laboratoire",
+        "unit_price": "169",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 12,
+        "item_id": "15",
+        "description": "Selles\/Stool",
+        "type": "laboratoire",
+        "unit_price": "203",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 13,
+        "item_id": "16",
+        "description": "NFS-Hemogramme Complet",
+        "type": "laboratoire",
+        "unit_price": "1500",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 14,
+        "item_id": "17",
+        "description": "Hb",
+        "type": "laboratoire",
+        "unit_price": "236",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 15,
+        "item_id": "18",
+        "description": "Glycemie",
+        "type": "laboratoire",
+        "unit_price": "439",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 16,
+        "item_id": "19",
+        "description": "VG",
+        "type": "laboratoire",
+        "unit_price": "439",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 17,
+        "item_id": "20",
+        "description": "Culot\/Exam direct\/Sediment",
+        "type": "laboratoire",
+        "unit_price": "169",
+        "date": "2018-05-10",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 18,
+        "item_id": "21",
+        "description": "Albummune",
+        "type": "laboratoire",
+        "unit_price": "236",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 19,
+        "item_id": "22",
+        "description": "Glycosurie\/Sucre",
+        "type": "laboratoire",
+        "unit_price": "236",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 20,
+        "item_id": "24",
+        "description": "Uree",
+        "type": "laboratoire",
+        "unit_price": "675",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 21,
+        "item_id": "25",
+        "description": "Creatinine",
+        "type": "laboratoire",
+        "unit_price": "675",
+        "date": "2017-03-07",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 22,
+        "item_id": "26",
+        "description": "Gram",
+        "type": "laboratoire",
+        "unit_price": "169",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 23,
+        "item_id": "27",
+        "description": "Frottis vaginale frais",
+        "type": "laboratoire",
+        "unit_price": "203",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 24,
+        "item_id": "28",
+        "description": "Frottis vaginale gram",
+        "type": "laboratoire",
+        "unit_price": "304",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 25,
+        "item_id": "29",
+        "description": "Crachat BK",
+        "type": "laboratoire",
+        "unit_price": "1000",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 26,
+        "item_id": "30",
+        "description": "Test de grossesse",
+        "type": "laboratoire",
+        "unit_price": "1013",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 27,
+        "item_id": "31",
+        "description": "RPR\/Syphylis",
+        "type": "laboratoire",
+        "unit_price": "203",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 28,
+        "item_id": "32",
+        "description": "SGPT",
+        "type": "laboratoire",
+        "unit_price": "823",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 29,
+        "item_id": "33",
+        "description": "SGOT",
+        "type": "laboratoire",
+        "unit_price": "823",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 30,
+        "item_id": "35",
+        "description": "Injection IM",
+        "type": "soins",
+        "unit_price": "60",
+        "date": "2021-08-09",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 31,
+        "item_id": "36",
+        "description": "Injection IV",
+        "type": "soins",
+        "unit_price": "90",
+        "date": "2021-01-17",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 32,
+        "item_id": "38",
+        "description": "Pensement simple ",
+        "type": "soins",
+        "unit_price": "300",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 33,
+        "item_id": "39",
+        "description": "Pensement complique",
+        "type": "soins",
+        "unit_price": "600",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 34,
+        "item_id": "40",
+        "description": "Frein linguale",
+        "type": "soins",
+        "unit_price": "120",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 35,
+        "item_id": "41",
+        "description": "Seringuage",
+        "type": "soins",
+        "unit_price": "150",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 36,
+        "item_id": "42",
+        "description": "Suture simple",
+        "type": "soins",
+        "unit_price": "600",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 37,
+        "item_id": "43",
+        "description": "Suture complique",
+        "type": "soins",
+        "unit_price": "900",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 38,
+        "item_id": "44",
+        "description": "Ablation des fils",
+        "type": "soins",
+        "unit_price": "240",
+        "date": "2021-08-04",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 39,
+        "item_id": "45",
+        "description": "Incision d abcs superficiel",
+        "type": "soins",
+        "unit_price": "600",
+        "date": null,
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 40,
+        "item_id": "46",
+        "description": "Extraction simple d un corps etranger",
+        "type": "soins",
+        "unit_price": "360",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 41,
+        "item_id": "47",
+        "description": "Extraction d une dent de lait",
+        "type": "soins",
+        "unit_price": "300",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 42,
+        "item_id": "48",
+        "description": "Extraction d une dent definitive",
+        "type": "soins",
+        "unit_price": "600",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 43,
+        "item_id": "49",
+        "description": "Obturation provisoire",
+        "type": "soins",
+        "unit_price": "1500",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 44,
+        "item_id": "50",
+        "description": "Obturation definitive",
+        "type": "soins",
+        "unit_price": "1800",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 45,
+        "item_id": "51",
+        "description": "Setartrage ",
+        "type": "soins",
+        "unit_price": "900",
+        "date": null,
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 46,
+        "item_id": "52",
+        "description": "Devitarisation",
+        "type": "soins",
+        "unit_price": "900",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 47,
+        "item_id": "53",
+        "description": "Reduction de l ATM",
+        "type": "soins",
+        "unit_price": "1200",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 48,
+        "item_id": "54",
+        "description": "Circoncision Therapeutique",
+        "type": "soins",
+        "unit_price": "2500",
+        "date": "2018-12-30",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 49,
+        "item_id": "55",
+        "description": "Curage",
+        "type": "soins",
+        "unit_price": "300",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 50,
+        "item_id": "56",
+        "description": "Insertion du DIU",
+        "type": "soins",
+        "unit_price": "1500",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 51,
+        "item_id": "57",
+        "description": "Ablation DIU",
+        "type": "soins",
+        "unit_price": "1500",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 52,
+        "item_id": "58",
+        "description": "Insertion Norplan",
+        "type": "soins",
+        "unit_price": "1000",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 53,
+        "item_id": "59",
+        "description": "Ablation Norplan",
+        "type": "soins",
+        "unit_price": "1000",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 54,
+        "item_id": "60",
+        "description": "Curetage",
+        "type": "soins",
+        "unit_price": "720",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 55,
+        "item_id": "61",
+        "description": "Accouchement  Apres 4 CPN (Acte)",
+        "type": "soins",
+        "unit_price": "1200",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 56,
+        "item_id": "62",
+        "description": "Accouchement eutocique sans episio",
+        "type": "soins",
+        "unit_price": "900",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 57,
+        "item_id": "63",
+        "description": "Accouchement eutocique avec episio",
+        "type": "soins",
+        "unit_price": "1200",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 58,
+        "item_id": "64",
+        "description": "Accouchement dystocique ",
+        "type": "soins",
+        "unit_price": "1500",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 59,
+        "item_id": "65",
+        "description": "AMIU",
+        "type": "soins",
+        "unit_price": "420",
+        "date": "2011-07-07",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 60,
+        "item_id": "67",
+        "description": "Dossier medical",
+        "type": "soins",
+        "unit_price": "100",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 61,
+        "item_id": "68",
+        "description": "Fiche de consultation",
+        "type": "soins",
+        "unit_price": "100",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 62,
+        "item_id": "69",
+        "description": "Ordonance",
+        "type": "soins",
+        "unit_price": "50",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 63,
+        "item_id": "70",
+        "description": "ECBU",
+        "type": "laboratoire",
+        "unit_price": "236",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 64,
+        "item_id": "72",
+        "description": "Consultation CPN",
+        "type": "consultation",
+        "unit_price": "300",
+        "date": "2021-08-14",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 65,
+        "item_id": "73",
+        "description": "Consultation PF",
+        "type": "consultation",
+        "unit_price": "300",
+        "date": "2021-08-14",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 66,
+        "item_id": "74",
+        "description": "consultation Nutritionnelle",
+        "type": "consultation",
+        "unit_price": "300",
+        "date": "2021-08-14",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 67,
+        "item_id": "75",
+        "description": "TB Sputum Smear",
+        "type": "laboratoire",
+        "unit_price": "1000",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 68,
+        "item_id": "76",
+        "description": "Implanon Removal",
+        "type": "soins",
+        "unit_price": "1000",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 69,
+        "item_id": "77",
+        "description": "Implanon Insertion",
+        "type": "soins",
+        "unit_price": "1000",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 70,
+        "item_id": "78",
+        "description": "IUD Removal",
+        "type": "soins",
+        "unit_price": "1500",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 71,
+        "item_id": "80",
+        "description": "Insertion Norplan",
+        "type": "soins",
+        "unit_price": "1000",
+        "date": "2017-01-18",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 72,
+        "item_id": "83",
+        "description": "Ambullance Gihogwe-Kibagabaga",
+        "type": "ambulance",
+        "unit_price": "400",
+        "date": "2011-07-07",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 73,
+        "item_id": "100",
+        "description": "depo provera",
+        "type": "soins",
+        "unit_price": "500",
+        "date": "2018-11-23",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 74,
+        "item_id": "101",
+        "description": "cons maty",
+        "type": "consultation",
+        "unit_price": "300",
+        "date": "2021-08-14",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 75,
+        "item_id": "105",
+        "description": "ALAT",
+        "type": "laboratoire",
+        "unit_price": "50",
+        "date": "2020-06-22",
+        "insured": "1",
+        "verified": "0"
+    },
+    {
+        "id": 76,
+        "item_id": "106",
+        "description": "ASAT",
+        "type": "laboratoire",
+        "unit_price": "50",
+        "date": "2020-06-22",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 77,
+        "item_id": "107",
+        "description": "GE\/RAME",
+        "type": "laboratoire",
+        "unit_price": "270",
+        "date": "2020-06-27",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 78,
+        "item_id": "108",
+        "description": "HBS",
+        "type": "laboratoire",
+        "unit_price": "50",
+        "date": "2020-06-27",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 79,
+        "item_id": "109",
+        "description": "HCV",
+        "type": "laboratoire",
+        "unit_price": "50",
+        "date": "2020-06-27",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 80,
+        "item_id": "110",
+        "description": "MCV",
+        "type": "laboratoire",
+        "unit_price": "50",
+        "date": "2020-06-29",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 81,
+        "item_id": "111",
+        "description": "MCH",
+        "type": "laboratoire",
+        "unit_price": "50",
+        "date": "2020-06-29",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 82,
+        "item_id": "112",
+        "description": "MCHC",
+        "type": "laboratoire",
+        "unit_price": "50",
+        "date": "2020-06-29",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 83,
+        "item_id": "113",
+        "description": "LYM",
+        "type": "laboratoire",
+        "unit_price": "50",
+        "date": "2020-06-29",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 84,
+        "item_id": "114",
+        "description": "MXD",
+        "type": "laboratoire",
+        "unit_price": "50",
+        "date": "2020-06-29",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 85,
+        "item_id": "115",
+        "description": "NEUT",
+        "type": "laboratoire",
+        "unit_price": "50",
+        "date": "2020-06-29",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 86,
+        "item_id": "116",
+        "description": "CONSO",
+        "type": "soins",
+        "unit_price": "5",
+        "date": "2020-08-06",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 87,
+        "item_id": "117",
+        "description": "COVID -19 TEST",
+        "type": "laboratoire",
+        "unit_price": "0",
+        "date": "2021-08-06",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 88,
+        "item_id": "118",
+        "description": "Consultation Babyl",
+        "type": "consultation",
+        "unit_price": "0",
+        "date": "2021-08-03",
+        "insured": "1",
+        "verified": "1"
+    },
+    {
+        "id": 89,
+        "item_id": "119",
+        "description": "HIV",
+        "type": "laboratoire",
+        "unit_price": "0",
+        "date": "2021-08-03",
+        "insured": "1",
+        "verified": "1"
+    }
+]

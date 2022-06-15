@@ -1,3 +1,7 @@
+<?php 
+include('./../../link.php'); 
+error_reporting(1|0);
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +13,9 @@
     <title>.::CBHI::.</title>
 </head>
 <body style="background-image: url('../../img/31.jpg');" id="bg">
+    <?php
+        $consult =json_decode(file_get_contents('../../data/rugarama.json'));
+    ?>
     <div class="medi-menu bg-opacity-50 p-2.5 bg-blue-400 bg-medimenu">
         <div class="pt-0 float-left flex">
             <img src="../../img/logo_medi.png" alt="" class="ml-6 mb-4">
@@ -29,12 +36,39 @@
     </div>
     <section id="moula">
         <div class="absolute inset-x-12 h-20 top-11 bg-white md: w-100" style="opacity: 0.8;">
-            <div class="medi-unique top-10 flex flex-row">
+            <div class="medi-unique flex flex-row" style="top: 25px; height: 50px; width: 720px;">
                 <div class="uppercase tracking-wide text-md text-black-500 ">
                     <label for="" class="m-2">MONTH:</label>
-                    <select class="form-select px-12 py-2 border-black rounded-t-lg" v-model="selperiodes">
-                        <option value="">May-2022</option>
-                        <option value="">June-2022</option>
+                    <select class="form-select mt-2 px-12 py-2 medi-btn rounded-md" style="width: 172px; height: 30px;" onchange='call(this.value,<?php echo json_encode($consult); ?>)'>
+                        <?php
+                            echo '<option value="">select month...</option>';
+                            $qry=mysqli_query($link,"SELECT DISTINCT period FROM orders ORDER BY date");
+                            if(!$qry){ die('Error :'.mysqli_error($link)); }
+                            while($row=mysqli_fetch_assoc($qry)){
+                                $period=$row['period'];
+                                echo '<option value="'.$period.'">'.$period.'</option>';
+                            }            
+                            
+                            // foreach($consult as $check):
+                            //     $period = $check->period;
+                            // endforeach ; 
+                            // echo '<option value="'.$period.'">'.$period.'</option>';
+                        ?>                        
+                    </select>
+
+                </div>
+                <div class="uppercase tracking-wide text-md text-black-500 ">
+                    <label for="" class="m-2">Holidays:</label>
+                    <select class="form-select mt-2 px-12 py-2 medi-btn rounded-md" style=" height: 30px; width:320px;">
+                    <?php
+                            $qry=mysqli_query($link,"SELECT DISTINCT date,name FROM holidays ORDER BY date");
+                            if(!$qry){ die('Error :'.mysqli_error($link)); }
+                            while($row=mysqli_fetch_assoc($qry)){
+                                $holiday=$row['date'];
+                                $name=$row['name'];
+                                echo '<option value="'.$holiday.'">'.$holiday.' - '.$name.'</option>';
+                            }
+                        ?>        
                     </select>
                 </div>
             </div>
@@ -43,51 +77,169 @@
             <div class="flex flex-row w-3/5 " style="border-top: 1px solid #52dcff;">
                 <a href="../../cbhi.php" class="mt-4 mx-4 text-2xl">Today</a>
                 <a href="check.php">
-                    <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; <b class="text-3xl text-center" id="unchecked">0</b> &nbsp;Unchecked</div>
+                    <?php $v_c=0; $v_v=0; foreach($consult as $check): $v_c += $check->checked; $v_v += $check->verified; endforeach; $v_check =$v_c;?>
+                    <div class="medi-magic medi-magic-btn m-2 p-1 bg-gray-light rounded-md">&nbsp; 
+                        <b class="text-3xl text-center" id="unchecked"><?= $v_check; ?></b> 
+                        &nbsp;Unchecked
+                    </div>
                 </a>                
                 <a href="not_verified.php">
-                    <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; <b class="text-3xl text-center" id="unverified">0</b> &nbsp;Not Verified</div>
+                    <?php $v_v=0; foreach($consult as $check): $v_v += $check->verified; endforeach; $v_check =$v_v;?>
+                    <div class="medi-magic medi-magic-btn m-2 p-1 bg-gray-light rounded-md">&nbsp; 
+                        <b class="text-3xl text-center" id="unverified"><?= $v_check; ?></b> 
+                        &nbsp;Not Verified
+                    </div>
                 </a>
             </div>
             <hr style="border-top: 1px solid #52dcff;">
+            
+            <!-- ================== ni hano boby itangirira =================================== -->
+
+            <div style="background-color: #999;" style=" height: 900px; ">
+                <div class="medi-btn m-6 bg-white rounded-md" style="width: 1900px; ">
+                    <table class="m-4 medi-btn" style="overflow:auto ">
+                        <tr style="background-color: #ccc; color:#333 ;">
+                            <th class="medi-btn">No</th>
+                            <th class="medi-btn">Date</th>
+                            <th class="medi-btn">BENEFICIARY'S AFFILIATION NUMBER</th>
+                            <th class="medi-btn">AMOUNT DEDUCTED</th>
+                            <th class="medi-btn">EXPLANATION OF DEDUCTION</th>
+                            <th class="medi-btn"></th>
+                        </tr>
+                            
+                        <?php $i=0;  foreach($consult as $appeal): ?>
+
+                        <?php 
+                            foreach($appeal->items->verification->consultation as $veri):
+
+                            if($veri->amounted != 0){ $i++
+                        ?>
+                        <tr class="medi-btn">
+                            <td class="medi-btn text-center"><?= $i?></td>
+                            <td class="medi-btn "><?= $veri->date?></td>
+                            <td class="medi-btn text-center"><?= $appeal->insurance_code?></td>
+                            <td class="medi-btn text-center">
+                                <input class="medi-btn text-center m-1 rounded-md" type="text" value="<?= $veri->amounted?>" name="" id="">
+                            </td>
+                            <td class="medi-btn text-center" style="width: 700px ;">
+                                <input class="medi-btn text-center m-1 rounded-md" type="text" style="width: 700px ;" value="<?= $veri->item ?>" name="" id="">
+                            </td>
+                            <td class="medi-btn" style="width: 45px;">
+                                <button class="p-1 px-3 m-2 medi-btn rounded-md" style=" background-color:#66CDAA ; color:whitesmoke;">+</button>
+                            </td>
+                        </tr>
+                        <?php } endforeach; ?>
+
+                        <?php 
+                            foreach($appeal->items->verification->medicines as $veri):
+
+                            if($veri->amounted != 0){ $i++
+                        ?>
+                        <tr class="medi-btn">
+                            <td class="medi-btn text-center"><?= $i?></td>
+                            <td class="medi-btn "><?= $veri->date?></td>
+                            <td class="medi-btn text-center"><?= $appeal->insurance_code?></td>
+                            <td class="medi-btn text-center">
+                                <input class="medi-btn text-center m-1 rounded-md" type="text" value="<?= $veri->amounted?>" name="" id="">
+                            </td>
+                            <td class="medi-btn text-center" style="width: 700px ;">
+                                <input class="medi-btn text-center m-1 rounded-md" type="text" style="width: 700px ;" value="<?= $veri->item ?>" name="" id="">
+                            </td>
+                            <td class="medi-btn" style="width: 45px;">
+                                <button class="p-1 px-3 m-2 medi-btn rounded-md" style=" background-color:#66CDAA ; color:whitesmoke;">+</button>
+                            </td>
+                        </tr>
+                        <?php } endforeach; ?>
+
+                        <?php 
+                            foreach($appeal->items->verification->consommables as $veri):
+
+                            if($veri->amounted != 0){ $i++
+                        ?>
+                        <tr class="medi-btn">
+                            <td class="medi-btn text-center"><?= $i?></td>
+                            <td class="medi-btn "><?= $veri->date?></td>
+                            <td class="medi-btn text-center"><?= $appeal->insurance_code?></td>
+                            <td class="medi-btn text-center">
+                                <input class="medi-btn text-center m-1 rounded-md" type="text" value="<?= $veri->amounted?>" name="" id="">
+                            </td>
+                            <td class="medi-btn text-center" style="width: 700px ;">
+                                <input class="medi-btn text-center m-1 rounded-md" type="text" style="width: 700px ;" value="<?= $veri->item ?>" name="" id="">
+                            </td>
+                            <td class="medi-btn" style="width: 45px;">
+                                <button class="p-1 px-3 m-2 medi-btn rounded-md" style=" background-color:#66CDAA ; color:whitesmoke;">+</button>
+                            </td>
+                        </tr>
+                        <?php } endforeach; ?>
+                        <?php 
+                            foreach($appeal->items->verification->laboratoire as $veri):
+
+                            if($veri->amounted != 0){ $i++
+                        ?>
+                        <tr class="medi-btn">
+                            <td class="medi-btn text-center"><?= $i?></td>
+                            <td class="medi-btn "><?= $veri->date?></td>
+                            <td class="medi-btn text-center"><?= $appeal->insurance_code?></td>
+                            <td class="medi-btn text-center">
+                                <input class="medi-btn text-center m-1 rounded-md" type="text" value="<?= $veri->amounted?>" name="" id="">
+                            </td>
+                            <td class="medi-btn text-center" style="width: 700px ;">
+                                <input class="medi-btn text-center m-1 rounded-md" type="text" style="width: 700px ;" value="<?= $veri->item ?>" name="" id="">
+                            </td>
+                            <td class="medi-btn" style="width: 45px;">
+                                <button class="p-1 px-3 m-2 medi-btn rounded-md" style=" background-color:#66CDAA ; color:whitesmoke;">+</button>
+                            </td>
+                        </tr>
+                        <?php } endforeach; ?>
+                        <?php 
+                                                        
+                            foreach($appeal->items->verification->soins as $veri):
+                                
+                            if($veri->amounted != 0){ $i++
+                        ?>
+                        <tr class="medi-btn">
+                            <td class="medi-btn text-center"><?= $i?></td>
+                            <td class="medi-btn "><?= $veri->date?></td>
+                            <td class="medi-btn text-center"><?= $appeal->insurance_code?></td>
+                            <td class="medi-btn text-center">
+                                <input class="medi-btn text-center m-1 rounded-md" type="text" value="<?= $veri->amounted?>" name="" id="">
+                            </td>
+                            <td class="medi-btn text-center" style="width: 700px ;">
+                                <input class="medi-btn text-center m-1 rounded-md" type="text" style="width: 700px ;" value="<?= $veri->item ?>" name="" id="">
+                            </td>
+                            <td class="medi-btn" style="width: 45px;">
+                                <button class="p-1 px-3 m-2 medi-btn rounded-md" style=" background-color:#66CDAA ; color:whitesmoke;">+</button>
+                            </td>
+                        </tr>
+                        <?php } endforeach; ?>
+
+                        <?php 
+                            foreach($appeal->items->verification->hospitalisation as $veri):
+                            if($veri->amounted != 0){ $i++
+                        ?>
+                        <tr class="medi-btn">
+                            <td class="medi-btn text-center"><?= $i?></td>
+                            <td class="medi-btn "><?= $veri->date?></td>
+                            <td class="medi-btn text-center"><?= $appeal->insurance_code?></td>
+                            <td class="medi-btn text-center">
+                                <input class="medi-btn text-center m-1 rounded-md" type="text" value="<?= $veri->amounted?>" name="" id="">
+                            </td>
+                            <td class="medi-btn text-center" style="width: 700px ;">
+                                <input class="medi-btn text-center m-1 rounded-md" type="text" style="width: 700px ;" value="<?= $veri->item ?>" name="" id="">
+                            </td>
+                            <td class="medi-btn" style="width: 45px;">
+                                <button class="p-1 px-3 m-2 medi-btn rounded-md" style=" background-color:#66CDAA ; color:whitesmoke;">+</button>
+                            </td>
+                        </tr>
+                        <?php } endforeach; ?>
+                        <?php endforeach; ?>
+                    </table>
+                    <br><br><br><br><br><br><br><br><br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br>
+                </div>
+            </div>
         </div>
     </section >
-    <Script>
-        fetch('../../data/rugarama.json')
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            localStorage.setItem("trs", JSON.stringify(data));
-            if (!localStorage.getItem("cart")) {
-                localStorage.setItem("cart", "[]");
-            }
-        });
-
-        let trs = JSON.parse(localStorage.getItem("trs"));
-
-        let cart = JSON.parse(localStorage.getItem("cart"));
-
-        function addItemToCart(id) {
-            let tr = trs.find(function (tr) {
-                return tr.id == id;
-            });
-
-            if (cart.length == 0) {
-                cart.push(tr);
-            } else {
-                let response = cart.find(element => element.id == id);
-                if (response == undefined) {
-                    cart.push(tr);
-                }
-            }
-
-            localStorage.setItem("cart", JSON.stringify(cart));
-
-        }
-        addItemToCart(5);
-    </Script>
-    <!-- <script src="../load/js/load.js"></script> -->
-    
+    <script src="load/js/load.js"></script>
 </body>
 </html>

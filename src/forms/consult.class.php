@@ -36,10 +36,7 @@
         }
 
         private function storeData(){
-            file_put_contents(
-                $this->json_file,
-                json_encode($this->stored_data,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)
-            );
+            file_put_contents($this->json_file,json_encode($this->stored_data,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
         }
 
         public function insertNewClient($new_client){
@@ -55,26 +52,162 @@
             }
         }
 
-        public function updateClient($client_id,$item,$item_value,$conso,$conso_value,$check,$check_value
-        ,$verifie,$verifie_value){
+        public function updateProd($client_id,$item,$item_value,$check,$verify){
             foreach($this->stored_data as $key =>$stored_client){
                 if($stored_client['client_id']==$client_id){
-                    $this->stored_data[$key][$item]=$item_value; 
-                    $this->stored_data[$key][$conso]=$conso_value; 
-                    $this->stored_data[$key][$check]=$check_value;  
-                    $this->stored_data[$key][$verifie]=$verifie_value; 
+                    if($this->stored_data[$key][$item]['medicines']==null){
+                        $this->stored_data[$key][$item]['medicines']=$item_value;
+                        $this->stored_data[$key]['checked']=$check;
+                        $this->stored_data[$key]['verified']=$verify;
+                        $this->stored_data[$key]['num']=$this->number_of_records;
+                    }else{
+                        array_push($this->stored_data[$key][$item]['medicines'],$item_value[0]); 
+                    }
+                }
+                $this->storeData();
+            }
+        }
+        public function updateconsu($client_id,$item,$item_value,$check,$verify){
+            foreach($this->stored_data as $key =>$stored_client){
+                if($stored_client['client_id']==$client_id){
+
+                    if($this->stored_data[$key][$item]['consultation']==null){
+                        $this->stored_data[$key][$item]['consultation']=$item_value;
+                        $this->stored_data[$key]['checked']=$check;
+                        $this->stored_data[$key]['verified']=$verify;
+                        $this->stored_data[$key]['num']=$this->number_of_records;
+
+                    }else{
+                        array_push($this->stored_data[$key][$item]['consultation'],$item_value[0]); 
+                    }
                 }
                 $this->storeData();
             }
         }
 
-        public function updatechecked($client_id,$chk,$chk_value,$item,$item_value){
+        public function updatelabo($client_id,$item,$item_value,$check,$verify){
             foreach($this->stored_data as $key =>$stored_client){
                 if($stored_client['client_id']==$client_id){
-                    $this->stored_data[$key][$chk]=$chk_value; 
-                    $this->stored_data[$key][$item]=[$item_value]; 
+                    if($this->stored_data[$key][$item]['laboratoire']==null){
+                        $this->stored_data[$key][$item]['laboratoire']=$item_value;
+                        $this->stored_data[$key]['checked']=$check;
+                        $this->stored_data[$key]['verified']=$verify;
+                    }else{
+                        array_push($this->stored_data[$key][$item]['laboratoire'],$item_value[0]); 
+                    }
                 }
                 $this->storeData();
+            }
+        }
+
+        public function updatesoin($client_id,$item,$item_value,$check,$verify){
+            foreach($this->stored_data as $key =>$stored_client){
+                if($stored_client['client_id']==$client_id){
+                    if($this->stored_data[$key][$item]['soins']==null){
+                        $this->stored_data[$key][$item]['soins']=$item_value;
+                        $this->stored_data[$key]['checked']=$check;
+                        $this->stored_data[$key]['verified']=$verify;
+                    }else{
+                        array_push($this->stored_data[$key][$item]['soins'],$item_value[0]); 
+                    }
+                }
+                $this->storeData();
+            }
+        }
+
+        public function updatehosp($client_id,$item,$item_value,$check,$verify){
+            foreach($this->stored_data as $key =>$stored_client){
+                if($stored_client['client_id']==$client_id){
+                    if($this->stored_data[$key][$item]['hospitalisation']==null){
+                        $this->stored_data[$key][$item]['hospitalisation']=$item_value;
+                        $this->stored_data[$key]['checked']=$check;
+                        $this->stored_data[$key]['verified']=$verify;
+                    }else{
+                        array_push($this->stored_data[$key][$item]['hospitalisation'],$item_value[0]); 
+                    }
+                }
+                $this->storeData();
+            }
+        }
+
+        public function updateconsum($client_id,$item,$item_value,$check,$verify){
+            foreach($this->stored_data as $key =>$stored_client){
+                if($stored_client['client_id']==$client_id){
+                    if($this->stored_data[$key][$item]['consommables']==null){
+                        $this->stored_data[$key][$item]['consommables']=$item_value;
+                        $this->stored_data[$key]['checked']=$check;
+                        $this->stored_data[$key]['verified']=$verify;
+                    }else{
+                        array_push($this->stored_data[$key][$item]['consommables'],$item_value[0]); 
+                    }
+                }
+                $this->storeData();
+            }
+        }
+
+        public function updateVerif($client_id,$item,$type,$item_value,$it){
+            foreach($this->stored_data as $key =>$stored_client){
+                if($stored_client['client_id']==$client_id){
+                    if($this->stored_data[$key][$item]['verification'][$type]==null){
+                        $this->stored_data[$key][$item]['verification'][$type]=$item_value;
+                    }else{ 
+                        $this->stored_data[$key][$item]['verification'][$type]=$item_value;                       
+                        //---------------------------------kkkkkkkkkkkk----------------------------
+                        // foreach($this->stored_data[$key][$item]['verification'] as $k => $v){                                                 
+                        //     if($v['item']==$it){
+                        //         $this->stored_data[$key][$item]['verification'][$k]=$item_value[0];                                
+                        //     }else{
+                                
+                        //     }                                                                                  
+                        // }
+                        //---------------------------------kkkkkkkkkkkk----------------------------                 
+                    }
+                }
+                $this->storeData();
+            }
+        }
+
+        public function updateVerif1($client_id,$item,$item_value){
+            foreach($this->stored_data as $key =>$stored_client){
+                if($stored_client['client_id']==$client_id){
+                    $this->stored_data[$key][$item]['verification']=$item_value;                        
+                }
+                $this->storeData();
+            }
+        }
+
+        public function updatechecked($client_id,$item,$item_value){
+            foreach($this->stored_data as $key =>$stored_client){
+                if($stored_client['client_id']==$client_id){
+                    $this->stored_data[$key][$item]=$item_value; 
+                }
+                $this->storeData(); 
+            }
+        }
+
+        public function updatecheckedspecial($client_id,$item,$item_value){
+            foreach($this->stored_data as $key =>$stored_client){
+                if($stored_client['client_id']==$client_id){
+                    $this->stored_data[$key][$item]=$item_value; 
+                }
+                $this->storeData(); 
+            }
+        }
+
+        public function updatecheckedmed($client_id,$item,$item_value,$name){
+            foreach($this->stored_data as $key =>$stored_client){
+                if($stored_client['client_id']==$client_id || $stored_client['med_item']==$name){
+                    $this->stored_data[$key]['items']['medicines'][$key][$item]=$item_value; 
+                }
+                $this->storeData(); 
+            }
+        }
+        public function updatecheckedconso($client_id,$item,$item_value,$name){
+            foreach($this->stored_data as $key =>$stored_client){
+                if($stored_client['client_id']==$client_id || $stored_client['conso_item']==$name){
+                    $this->stored_data[$key]['items']['consommables'][$key][$item]=$item_value; 
+                }
+                $this->storeData(); 
             }
         }
 

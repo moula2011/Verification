@@ -13,132 +13,380 @@ error_reporting(1|0);
     <script src="../../jquery-3.3.1.min.js"></script>
     <title>.::CBHI::.</title>
     <style>
-        .medi-container {
-  box-shadow: 0px 0px 3px 0px #000;
-}
+        .medi-container {box-shadow: 0px 0px 3px 0px #000;}
+        .border-mediblue {border: 1px solid #1fb6ff;}
+        .medi-btn {border: 1px solid indigo;/* width: 100%; */}
+        .medi-client {box-shadow: 0px 0px 2px 0px #000;}
+        .medi-menu {box-shadow: 0px 0px 5px 0px #000;}
+        .medi-unique {position: absolute;border-radius: 0px 200px 10px 10px;width: 330px;border: 1px solid #09F;height: 38px;background-color: #BDF;}
+        .medi-magic-btn-r {border-left: 1px solid red;border-right: 1px solid red;}
+        .medi-magic-btn-l {border-left: 1px solid #1fb6ff;border-right: 1px solid #1fb6ff;}
+        .medi_limit_span_veri {display: block;width: 160px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+        .medi_limit_span_check {display: inline-block;width: 190px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+        .medi_list::-webkit-scrollbar {width: 0 !important;display: none;}
 
-.border-mediblue {
-  border: 1px solid #1fb6ff;
-}
-
-.medi-btn {
-  border: 1px solid indigo;
-  /* width: 100%; */
-}
-
-.medi-client {
-  box-shadow: 0px 0px 2px 0px #000;
-
-}
-
-.medi-menu {
-  box-shadow: 0px 0px 5px 0px #000;
-
-}
-
-.medi-unique {
-  position: absolute;
-  border-radius: 0px 200px 10px 10px;
-  width: 330px;
-  border: 1px solid #09F;
-  height: 38px;
-  background-color: #BDF;
-}
-
-.medi-magic-btn-r {
-  border-left: 1px solid red;
-  border-right: 1px solid red;
-}
-
-.medi-magic-btn-l {
-  border-left: 1px solid #1fb6ff;
-  border-right: 1px solid #1fb6ff;
-}
-
-.medi_limit_span_veri {
-  display: block;
-  width: 160px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.medi_limit_span_check {
-  display: inline-block;
-  width: 190px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-.medi_list::-webkit-scrollbar { 
-  width: 0 !important;
-  display: none; 
-}
     </style>
     <script>
-        let call = (id,ben,item,qty,unitp,date) => {      
-            // if(qty==''){qty='null'}else{qty=qty}            
-            $('#content').html(`<table class="w-90 m-1">
-                                    <thead class="bg-white ">
-                                        <tr>
-                                        <th colspan="7" class="h-20 ">
-                                            <div class="flex flex-row w-100 text-center ">
-                                            <label for="" class=""> <h1 class="text-2xl text-zinc-600">
-                                                <b  class="text-red-400 mb-4 mx-2">`+id+`</b>: `+ben+`</h1>
-                                            </label>
-                                            <form action="#">
-                                            <button class="ml-6 p-2 w-20 rounded-md medi-btn" style="background-color: #A52A2A;color:whitesmoke"><b>Done</b></button>
-                                            </form>
-                                            <form action="../../../muhima/form_verify.php?cod2=`+id+`&cod22=`+date+`" method="POST" target="_blank">                                            
-                                            <button class="ml-6 p-2 w-20 rounded-md med-btn"  style="background-color: #66CDAA; "><b>Form</b></button>
-                                            </form>
-                                            </div>
-                                        </th>
-                                        </tr>
-                                        <tr class=" bg-gray-200 medi-btn">
-                                        <th class="h-10 medi-btn w-12">N<sup><u>o</u></sup></th>
-                                        <th class="h-10 medi-btn w-50">Item</th>
-                                        <th class="h-10 medi-btn w-20">Qtty</th>
-                                        <th class="h-10 medi-btn w-20">U-P	</th>
-                                        <th class="h-10 medi-btn w-28">Tot-P</th>
-                                        <th class="h-10 medi-btn w-28">Deducted</th>
-                                        <th class="h-10 medi-btn w-70">Explanations</th>
-                                        <th class="h-10 medi-btn w-32"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="medi-btn">
-                                        <tr class=" h-12">
-                                            <td class="medi-btn  text-center w-12">-</td>
-                                            <td class="medi-btn  text-left "> 
-                                                <b class="ml-4 text-zinc-600">`+item+`</b> 
-                                                <input class="ml-6" type="hidden" >
-                                                <input class="ml-6" type="hidden">
-                                                <input class="ml-6" type="hidden">
-                                            </td>
-                                            <td class="medi-btn  text-center">
-                                            <input class="m-2 w-8 p-2"  type="text" placeholder="`+qty+`">
-                                            </td>
-                                            <td class="medi-btn  text-center">
-                                            <input class="m-2 w-12 p-2" type="text" placeholder="`+unitp+`">
-                                            </td>
-                                            <td class="medi-btn  text-center">
-                                            <input class="m-2 w-12 p-2" type="text" placeholder="34.4">
-                                            </td>
-                                            <td class="medi-btn  text-center">
-                                            <input class="m-2 w-12 p-2" type="text" placeholder="34.4">
-                                            </td>
-                                            <td class="medi-btn  text-left "> 
-                                            <input class="ml-6" type="text" placeholder="`+item+`">
-                                            </td>
-                                            <td class="medi-btn  text-center">
-                                            <div class="w-16  flex flex-row">
-                                                <button class="p-1 px-3 m-2 medi-btn rounded-md" style="background-color:#800000 ; color:whitesmoke; opacity:0.8;">+</button>
-                                                <button class="p-1 px-3 m-2 medi-btn rounded-md" style="background-color:#66CDAA ; color:whitesmoke;">&#10003;</button>
-                                            </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>`);
+        let ded = (int,typ,item) => {
+            let amountbefore = document.getElementById(item+'_tot_b').value;
+            let qty = document.getElementById(item+'_quantity').value;
+            let total = qty * int;
+            let res = amountbefore-total;
+            let totaled = document.getElementById(item+'_total').innerHTML=`<input class="m-2 w-12 p-2" type="text" id="`+item+`_totaled" value="`+total+`" disabled="disabled"/>`;            
+            let amounted = document.getElementById(item+'_amount').innerHTML=`<input class="m-2 w-12 p-2" type="text" id="`+item+`_amounted" value="`+res+`" disabled="disabled"/>`;            
+        }
+
+        let quan = (int,typ,item) => {
+            let qtybefore = document.getElementById(item+'_qty_b').value;
+            let up = document.getElementById(item+'_u_p').value;
+            let qty = document.getElementById(item+'_quantity').value;
+            let totalbefore = qtybefore * up;
+            let total = int * up;
+            let res = totalbefore-total;
+            let totaled = document.getElementById(item+'_total').innerHTML=`<input class="m-2 w-12 p-2" type="text" id="`+item+`_totaled" value="`+total+`" disabled="disabled"/>`;            
+            let amounted = document.getElementById(item+'_amount').innerHTML=`<input class="m-2 w-12 p-2" type="text" id="`+item+`_amounted" value="`+res+`" disabled="disabled"/>`;            
+        }
+
+        let callDone = (id) => {
+            $.ajax({
+                url: "verifadd.php",
+                type: "POST",
+                data: "cid="+id,
+                success: function (data) {
+                    console.log(data);                    
+                },
+                error: function (jXHR, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }				
+            }); // AJAX 
+        }
+
+        let change = (tem,typ) => {
+            let id = document.getElementById('id').value;
+            let insu = document.getElementById('insu').value;
+            let qtty = document.getElementById(tem+'_quantity').value;
+            let item = document.getElementById(tem+'_item').value;
+            let oid = document.getElementById(tem+'_oid').value;
+            let up = document.getElementById(tem+'_u_p').value;
+            let date = document.getElementById(typ+'_date').value;
+            let type = document.getElementById(typ+'_veri_type').value;
+            let amounted = document.getElementById(item+'_amounted').value;
+            let comment = document.getElementById(item+'_comment').value;
+            let tot = qtty * up;
+            let t = new Date();
+            let hours = t.getHours();
+            let minutes = t.getMinutes();
+            let seconds = t.getSeconds();
+            let day = (t.getDate() > 9) ? t.getDate() : '0' + t.getDate();
+            let month = ((t.getMonth()+1) > 9) ? t.getMonth()+1 : '0' + (t.getMonth()+1);
+            let year = t.getFullYear();
+            let time = year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
+
+            // console.log(type+",",item+",",up+",",amounted+",",comment+",",qtty);
+            // console.log(tem);
+            $.ajax({
+                url: "verifadd.php",
+                type: "POST",
+                data: "id="+id+"&item="+item+"&qtty="+qtty+"&date="+date+"&up="+up+"&type="+type+"&amountde="+amounted+"&comment="+comment+"&time="+time+"&oid="+oid+"&insu="+insu,
+                success: function (data) {
+                    console.log(data);
+                    // if(data){alert('Saved Successfully !!!');}
+                },
+                error: function (jXHR, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }				
+            }); // AJAX 
+        }
+
+        let call = (id,insu,ben,date,items) => {      
+            // if(item.consultation){console.log('consu')}else{console.log('non consu')}                        
+            // console.log(items);      
+            // $.map(items,(item,i) => console.log(i,item));            
+            // $.map(items,(item,i) => {
+            //     if(i==='laboratory'){                    
+            //         $.map(item,(it,ind)=>{ console.log(ind,it)  })
+            //     }
+            // });
+
+            $('#head').html(`<label for="" class=""> <h1 class="text-2xl text-zinc-600">
+                <b  class="text-red-400 mb-4 mx-2">`+id+`</b>: `+ben+`</h1>
+                </label>
+                <form>
+                <button class="ml-6 p-2 w-20 rounded-md medi-btn" style="background-color: #A52A2A;color:whitesmoke" onclick="callDone(`+id+`)"><b>Done</b></button>
+                </form>
+                <form action="../../../muhima/form_verify.php?cod2=`+id+`&cod22=`+date+`" method="POST" target="_blank">                                            
+                <button class="ml-6 p-2 w-20 rounded-md med-btn"  style="background-color: #66CDAA;"><b>Form</b></button>
+                </form>                                                                          
+                <input type="text" id="myInput" onkeyup='tableSearch()' class="w-100 rounded-md p-2 m-4 bg-indigo-50 medi-btn" placeholder="Searching..." autocomplete="off" style="position:absolute;right:100px;">
+                        `);
+
+            $('#body').html('');
+
+            $.map(items,(item,i) => { 
+                if(i==='consultation'){
+                    $.map(item,(it,ind)=>{ 
+                    $('#body').append(`<tr class=" h-12">                    
+                        <td class="medi-btn  text-center w-12">-</td>
+                        <td class="medi-btn  text-left "> 
+                            <b class="ml-4 text-zinc-600">`+it.item+`</b> 
+                            <input class="ml-6" type="hidden" >
+                            <input class="ml-6" type="hidden">
+                            <input class="ml-6" type="hidden">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <input class="m-2 w-8 p-2"  type="text" id="`+it.item+`_quantity" onkeyup="quan(this.value,'`+i+`','`+it.item+`')" value="`+it.item_quantity+`">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_u_p" onkeyup="ded(this.value,'`+i+`','`+it.item+`')" value="`+it.item_u_p+`">
+                        </td>
+                        <td class="medi-btn  text-center" id="`+it.item+`_total">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_totaled" value="`+it.item_quantity * it.item_u_p+`" disabled="disabled"/>
+                        </td>
+                        <td class="medi-btn  text-center" id="`+it.item+`_amount">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_amounted" value="`+it.amounted+`" disabled="disabled"/>
+                        </td>
+                        <td class="medi-btn  text-left "> 
+                        <input class="m-2 medi-btn" type="text" id="`+it.item+`_comment" value="`+it.comment+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_item" value="`+it.item+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_oid" value="`+it.item_order_id+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_tot_b" value="`+it.item_quantity * it.item_u_p+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_qty_b" value="`+it.item_quantity+`">
+                        <input class="ml-6" type="hidden" id="`+i+`_date" value="`+date+`">
+                        <input class="ml-6" type="hidden" id="id" value="`+id+`">
+                        <input class="ml-6" type="hidden" id="insu" value="`+insu+`">
+                        <input class="ml-6" type="hidden" id="`+i+`_veri_type" value="`+i+`">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <div class="w-16  flex flex-row">
+                            <button class="p-1 px-3 m-2 medi-btn rounded-md" style="background-color:#800000 ; color:whitesmoke; opacity:0.8;" id="`+it.item+`" onclick="change(this.id,'`+i+`')">+</button>
+                            <button class="p-1 px-3 m-2 medi-btn rounded-md" style="background-color:#66CDAA ; color:whitesmoke;">&#10003;</button>
+                        </div>
+                        </td>
+                    </tr>`
+                    );        
+                });
+                } 
+
+                if(i==='laboratoire'){
+                    $.map(item,(it,ind)=>{                         
+                    $('#body').append(`<tr class=" h-12">
+                        <td class="medi-btn  text-center w-12">-</td>
+                        <td class="medi-btn  text-left "> 
+                            <b class="ml-4 text-zinc-600">`+it.item+`</b> 
+                            <input class="ml-6" type="hidden" >
+                            <input class="ml-6" type="hidden">
+                            <input class="ml-6" type="hidden">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <input class="m-2 w-8 p-2"  type="text" id="`+it.item+`_quantity" onkeyup="quan(this.value,'`+i+`','`+it.item+`')" value="`+it.item_quantity+`">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_u_p" onkeyup="ded(this.value,'`+i+`','`+it.item+`')" value="`+it.item_u_p+`">
+                        </td>
+                        <td class="medi-btn  text-center" id="`+it.item+`_total">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_totaled" value="`+it.item_quantity * it.item_u_p+`" disabled="disabled"/>
+                        </td>
+                        <td class="medi-btn  text-center" id="`+it.item+`_amount">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_amounted" value="`+it.amounted+`" disabled="disabled"/>
+                        </td>
+                        <td class="medi-btn  text-left "> 
+                        <input class="m-2 medi-btn" type="text" id="`+it.item+`_comment" value="`+it.comment+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_item" value="`+it.item+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_oid" value="`+it.item_order_id+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_tot_b" value="`+it.item_quantity * it.item_u_p+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_qty_b" value="`+it.item_quantity+`">
+                        <input class="ml-6" type="hidden" id="`+i+`_date" value="`+date+`">
+                        <input class="ml-6" type="hidden" id="id" value="`+id+`">
+                        <input class="ml-6" type="hidden" id="insu" value="`+insu+`">
+                        <input class="ml-6" type="hidden" id="`+i+`_veri_type" value="`+i+`">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <div class="w-16  flex flex-row">
+                            <button class="p-1 px-3 m-2 medi-btn rounded-md" style="background-color:#800000 ; color:whitesmoke; opacity:0.8;" id="`+it.item+`" onclick="change(this.id,'`+i+`')">+</button>
+                            <button class="p-1 px-3 m-2 medi-btn rounded-md" style="background-color:#66CDAA ; color:whitesmoke;">&#10003;</button>
+                        </div>
+                        </td>
+                    </tr>`
+                    );
+                     });
+                }
+
+                if(i==='medicines'){
+                    $.map(item,(it,ind)=>{ 
+                    $('#body').append(`<tr class=" h-12">
+                        <td class="medi-btn  text-center w-12">-</td>
+                        <td class="medi-btn  text-left "> 
+                            <b class="ml-4 text-zinc-600">`+it.item+`</b> 
+                            <input class="ml-6" type="hidden" >
+                            <input class="ml-6" type="hidden">
+                            <input class="ml-6" type="hidden">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <input class="m-2 w-8 p-2"  type="text" id="`+it.item+`_quantity" onkeyup="quan(this.value,'`+i+`','`+it.item+`')" value="`+it.item_quantity+`">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_u_p" onkeyup="ded(this.value,'`+i+`','`+it.item+`')" value="`+it.item_u_p+`">
+                        </td>
+                        <td class="medi-btn  text-center" id="`+it.item+`_total">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_totaled" value="`+it.item_quantity * it.item_u_p+`" disabled="disabled"/>
+                        </td>
+                        <td class="medi-btn  text-center" id="`+it.item+`_amount">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_amounted" value="`+it.amounted+`" disabled="disabled"/>
+                        </td>
+                        <td class="medi-btn  text-left "> 
+                        <input class="m-2 medi-btn" type="text" id="`+it.item+`_comment" value="`+it.comment+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_item" value="`+it.item+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_oid" value="`+it.item_order_id+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_tot_b" value="`+it.item_quantity * it.item_u_p+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_qty_b" value="`+it.item_quantity+`">
+                        <input class="ml-6" type="hidden" id="`+i+`_date" value="`+date+`">
+                        <input class="ml-6" type="hidden" id="id" value="`+id+`">
+                        <input class="ml-6" type="hidden" id="insu" value="`+insu+`">
+                        <input class="ml-6" type="hidden" id="`+i+`_veri_type" value="`+i+`">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <div class="w-16  flex flex-row">
+                            <button class="p-1 px-3 m-2 medi-btn rounded-md" style="background-color:#800000 ; color:whitesmoke; opacity:0.8;" id="`+it.item+`" onclick="change(this.id,'`+i+`')">+</button>
+                            <button class="p-1 px-3 m-2 medi-btn rounded-md" style="background-color:#66CDAA ; color:whitesmoke;">&#10003;</button>
+                        </div>
+                        </td>
+                    </tr>`
+                    );
+                });
+                }
+
+                if(i==='consommables'){
+                    $.map(item,(it,ind)=>{ 
+                    $('#body').append(`<tr class=" h-12">
+                        <td class="medi-btn  text-center w-12">-</td>
+                        <td class="medi-btn  text-left "> 
+                            <b class="ml-4 text-zinc-600">`+it.item+`</b> 
+                            <input class="ml-6" type="hidden" >
+                            <input class="ml-6" type="hidden">
+                            <input class="ml-6" type="hidden">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <input class="m-2 w-8 p-2"  type="text" id="`+it.item+`_quantity" onkeyup="quan(this.value,'`+i+`','`+it.item+`')" value="`+it.item_quantity+`">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_u_p" onkeyup="ded(this.value,'`+i+`','`+it.item+`')" value="`+it.item_u_p+`">
+                        </td>
+                        <td class="medi-btn  text-center" id="`+it.item+`_total">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_totaled" value="`+it.item_quantity * it.item_u_p+`" disabled="disabled"/>
+                        </td>
+                        <td class="medi-btn  text-center" id="`+it.item+`_amount">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_amounted" value="`+it.amounted+`" disabled="disabled"/>
+                        </td>
+                        <td class="medi-btn  text-left "> 
+                        <input class="m-2 medi-btn" type="text" id="`+it.item+`_comment" value="`+it.comment+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_item" value="`+it.item+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_oid" value="`+it.item_order_id+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_tot_b" value="`+it.item_quantity * it.item_u_p+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_qty_b" value="`+it.item_quantity+`">
+                        <input class="ml-6" type="hidden" id="`+i+`_date" value="`+date+`">
+                        <input class="ml-6" type="hidden" id="id" value="`+id+`">
+                        <input class="ml-6" type="hidden" id="insu" value="`+insu+`">
+                        <input class="ml-6" type="hidden" id="`+i+`_veri_type" value="`+i+`">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <div class="w-16  flex flex-row">
+                            <button class="p-1 px-3 m-2 medi-btn rounded-md" style="background-color:#800000 ; color:whitesmoke; opacity:0.8;" id="`+it.item+`" onclick="change(this.id,'`+i+`')">+</button>
+                            <button class="p-1 px-3 m-2 medi-btn rounded-md" style="background-color:#66CDAA ; color:whitesmoke;">&#10003;</button>
+                        </div>
+                        </td>
+                    </tr>`
+                    );
+                });
+                }
+
+                if(i==='soins'){
+                    $.map(item,(it,ind)=>{ 
+                    $('#body').append(`<tr class=" h-12">
+                        <td class="medi-btn  text-center w-12">-</td>
+                        <td class="medi-btn  text-left "> 
+                            <b class="ml-4 text-zinc-600">`+it.item+`</b> 
+                            <input class="ml-6" type="hidden" >
+                            <input class="ml-6" type="hidden">
+                            <input class="ml-6" type="hidden">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <input class="m-2 w-8 p-2"  type="text" id="`+it.item+`_quantity" onkeyup="quan(this.value,'`+i+`','`+it.item+`')" value="`+it.item_quantity+`">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_u_p" onkeyup="ded(this.value,'`+i+`','`+it.item+`')" value="`+it.item_u_p+`">
+                        </td>
+                        <td class="medi-btn  text-center" id="`+it.item+`_total">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_totaled" value="`+it.item_quantity * it.item_u_p+`" disabled="disabled"/>
+                        </td>
+                        <td class="medi-btn  text-center" id="`+it.item+`_amount">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_amounted" value="`+it.amounted+`" disabled="disabled"/>
+                        </td>
+                        <td class="medi-btn  text-left "> 
+                        <input class="m-2 medi-btn" type="text" id="`+it.item+`_comment" value="`+it.comment+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_item" value="`+it.item+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_oid" value="`+it.item_order_id+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_tot_b" value="`+it.item_quantity * it.item_u_p+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_qty_b" value="`+it.item_quantity+`">
+                        <input class="ml-6" type="hidden" id="`+i+`_date" value="`+date+`">
+                        <input class="ml-6" type="hidden" id="id" value="`+id+`">
+                        <input class="ml-6" type="hidden" id="insu" value="`+insu+`">
+                        <input class="ml-6" type="hidden" id="`+i+`_veri_type" value="`+i+`">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <div class="w-16  flex flex-row">
+                            <button class="p-1 px-3 m-2 medi-btn rounded-md" style="background-color:#800000 ; color:whitesmoke; opacity:0.8;" id="`+it.item+`" onclick="change(this.id,'`+i+`')">+</button>
+                            <button class="p-1 px-3 m-2 medi-btn rounded-md" style="background-color:#66CDAA ; color:whitesmoke;">&#10003;</button>
+                        </div>
+                        </td>
+                    </tr>`
+                    );
+                });
+                }
+
+                if(i==='hospitalisation'){
+                    $.map(item,(it,ind)=>{ 
+                    $('#body').append(`<tr class=" h-12">
+                        <td class="medi-btn  text-center w-12">-</td>
+                        <td class="medi-btn  text-left "> 
+                            <b class="ml-4 text-zinc-600">`+it.item+`</b> 
+                            <input class="ml-6" type="hidden" >
+                            <input class="ml-6" type="hidden">
+                            <input class="ml-6" type="hidden">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <input class="m-2 w-8 p-2"  type="text" id="`+it.item+`_quantity" onkeyup="quan(this.value,'`+i+`','`+it.item+`')" value="`+it.item_quantity+`">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_u_p" onkeyup="ded(this.value,'`+i+`','`+it.item+`')" value="`+it.item_u_p+`">
+                        </td>
+                        <td class="medi-btn  text-center" id="`+it.item+`_total">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_totaled" value="`+it.item_quantity * it.item_u_p+`" disabled="disabled"/>
+                        </td>
+                        <td class="medi-btn  text-center" id="`+it.item+`_amount">
+                        <input class="m-2 w-12 p-2" type="text" id="`+it.item+`_amounted" value="`+it.amounted+`" disabled="disabled"/>
+                        </td>
+                        <td class="medi-btn  text-left "> 
+                        <input class="m-2 medi-btn" type="text" id="`+it.item+`_comment" value="`+it.comment+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_item" value="`+it.item+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_oid" value="`+it.item_order_id+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_tot_b" value="`+it.item_quantity * it.item_u_p+`">
+                        <input class="ml-6" type="hidden" id="`+it.item+`_qty_b" value="`+it.item_quantity+`">
+                        <input class="ml-6" type="hidden" id="`+i+`_date" value="`+date+`">
+                        <input class="ml-6" type="hidden" id="id" value="`+id+`">
+                        <input class="ml-6" type="hidden" id="insu" value="`+insu+`">
+                        <input class="ml-6" type="hidden" id="`+i+`_veri_type" value="`+i+`">
+                        </td>
+                        <td class="medi-btn  text-center">
+                        <div class="w-16  flex flex-row">
+                            <button class="p-1 px-3 m-2 medi-btn rounded-md" style="background-color:#800000 ; color:whitesmoke; opacity:0.8;" id="`+it.item+`" onclick="change(this.id,'`+i+`')">+</button>
+                            <button class="p-1 px-3 m-2 medi-btn rounded-md" style="background-color:#66CDAA ; color:whitesmoke;">&#10003;</button>
+                        </div>
+                        </td>
+                    </tr>`
+                    );
+                });
+                }
+            });            
         }
     </script>
 </head>
@@ -164,27 +412,45 @@ error_reporting(1|0);
     </div>
     <section id="moula">
         <div class="absolute inset-x-12 h-20 top-11 bg-white md: w-100" style="opacity: 0.8;">
-            <div class="medi-unique top-10 flex flex-row">
+            <div class="medi-unique flex flex-row" style="top: 25px; height: 50px; width: 720px;">
                 <div class="uppercase tracking-wide text-md text-black-500 ">
-                    <label for="" class="m-2">MONTH:</label>
-                    <select class="form-select px-12 py-2 border-black rounded-t-lg" onchange='call(this.value,<?php echo json_encode($consult); ?>)'>
+                    <label for="" class="m-2">DATE:</label>
+                    <select class="form-select mt-2 px-12 py-2 medi-btn rounded-md" style="width: 172px; height: 30px;" onchange='call(this.value,<?php echo json_encode($consult); ?>)'>
                         <?php
-                            $qry=mysqli_query($link,"SELECT DISTINCT period FROM orders ORDER BY period");
-                            if(!$qry){ die('Error :'.mysqli_error($link)); }
-                            while($row=mysqli_fetch_assoc($qry)){
-                                $period=$row['period'];
-                                echo '<option value="'.$period.'">'.$period.'</option>';
-                            }
+                            echo '<option value="">select date...</option>';
+                        
+                        $qry=mysqli_query($link,"SELECT DISTINCT date FROM orders WHERE checked=0 ORDER BY date");
+                        if(!$qry){ die('Error :'.mysqli_error($link)); }
+                        while($row=mysqli_fetch_assoc($qry)){
+                            $date=$row['date'];
+                            echo '<option value="'.$date.'">'.$date.'</option>';
+                            
+                        } 
                         ?>                        
                     </select>
-                </div> 
+
+                </div>
+                <div class="uppercase tracking-wide text-md text-black-500 ">
+                    <label for="" class="m-2">Holidays:</label>
+                    <select class="form-select mt-2 px-12 py-2 medi-btn rounded-md" style=" height: 30px; width:320px;">
+                    <?php
+                            $qry=mysqli_query($link,"SELECT DISTINCT date,name FROM holidays ORDER BY date");
+                            if(!$qry){ die('Error :'.mysqli_error($link)); }
+                            while($row=mysqli_fetch_assoc($qry)){
+                                $holiday=$row['date'];
+                                $name=$row['name'];
+                                echo '<option value="'.$holiday.'">'.$holiday.' - '.$name.'</option>';
+                            }
+                        ?>        
+                    </select>
+                </div>
             </div>
         </div> 
         <div class="medi-container absolute inset-x-12 top-28 bg-white rounded-xl overflow-hidden md:w-100">
             <div class="flex flex-row w-3/5 " style="border-top: 1px solid #52dcff;">
                 <a href="../../cbhi.php" class="mt-4 mx-4 text-2xl">Today</a>
                 <a href="check.php">
-                    <?php $v_c=0; $v_v=0; foreach($consult as $check): $v_c += $check->checked; $v_v += $check->verified; endforeach; $v_check =$v_c - $v_v;?>
+                    <?php $v_c=0; $v_v=0; foreach($consult as $check): $v_c += $check->checked; $v_v += $check->verified; endforeach; $v_check =$v_c;?>
                     <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; 
                         <b class="text-3xl text-center" id="unchecked"><?= $v_check; ?></b> &nbsp;Unchecked
                     </div>
@@ -205,34 +471,53 @@ error_reporting(1|0);
                     <div class="bg-indigo-100 mx-4 mt-2 medi-client rounded-md" style="background-color:#C9DFEC; height:680px; width: 460px; overflow: hidden;">
                         <div class="flex flex-row rounded-md ">
                             <div class="w-100">
-                                <input type="search" id="search" class="w-100 rounded-md p-2 m-4 bg-indigo-50 medi-btn" placeholder="Searching..." autocomplete="off">        
+                                <!-- <input type="text" class="search-btn" id="myInput" onkeyup='tableSearch()' placeholder="search client by code"> -->
+                                <!-- <input type="search" id="myInput" onkeyup='tableSearch()' class="w-100 rounded-md p-2 m-4 bg-indigo-50 medi-btn" placeholder="Searching..." autocomplete="off">        -->
                             </div>
                         </div>
                         <?php $i=0; foreach($consult as $uncheck): $i++; if($uncheck->verified == 1){?>
-                        <di class="flex flex-row mx-4 my-2 medi-client rounded-md bg-white" style="opacity: 0.8;">
+                        <div class="flex flex-row mx-4 my-2 medi-client rounded-md bg-white" style="opacity: 0.8;">
                             <div class="w-20 flex flex-col">
                                 <input type="checkbox" name="" class="rounded-xl mx-4 mt-8 " id="">
                             </div>
                             <div class="flex flex-col" style="width: 400px;">
                                 <div class="w-100  flex flex-row">
                                 <span class="w-6 text-1xl mr-2 ml-6 mt-2"> <b><?= $i; ?>. &nbsp;</b> </span>
-                                <span class="w-128 text-2xl ml-1 mt-2 medi_limit_span_veri"> <b><?= $uncheck->bene;  ?></b></span><br>
-                                <span class="w-16 text-1xl ml-6 mt-2 text-blue-800"> <b style="color: blue;"><?= $uncheck->client_id;  ?></b></span>
+                                <span class="w-128 text-2xl ml-1 mt-2 medi_limit_span_veri"> <b><?= $uncheck->bene; ?></b></span><br>
+                                <span class="w-16 text-1xl ml-6 mt-2 text-blue-800"> <b style="color: blue;"><?= $uncheck->client_id; ?></b></span>
                                 </div>
                                 <div class="w-100  flex flex-row">
-                                <span class="w-2/3 my-3 text-sm ml-2 bg-red-0">sex: <b class="text-md "><?= $uncheck->sex;  ?></b> age:
-                                    <b><?= $uncheck->age;  ?></b> &nbsp;CAT: <b class="text-md mr-2"><?= $uncheck->cat;  ?></b></span>&nbsp;
-                                <span class="w-1/2 text-sm my-3 bg-blue-50">(Tot:<b style="color: red;"><?php 
-                                    foreach($uncheck->items->medicines as $cons): $qt=$meds->med_quantity; $up=$meds->med_u_p; $mtot=$qt*$up; endforeach;
-                                    foreach($uncheck->items->consommables as $cons): $qt=$cons->conso_quantity; $up=$cons->conso_u_p; $ctot=$qt*$up; endforeach;
-                                    $t=$mtot+$ctot; echo $t;
-                                ?></b> Frw)</span>
+                                <span class="w-2/3 my-3 text-sm ml-2 bg-red-0">sex: <b class="text-md "><?= $uncheck->sex; ?></b> age:
+                                    <b><?= $uncheck->age; ?></b> &nbsp;CAT: <b class="text-md mr-2"><?= $uncheck->cat; ?></b></span>&nbsp;
+                                <span class="w-1/2 text-sm my-3 bg-blue-50">(Tot:<b style="color: red;">
+                                <?php 
+                                    $cup=0; $lab=0; $tot=0; 
+                                    $mqt=0; $mup=0; $mtot=0; 
+                                    $consoqt=0; $consup=0; $consotot=0; 
+                                    $soinqt=0; $soinup=0; $sointot=0; 
+                                    $hospqt=0; $hospup=0; $hosptot=0; 
+                    
+                                    foreach($uncheck->items->consultation as $consul): $cup+=$consul->cons_u_p; endforeach;
+                                    foreach($uncheck->items->laboratoire as $labo): $lab+=$labo->lab_u_p; endforeach;
+                                    foreach($uncheck->items->medicines as $meds): $mqt+=$meds->med_quantity; $mup+=$meds->med_u_p; endforeach;
+                                    foreach($uncheck->items->consommables as $cons): $consoqt+=$cons->conso_quantity; $consup+=$cons->conso_u_p;  endforeach;
+                                    foreach($uncheck->items->soins as $cons): $soinqt+=$cons->act_med_quantity; $soinup+=$cons->act_med_u_p;  endforeach;
+                                    foreach($uncheck->items->hospitalisation as $cons): $hospqt+=$cons->hosp_quantity; $hospup+=$cons->hosp_u_p;  endforeach;
+                    
+                                    $mtot=$mqt*$mup;
+                                    $consotot=$consoqt*$consup; 
+                                    $sointot=$soinqt*$soinup; 
+                                    $hosptot=$hospqt*$hospup; 
+                    
+                                    $tot=$cup+$lab+$mtot+$consotot+$sointot+$hosptot; echo $tot;
+                                ?>
+                                </b> Frw)</span>
                                 </div>
 
                             </div>
                             <div class="w-16  flex flex-col">
                                 <button class="pb-1 pl-2 m-2 medi-btn rounded-md" id="" style="background-color:#6698FF;">
-                                <b class="m-1 text-white" onclick='call(<?= $uncheck->client_id; ?>,<?= json_encode($uncheck->bene); ?>,<?= json_encode($uncheck->med_item); ?>,<?= $uncheck->med_qtty; ?>,<?= $uncheck->med_u_p; ?>,<?= json_encode($uncheck->date); ?>,)'>>></b>
+                                <b class="m-1 text-white" onclick='call(<?= $uncheck->client_id; ?>,<?= $uncheck->insurance_code; ?>,<?= json_encode($uncheck->bene); ?>,<?= json_encode($uncheck->day); ?>,<?= json_encode($uncheck->items->verification); ?>)'>>></b>
                                 </button>
                                 <label class="text-1xl py-0 ml-3">
                                     <?php 
@@ -244,19 +529,63 @@ error_reporting(1|0);
                                     <?= $tot?>
                                 </label>
                             </div>
-                        </di>
-                        <?php }endforeach ?>
+                        </div>
+                        <?php } endforeach ?>
                     </div>
-                    <div class="tableveri h-auto w-3/4 m-4 medi-client rounded-md border-red-200" style="background-color:#C9DFEC; height:678px;">
-                        <?php //$i=0; foreach($consult as $uncheck): $i++;?>
-                            <div class="bg-white flex flex-col h-auto w-90 m-4 medi-client rounded-md border-red-200" id="content">                                
-                            </div>
-                        <?php //endforeach ?>
+                    <div class="tableveri h-auto w-3/4 m-4 medi-client rounded-md border-red-200" style="background-color:#C9DFEC; height:678px;">                        
+                            <div class="bg-white flex flex-col h-auto w-90 m-4 medi-client rounded-md border-red-200" id="content">       
+                            <table class="w-90 m-1" id="myTable">
+                                    <thead class="bg-white ">
+                                        <tr>
+                                        <th colspan="7" class="h-20 ">
+                                            <div class="flex flex-row w-100 text-center" id="head"></div>
+                                        </th> 
+                                        </tr>
+                                        <tr class=" bg-gray-200 medi-btn">
+                                        <th class="h-10 medi-btn w-12">N<sup><u>o</u></sup></th>
+                                        <th class="h-10 medi-btn w-50">Item</th>
+                                        <th class="h-10 medi-btn w-20">Qtty</th>
+                                        <th class="h-10 medi-btn w-20">U-P	</th>
+                                        <th class="h-10 medi-btn w-28">Tot-P</th>
+                                        <th class="h-10 medi-btn w-28">Deducted</th>
+                                        <th class="h-10 medi-btn w-70">Explanations</th>
+                                        <th class="h-10 medi-btn w-32"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="medi-btn" id="body">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>                        
                     </div>
                 </div>
             </div>
         </div>
     </section >
     <script src="load/js/load.js"></script>
+    <script type="application/javascript">
+        function tableSearch() {
+            let input, filter, table, tr, td, txtValue;
+
+            //Intialising Variables
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (let i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+
+        }
+    </script>
 </body>
 </html>
