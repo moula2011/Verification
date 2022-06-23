@@ -4,7 +4,8 @@ $consult =json_decode(file_get_contents('data/rugarama.json'));
 $drugs =json_decode(file_get_contents('data/drugs.json'));
 $consums =json_decode(file_get_contents('data/consums.json'));
 $acts =json_decode(file_get_contents('data/acts.json'));
-
+$calender =json_decode(file_get_contents('data/calender.json'));
+error_reporting(1|0)
 ?> 
 
 <html lang="en">
@@ -102,17 +103,12 @@ $acts =json_decode(file_get_contents('data/acts.json'));
                     <select class="form-select mt-2 px-12 py-2 medi-btn rounded-md" style="width: 172px; height: 30px;" onchange='call(this.value,<?php echo json_encode($consult); ?>)'>
                         <?php
                             echo '<option value="">select month...</option>';
-                            $qry=mysqli_query($link,"SELECT DISTINCT period FROM orders ORDER BY date");
-                            if(!$qry){ die('Error :'.mysqli_error($link)); }
-                            while($row=mysqli_fetch_assoc($qry)){
-                                $period=$row['period'];
-                                echo '<option value="'.$period.'">'.$period.'</option>';
-                            }            
-                            
-                            // foreach($consult as $check):
-                            //     $period = $check->period;
-                            // endforeach ; 
-                            // echo '<option value="'.$period.'">'.$period.'</option>';
+                            foreach($calender as $per):
+                                foreach($per->period as $peri):
+                                    $period = $peri->month;
+                                    echo '<option value="'.$period.'">'.$period.'</option>';
+                                endforeach ; 
+                            endforeach ; 
                         ?>                        
                     </select>
 
@@ -120,37 +116,100 @@ $acts =json_decode(file_get_contents('data/acts.json'));
                 <div class="uppercase tracking-wide text-md text-black-500 ">
                     <label for="" class="m-2">Holidays:</label>
                     <select class="form-select mt-2 px-12 py-2 medi-btn rounded-md" style=" height: 30px; width:320px;">
-                    <?php
-                            $qry=mysqli_query($link,"SELECT DISTINCT date,name FROM holidays ORDER BY date");
-                            if(!$qry){ die('Error :'.mysqli_error($link)); }
-                            while($row=mysqli_fetch_assoc($qry)){
-                                $holiday=$row['date'];
-                                $name=$row['name'];
-                                echo '<option value="'.$holiday.'">'.$holiday.' - '.$name.'</option>';
-                            }
+                        <?php
+                            echo '<option value="">select holidays...</option>';
+                            foreach($calender as $per):
+                                foreach($per->holidays as $day):
+                                    $days = $day->day;
+                                    echo '<option value="'.$days.'">'.$days.'</option>';
+                                endforeach ; 
+                            endforeach ; 
                         ?>        
                     </select>
                 </div>
             </div>
         </div> 
+        <?php $today = date('Y-m-d'); $per = date("F-Y", strtotime($today));?>
         <div class="medi-container absolute inset-x-12 top-28 bg-white rounded-xl overflow-hidden md:w-100">
             <div class="flex flex-row w-3/5 " style="border-top: 1px solid #52dcff;">
                 <a href="cbhi.php" class="mt-4 mx-4 text-2xl">Today</a>
                 <a href="src/forms/check.php">
+                    <?php $v_c_today=0; foreach($consult as $check): if($check->day == $today && $check->checked ==1){$v_c_today += $check->checked;} endforeach; $c_today =$v_c_today;?>
                     <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; 
-                        <b class="text-3xl text-center" id="unchecked">0</b> &nbsp;Unchecked
+                        <b class="text-3xl text-center" id="unchecked"><?= $c_today ?></b> &nbsp;Unchecked
                     </div> 
                 </a>                
                 <a href="src/forms/not_verified.php">
                     <?php $v_v=0; foreach($consult as $check): $v_c = $check->checked;$v_v += $check->verified; endforeach; $v_check =$v_v;?>
+                    <?php $v_v_today=0; foreach($consult as $check): if($check->day == $today && $check->done ==0){$v_c_today = $check->checked;$v_v_today += $check->verified; } endforeach; $v_today =$v_v_today;?>
                     <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; 
-                        <b class="text-3xl text-center" id="unverified">0</b> &nbsp;Not Verified
+                        <b class="text-3xl text-center" id="unverified"><?= $v_today ?></b> &nbsp;Not Verified
                     </div>
                 </a>
-            </div>
+            </div> 
             <hr style="border-top: 1px solid #52dcff;">
 
             <!--=============================== page zosee zifite ibyaruguru============================= -->
+            <?php 
+                $cup=0;$un_cup=0; $lab=0;$un_lab=0; $tot=0; 
+                $mqt=0; $mup=0; $mtot=0; $un_mqt=0; $un_mup=0; $un_mtot=0; 
+                $consoqt=0; $consup=0; $consotot=0; $un_consoqt=0; $un_consup=0; $un_consotot=0; 
+                $soinqt=0; $soinup=0; $sointot=0; $un_soinqt=0; $un_soinup=0; $un_sointot=0; 
+                $hospqt=0; $hospup=0; $hosptot=0;$un_hospqt=0; $un_hospup=0; $un_hosptot=0;
+                $ambuqt=0; $ambuup=0; $ambutot=0;$un_ambuqt=0; $un_ambuup=0; $un_ambutot=0;
+                $unveri_tot=0; $veriqt=0; $veriup=0; $veritot=0;$served=0; 
+                $veriamounted=0;$done=0;$days_left=0;$days_done_to_veri=0; 
+
+                foreach($consult as $check):if($check->day == $today){ $days_done_to_veri += $check->done; $served += $check->served; $done += $check->done;}
+                    foreach($check->items->consultation as $consul):if($check->day == $today && $consul->insured !=0){ $cup+=$consul->cons_u_p;} endforeach;
+                    foreach($check->items->laboratoire as $labo): if($check->day == $today && $labo->insured !=0){ $lab+=$labo->lab_u_p; } endforeach;
+                    foreach($check->items->medicines as $meds):  if($check->day == $today && $meds->insured !=0){  $mqt+=$meds->med_quantity; $mup+=$meds->med_u_p; } endforeach;
+                    foreach($check->items->consommables as $cons): if($check->day == $today && $cons->insured !=0){ $consoqt+=$cons->conso_quantity; $consup+=$cons->conso_u_p; } endforeach;
+                    foreach($check->items->soins as $soin): if($check->day == $today && $soin->insured !=0){ $soinqt+=$soin->act_med_quantity; $soinup+=$soin->act_med_u_p; } endforeach;
+                    foreach($check->items->hospitalisation as $hosp):if($check->day == $today && $hosp->insured !=0){ $hospqt+=$hosp->hosp_quantity; $hospup+=$hosp->hosp_u_p; } endforeach;
+
+                    //============ verification ======================
+                    foreach($check->items->verification->consultation as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
+                    foreach($check->items->verification->medicines as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
+                    foreach($check->items->verification->consommables as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
+                    foreach($check->items->verification->laboratoire as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
+                    foreach($check->items->verification->soins as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
+                    foreach($check->items->verification->hospitalisation as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
+                    //============ Not verified =======================
+                    foreach($check->items->consultation as $consul): if($check->day == $today && $check->done == 0 && $consul->insured !=0){$un_cup+=$consul->cons_u_p;} endforeach;
+                    foreach($check->items->laboratoire as $labo): if($check->day == $today && $check->done == 0 && $labo->insured !=0){$un_lab+=$labo->lab_u_p;} endforeach;
+                    foreach($check->items->medicines as $meds): if($check->day == $today && $check->done == 0 && $meds->insured !=0){ $un_mqt+=$meds->med_quantity; $un_mup+=$meds->med_u_p; } endforeach;
+                    foreach($check->items->consommables as $cons): if($check->day == $today && $check->done == 0 && $cons->insured !=0){ $un_consoqt+=$cons->conso_quantity; $un_consup+=$cons->conso_u_p; } endforeach;
+                    foreach($check->items->soins as $soin): if($check->day == $today && $check->done == 0 && $soin->insured !=0){ $un_soinqt+=$soin->act_med_quantity; $un_soinup+=$soin->act_med_u_p; }  endforeach;
+                    foreach($check->items->hospitalisation as $hosp): if($check->day == $today && $check->done == 0 && $hosp->insured !=0){ $un_hospqt+=$hosp->hosp_quantity; $un_hospup+=$hosp->hosp_u_p; } endforeach;
+                    //============ Ambulance ==========================
+                    foreach($check->items->ambulance as $ambu): if($check->day == $today && $check->done == 0){ $un_ambuqt+=$ambu->ambu_quantity; $un_ambuup+=$ambu->ambu_u_p; } endforeach;
+                    foreach($check->items->ambulance as $ambu):if($check->day == $today){ $ambuqt+=$ambu->ambu_quantity; $ambuup+=$ambu->ambu_u_p; } endforeach;
+
+                endforeach;   
+            
+                $mtot=$mqt*$mup; $consotot=$consoqt*$consup; $sointot=$soinqt*$soinup; $hosptot=$hospqt*$hospup; $ambutot=$ambuqt*$ambuup;  
+                
+                $tot=$cup+$lab+$mtot+$consotot+$sointot+$hosptot+$ambutot; 
+                if($tot !=0)
+                $deducted = $veriamounted*100/$tot;
+                else
+                $deducted = 0;
+
+                $after_amount = $tot - $veriamounted;
+
+                if($v_check !=0)
+                $rate = $done*100/$v_check;
+                else
+                $rate=0;
+
+                $days_left=$served-$done;  
+                
+                $un_consotot=$un_consoqt*$un_consup; $un_ambutot=$un_ambuqt*$un_ambuup; $un_hosptot=$un_hospqt*$un_hospup; $un_sointot=$un_soinqt*$un_soinup; $un_mtot=$un_mqt*$un_mup;
+
+                $unveri_tot=$un_cup+$un_lab+$un_mtot+$un_consotot+$un_sointot+$un_hosptot+$un_ambutot;
+
+            ?>
 
             <div class="container flex flex-col items-center px-0 mx-auto mt-2 space-y-1 md:space-y-1 md:flex-row  ">
                 <div class="flex flex-col m-2 space-y-2 md:w-1/2">
@@ -161,7 +220,7 @@ $acts =json_decode(file_get_contents('data/acts.json'));
                                     <div class="border-l-4 rounded-l-md flex flex-row border-indigo-500 medi-magic p-3" > 
                                         <img src="img/play2.png" alt="">
                                         <h1 class="text-2xl text-center">
-                                            <i id="billed">0</i> Frw
+                                            <i id="billed"><?= $tot?></i> Frw
                                         </h1>
                                     </div>
                                     <h1 class="text-1xl text-center">
@@ -172,7 +231,7 @@ $acts =json_decode(file_get_contents('data/acts.json'));
                                     <div class="border-l-4 rounded-r-md flex flex-row border-indigo-500 bg-blue-500 medi-magic p-3" > 
                                         <img src="img/play2.png" alt="" style="position:relative;left:-19px;">
                                         <h1 class="text-2xl text-center ml-3">
-                                            <i id="after_veri">0</i> Frw
+                                            <i id="after_veri"><?= $after_amount?></i> Frw
                                         </h1>
                                     </div>
                                     <h1 class="text-1xl text-center">
@@ -188,7 +247,7 @@ $acts =json_decode(file_get_contents('data/acts.json'));
                                 <div class=" pl-8 py-8 w-1/2 ">
                                     <div class="border-t-4 ml-4 rounded-t-md border-mediblue medi-magic-btn-l p-3" > 
                                         <h1 class="text-3xl text-center">
-                                            <i id="veri_rate">0</i> %
+                                            <i id="veri_rate"><?= round($rate,1)?></i> %
                                         </h1>
                                     </div>
                                     
@@ -201,12 +260,12 @@ $acts =json_decode(file_get_contents('data/acts.json'));
                                 <div class="pr-8 py-8 w-1/2 ">
                                     <div class="border-t-4 ml-4 rounded-t-md border-red-500 medi-magic-btn-r p-3" > 
                                         <h1 class="text-3xl text-center">
-                                            <i id="deduct">0</i> Frw
+                                            <i id="deduct"><?= $veriamounted?></i> Frw
                                         </h1>
                                     </div>
                                     <div class=" border-indigo-500 w-100 ml-4 p-3 bg-red-500" style="border: 2px solid red;">
                                         <h1 class="text-1xl text-center">
-                                            Deducted amount, <i id="deducted">0</i> %
+                                            Deducted amount, <i id="deducted"><?= round($deducted,1)?></i> %
                                         </h1>
                                     </div>
                                 </div>
@@ -226,7 +285,7 @@ $acts =json_decode(file_get_contents('data/acts.json'));
                                     <div class="border-b-4 ml-4 flex flex-row rounded-b-md border-mediblue medi-magic-btn-l p-3" > 
                                         <a href="src/forms/not_verified.php">
                                             <div class="flex flex-col w-1/3 ml-10">
-                                                <h1 class="text-3xl text-left" id="remain_days">0</h1>
+                                                <h1 class="text-3xl text-left" id="remain_days"><?= $days_left?></h1>
                                                 <h1 class="text-1xl text-left">Patients</h1>
                                                 <br>
                                                 <span>Amount</span>
@@ -234,10 +293,10 @@ $acts =json_decode(file_get_contents('data/acts.json'));
                                         </a>
                                         <a href="src/forms/not_verified.php" class="ml-6">
                                             <div class="flex flex-col w-2/3">
-                                                <h1 class="text-2xl text-left" id="pm">June</h1>
+                                                <h1 class="text-2xl text-left" id="pm"><?= $per ?></h1>
                                                 <h1 class="text-1xl text-left" id="py">&nbsp;</h1>
                                                 <br>
-                                                <span><b id="unverify">0</b> Frw</span>
+                                                <span><b id="unverify"><?= $unveri_tot?></b> Frw</span>
                                             </div>
                                         </a>
                                         <br> 
@@ -251,7 +310,7 @@ $acts =json_decode(file_get_contents('data/acts.json'));
                                     <div class="border-b-4 mx-2 flex flex-row rounded-b-md border-mediblue medi-magic-btn-l p-3" > 
                                         <a href="src/forms/appeal.php">
                                             <div class="flex flex-col w-1/3 ml-10">
-                                                <h1 class="text-3xl text-left" id="done">0</h1>
+                                                <h1 class="text-3xl text-left" id="done"><?= $days_done_to_veri?></h1>
                                                 <h1 class="text-1xl text-left">Patients</h1>
                                                 <br>
                                                 <span>Amount</span>
@@ -259,10 +318,10 @@ $acts =json_decode(file_get_contents('data/acts.json'));
                                         </a>
                                         <a href="src/forms/appeal.php" class="ml-10">
                                             <div class="flex flex-col w-2/3 ">
-                                                <h1 class="text-2xl text-left" id="pm1">June</h1>
+                                                <h1 class="text-2xl text-left" id="pm1"><?= $per ?></h1>
                                                 <h1 class="text-1xl text-left" id="py1">&nbsp;</h1>
                                                 <br>
-                                                <span><b id="appeal_amount">0</b> Frw</span>
+                                                <span><b id="appeal_amount"><?= $veriamounted?></b> Frw</span>
                                             </div>
                                         </a>
                                         <br>

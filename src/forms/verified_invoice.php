@@ -21,6 +21,58 @@ include('./../../link.php');
 <body>
   <?php
     $consult =json_decode(file_get_contents('../../data/rugarama.json'));
+
+    $cup=0;$un_cup=0; $lab=0;$un_lab=0; $tot=0; 
+    $mqt=0; $mup=0; $mtot=0; $un_mqt=0; $un_mup=0; $un_mtot=0; 
+    $consoqt=0; $consup=0; $consotot=0; $un_consoqt=0; $un_consup=0; $un_consotot=0; 
+    $soinqt=0; $soinup=0; $sointot=0; $un_soinqt=0; $un_soinup=0; $un_sointot=0; 
+    $hospqt=0; $hospup=0; $hosptot=0;$un_hospqt=0; $un_hospup=0; $un_hosptot=0;$unveri_tot=0; 
+    $veriqt=0; $veriup=0; $veritot=0;$served=0; 
+    $veriamounted=0;$done=0;$days_left=0;$days_done_to_veri=0;
+
+    foreach($consult as $check):if($check->day == $today){ $days_done_to_veri += $check->done; $served += $check->served; $done += $check->done;}
+      foreach($check->items->consultation as $consul):if($check->day == $today){ $cup+=$consul->cons_u_p;} endforeach;
+      foreach($check->items->laboratoire as $labo): if($check->day == $today){ $lab+=$labo->lab_u_p; } endforeach;
+      foreach($check->items->medicines as $meds):  if($check->day == $today){  $mqt+=$meds->med_quantity; $mup+=$meds->med_u_p; } endforeach;
+      foreach($check->items->consommables as $cons): if($check->day == $today){ $consoqt+=$cons->conso_quantity; $consup+=$cons->conso_u_p; } endforeach;
+      foreach($check->items->soins as $soin): if($check->day == $today){ $soinqt+=$soin->act_med_quantity; $soinup+=$soin->act_med_u_p; } endforeach;
+      foreach($check->items->hospitalisation as $hosp):if($check->day == $today){ $hospqt+=$hosp->hosp_quantity; $hospup+=$hosp->hosp_u_p; } endforeach;
+      //============= verification ======================
+      foreach($check->items->verification->consultation as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
+      foreach($check->items->verification->medicines as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
+      foreach($check->items->verification->consommables as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
+      foreach($check->items->verification->laboratoire as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
+      foreach($check->items->verification->soins as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
+      foreach($check->items->verification->hospitalisation as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
+      //============ Not verified =======================
+      foreach($check->items->consultation as $consul): if($check->day == $today && $check->done == 0){$un_cup+=$consul->cons_u_p;} endforeach;
+      foreach($check->items->laboratoire as $labo): if($check->day == $today && $check->done == 0){$un_lab+=$labo->lab_u_p;} endforeach;
+      foreach($check->items->medicines as $meds): if($check->day == $today && $check->done == 0){ $un_mqt+=$meds->med_quantity; $un_mup+=$meds->med_u_p; } endforeach;
+      foreach($check->items->consommables as $cons): if($check->day == $today && $check->done == 0){ $un_consoqt+=$cons->conso_quantity; $un_consup+=$cons->conso_u_p; } endforeach;
+      foreach($check->items->soins as $soin): if($check->day == $today && $check->done == 0){ $un_soinqt+=$soin->act_med_quantity; $un_soinup+=$soin->act_med_u_p; }  endforeach;
+      foreach($check->items->hospitalisation as $hosp): if($check->day == $today && $check->done == 0){ $un_hospqt+=$hosp->hosp_quantity; $un_hospup+=$hosp->hosp_u_p; } endforeach;
+    endforeach;   
+
+    $mtot=$mqt*$mup; $sointot=$soinqt*$soinup; $hosptot=$hospqt*$hospup; $consotot=$consoqt*$consup; 
+    
+    $tot=$cup+$lab+$mtot+$consotot+$sointot+$hosptot; 
+    if($tot !=0)
+    $deducted = $veriamounted*100/$tot;
+    else
+    $deducted = 0;
+
+    $after_amount = $tot - $veriamounted;
+
+    if($v_check !=0)
+    $rate = $done*100/$v_check;
+    else
+    $rate=0;
+
+    $days_left=$served-$done;  
+    
+    $un_consotot=$un_consoqt*$un_consup; $un_hosptot=$un_hospqt*$un_hospup; $un_sointot=$un_soinqt*$un_soinup; $un_mtot=$un_mqt*$un_mup;
+
+    $unveri_tot=$un_cup+$un_lab+$un_mtot+$un_consotot+$un_sointot+$un_hosptot;
   ?>
   <!--<table width="0" border="0" cellspacing="0" cellpadding="0">
   <tr>
@@ -105,13 +157,19 @@ include('./../../link.php');
     </tr></strong>
     </tr>
     <?php 
-      $i=0; foreach($consult as $invoice):  $i++;
+      $i=0;$labo=0; 
+      $mqt=0; $mup=0; $mtot=0;
+      foreach($consult as $invoice):  $i++;
+      foreach($invoice->items->consultation  as $cons):endforeach;
+      foreach($invoice->items->laboratoire as $labo): $labos+=$labo->lab_u_p;  endforeach;
       foreach($invoice->items->verification->consultation  as $consult):endforeach;
       foreach($invoice->items->verification->hospitalisation as $hosp):endforeach;
-    ?>
+      $mtot=$mqt*$mup;
+      foreach($invoice->items->medicines as $meds): $mqt+=$meds->med_quantity; $mup+=$meds->med_u_p; 
+     ?>
     <tr>
       <td class="medi-btn text-center"><?= $i?></td>
-      <td class="medi-btn p-2 text-center"><?= 0?></td>
+      <td class="medi-btn p-2 text-center"><?= $invoice->voucher_no?></td>
       <td class="medi-btn p-2 text-center"><?= $invoice->client_id?></td>
       <td class="medi-btn p-2 text-center"><?= $invoice->day?></td>
       <td class="medi-btn p-2 text-center"><?= $invoice->cat?></td>
@@ -121,9 +179,12 @@ include('./../../link.php');
       <td class="medi-btn p-2"><?= $invoice->sex?></td>
       <td class="medi-btn p-2"><?= $invoice->chef?></td>
       <td class="medi-btn p-2"><?= $invoice->insurance_code?></td>
+      <td class="medi-btn p-2"><?= $cons->cons_u_p ?></td>
+      <td class="medi-btn p-2"><?php if($labos !=0){echo $labos;}else{echo 0;} ?></td>
+      <td class="medi-btn p-2"><?php if($mtot !=0){echo $mtot;}else{echo 0;} ?></td>
     </tr>
 
-    <?php endforeach; ?>
+    <?php endforeach; endforeach;?>
     <tr>
       <td bgcolor="#CCCCCC">&nbsp;</td>
       <td bgcolor="#CCCCCC">&nbsp;</td>

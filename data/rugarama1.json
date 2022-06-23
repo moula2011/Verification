@@ -1,0 +1,128 @@
+[
+    {
+        "id": 1,
+        "client_id": "3",
+        "day": "2022-06-21",
+        "voucher_no": 7,
+        "insurance": "MUSA",
+        "chef": "MUHIRE ATHANASE",
+        "bene_insu_code": "",
+        "bene": "IRANKUNDA CHANCE",
+        "insurance_code": "1198480007334079",
+        "sex": "F",
+        "age": "5",
+        "cat": "1",
+        "dep": "Z",
+        "period": "June-2022",
+        "checked": 1,
+        "verified": 1,
+        "done": 0,
+        "served": 1,
+        "2022-06-21": {
+            "medicines": [],
+            "consommables": [
+                {
+                    "conso_type": "consommable",
+                    "conso_order_id": "54",
+                    "conso_u_p": "259",
+                    "conso_quantity": "1",
+                    "conso_item": "trousse de perfusion",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-21",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1",
+                    "checked": 1,
+                    "verified": 0
+                }
+            ],
+            "consultation": [],
+            "laboratoire": [],
+            "soins": [],
+            "hospitalisation": [],
+            "ambulance": [],
+            "musa_tm": [
+                {
+                    "tm_type": "TM",
+                    "tm_order_id": 1,
+                    "tm_u_p": 0,
+                    "tm_quantity": 1,
+                    "tm_item": "MUSA-TM",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-21",
+                    "user": "1"
+                }
+            ],
+            "verification": {
+                "medicines": [],
+                "consommables": [
+                    {
+                        "item_veri_type": "consommables",
+                        "item_order_id": "54",
+                        "item_u_p": "259",
+                        "item_quantity": "1",
+                        "item": "trousse de perfusion",
+                        "date": "2022-06-21",
+                        "time": "2022-06-21 06:02:28",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ],
+                "consultation": [],
+                "laboratoire": [],
+                "soins": [],
+                "hospitalisation": [],
+                "ambulance": [],
+                "musa_tm": [
+                    {
+                        "item_veri_type": "TM",
+                        "item_order_id": 1,
+                        "item_u_p": 0,
+                        "item_quantity": 1,
+                        "item": "MUSA-TM",
+                        "date": "2022-06-21",
+                        "time": "2022-06-21 05:59:51",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ]
+            }
+        },
+        "2022-06-22": {
+            "consommables": [
+                {
+                    "conso_type": "consommable",
+                    "conso_order_id": "56",
+                    "conso_u_p": "259",
+                    "conso_quantity": "1",
+                    "conso_item": "trousse de perfusion",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-22",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1",
+                    "checked": 1,
+                    "verified": 0
+                }
+            ],
+            "verification": {
+                "consommables": [
+                    {
+                        "item_veri_type": "consommables",
+                        "item_order_id": "56",
+                        "item_u_p": "259",
+                        "item_quantity": "1",
+                        "item": "trousse de perfusion",
+                        "date": "2022-06-22",
+                        "time": "2022-06-22 06:04:58",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ]
+            }
+        }
+    } 
+]

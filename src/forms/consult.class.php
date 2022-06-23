@@ -151,15 +151,15 @@
                     if($this->stored_data[$key][$item]['verification'][$type]==null){
                         $this->stored_data[$key][$item]['verification'][$type]=$item_value;
                     }else{ 
-                        $this->stored_data[$key][$item]['verification'][$type]=$item_value;                       
+                        // $this->stored_data[$key][$item]['verification'][$type]=$item_value;                       
                         //---------------------------------kkkkkkkkkkkk----------------------------
-                        // foreach($this->stored_data[$key][$item]['verification'] as $k => $v){                                                 
-                        //     if($v['item']==$it){
-                        //         $this->stored_data[$key][$item]['verification'][$k]=$item_value[0];                                
-                        //     }else{
+                        foreach($this->stored_data[$key][$item]['verification'][$type] as $k => $v){                                                 
+                            if($v['item']==$it){
+                                $this->stored_data[$key][$item]['verification'][$type][$k]=$item_value[0];                                
+                            }else{
                                 
-                        //     }                                                                                  
-                        // }
+                            }                                                                                  
+                        }
                         //---------------------------------kkkkkkkkkkkk----------------------------                 
                     }
                 }
@@ -167,10 +167,10 @@
             }
         }
 
-        public function updateVerif1($client_id,$item,$item_value){
+        public function updateDone($client_id){
             foreach($this->stored_data as $key =>$stored_client){
                 if($stored_client['client_id']==$client_id){
-                    $this->stored_data[$key][$item]['verification']=$item_value;                        
+                    $this->stored_data[$key]['done']=1;                        
                 }
                 $this->storeData();
             }

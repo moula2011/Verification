@@ -29,7 +29,7 @@ error_reporting(1|0);
     <script>
         let ded = (int,typ,item) => {
             let amountbefore = document.getElementById(item+'_tot_b').value;
-            let qty = document.getElementById(item+'_quantity').value;
+            let qty = document.getElementById(item+'_quantity').value; 
             let total = qty * int;
             let res = amountbefore-total;
             let totaled = document.getElementById(item+'_total').innerHTML=`<input class="m-2 w-12 p-2" type="text" id="`+item+`_totaled" value="`+total+`" disabled="disabled"/>`;            
@@ -61,6 +61,85 @@ error_reporting(1|0);
             }); // AJAX 
         }
 
+        let callDate = (date,data) => {              
+             let i = 0; 
+             let consul = 0;
+             let labo = 0;
+             let meds = 0;
+             let conso = 0;
+             let soins = 0;
+             let hosp = 0;
+             let tot_items = 0;
+             $('#datez').html('');         
+             $.map(data,(dat) => {
+                    consul = dat.items.consultation.length;
+                    labo = dat.items.laboratoire.length;
+                    meds = dat.items.medicines.length;
+                    conso = dat.items.consommables.length;
+                    soins = dat.items.soins.length;
+                    hosp = dat.items.hospitalisation.length;
+                    tot_items = consul+labo+meds+conso+soins+hosp;
+                 if(dat.day===date && dat.done===0 && tot_items!==0){
+                     /////
+                     let tconso = 0;
+                     let tlab = 0;
+                     let tmed = 0;
+                     let tcons = 0;
+                     let tsoin = 0;
+                     let thosp = 0;
+                     let gt = 0;
+                     $.map(dat.items.consommables,(conso)=>{
+                         tconso += conso.conso_u_p*conso.conso_quantity;                        
+                     });
+                     $.map(dat.items.laboratoire,(lab)=>{
+                         tlab += lab.lab_u_p*lab.lab_quantity;                        
+                     });
+                     $.map(dat.items.medicines,(med)=>{
+                         tmed += med.med_u_p*med.med_quantity;                        
+                     });
+                     $.map(dat.items.consultation,(cons)=>{
+                         tcons += cons.cons_u_p*cons.cons_quantity;                        
+                     });
+                     $.map(dat.items.soins,(soin)=>{
+                         tsoin += soin.act_med_u_p*soin.act_med_quantity;                        
+                     });
+                     $.map(dat.items.hospitalisation,(hosp)=>{
+                         thosp += hosp.hosp_u_p*hosp.hosp_quantity;                        
+                     });
+
+                     gt = tconso+tlab+tmed+tcons+tsoin+thosp;
+                    //  console.log(gt)
+                     /////
+                    
+                    i++;                    
+                    $('#datez').append(`<div class="flex flex-row mx-4 my-2 medi-client rounded-md bg-white" style="opacity: 0.8;">
+                            <div class="w-20 flex flex-col">
+                                <input type="checkbox" name="" class="rounded-xl mx-4 mt-8 " id="">
+                            </div>
+                            <div class="flex flex-col" style="width: 400px;">
+                                <div class="w-100  flex flex-row">
+                                <span class="w-6 text-1xl mr-2 ml-6 mt-2"> <b>`+dat.voucher_no+` &nbsp;</b> </span>
+                                <span class="w-128 text-2xl ml-1 mt-2 medi_limit_span_veri"> <b>`+dat.bene+`</b></span><br>
+                                <span class="w-16 text-1xl ml-6 mt-2 text-blue-800"> <b style="color: blue;">`+dat.client_id+`</b></span>
+                                </div>
+                                <div class="w-100  flex flex-row">
+                                <span class="w-2/3 my-3 text-sm ml-2 bg-red-0">sex: <b class="text-md ">`+dat.sex+`</b> age:
+                                    <b>`+dat.age+`</b> &nbsp;CAT: <b class="text-md mr-2">`+dat.cat+`</b></span>&nbsp;
+                                <span class="w-1/2 text-sm my-3 bg-blue-50">(Tot:<b style="color: red;">`+gt+`</b> Frw)</span>
+                                </div>
+
+                            </div>
+                            <div class="w-16  flex flex-col">
+                                <button class="pb-1 pl-2 m-2 medi-btn rounded-md" id="" style="background-color:#6698FF;">
+                                <b class="m-1 text-white" onclick='call(`+dat.client_id+`,`+dat.insurance_code+`,`+JSON.stringify(dat.bene)+`,`+JSON.stringify(dat.day)+`,`+JSON.stringify(dat.items.verification)+`)'>>></b>
+                                </button>
+                                <label class="text-1xl py-0 ml-3">`+tot_items+`</label>
+                            </div>
+                        </div>`);
+                 }               
+            });
+        }
+
         let change = (tem,typ) => {
             let id = document.getElementById('id').value;
             let insu = document.getElementById('insu').value;
@@ -81,9 +160,7 @@ error_reporting(1|0);
             let month = ((t.getMonth()+1) > 9) ? t.getMonth()+1 : '0' + (t.getMonth()+1);
             let year = t.getFullYear();
             let time = year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
-
-            // console.log(type+",",item+",",up+",",amounted+",",comment+",",qtty);
-            // console.log(tem);
+        
             $.ajax({
                 url: "verifadd.php",
                 type: "POST",
@@ -99,27 +176,17 @@ error_reporting(1|0);
         }
 
         let call = (id,insu,ben,date,items) => {      
-            // if(item.consultation){console.log('consu')}else{console.log('non consu')}                        
-            // console.log(items);      
-            // $.map(items,(item,i) => console.log(i,item));            
-            // $.map(items,(item,i) => {
-            //     if(i==='laboratory'){                    
-            //         $.map(item,(it,ind)=>{ console.log(ind,it)  })
-            //     }
-            // });
-
             $('#head').html(`<label for="" class=""> <h1 class="text-2xl text-zinc-600">
-                <b  class="text-red-400 mb-4 mx-2">`+id+`</b>: `+ben+`</h1>
+                <b  class="text-red mb-4 mx-2" style="color:blue">`+id+`</b>: `+ben+`</h1>
                 </label>
                 <form>
                 <button class="ml-6 p-2 w-20 rounded-md medi-btn" style="background-color: #A52A2A;color:whitesmoke" onclick="callDone(`+id+`)"><b>Done</b></button>
                 </form>
-                <form action="../../../muhima/form_verify.php?cod2=`+id+`&cod22=`+date+`" method="POST" target="_blank">                                            
+                <form action="../../../rugarama/form_verify.php?cod2=`+id+`&cod22=`+date+`" method="POST" target="_blank">                                            
                 <button class="ml-6 p-2 w-20 rounded-md med-btn"  style="background-color: #66CDAA;"><b>Form</b></button>
                 </form>                                                                          
                 <input type="text" id="myInput" onkeyup='tableSearch()' class="w-100 rounded-md p-2 m-4 bg-indigo-50 medi-btn" placeholder="Searching..." autocomplete="off" style="position:absolute;right:100px;">
                         `);
-
             $('#body').html('');
 
             $.map(items,(item,i) => { 
@@ -415,11 +482,11 @@ error_reporting(1|0);
             <div class="medi-unique flex flex-row" style="top: 25px; height: 50px; width: 720px;">
                 <div class="uppercase tracking-wide text-md text-black-500 ">
                     <label for="" class="m-2">DATE:</label>
-                    <select class="form-select mt-2 px-12 py-2 medi-btn rounded-md" style="width: 172px; height: 30px;" onchange='call(this.value,<?php echo json_encode($consult); ?>)'>
+                    <select class="form-select mt-2 px-12 py-2 medi-btn rounded-md" style="width: 172px; height: 30px;" onchange='callDate(this.value,<?php echo json_encode($consult); ?>)'>
                         <?php
                             echo '<option value="">select date...</option>';
                         
-                        $qry=mysqli_query($link,"SELECT DISTINCT date FROM orders WHERE checked=0 ORDER BY date");
+                        $qry=mysqli_query($link,"SELECT DISTINCT date FROM orders WHERE checked=0 ORDER BY date DESC");
                         if(!$qry){ die('Error :'.mysqli_error($link)); }
                         while($row=mysqli_fetch_assoc($qry)){
                             $date=$row['date'];
@@ -428,7 +495,6 @@ error_reporting(1|0);
                         } 
                         ?>                        
                     </select>
-
                 </div>
                 <div class="uppercase tracking-wide text-md text-black-500 ">
                     <label for="" class="m-2">Holidays:</label>
@@ -445,22 +511,24 @@ error_reporting(1|0);
                     </select>
                 </div>
             </div>
-        </div> 
+        </div>  
         <div class="medi-container absolute inset-x-12 top-28 bg-white rounded-xl overflow-hidden md:w-100">
             <div class="flex flex-row w-3/5 " style="border-top: 1px solid #52dcff;">
-                <a href="../../cbhi.php" class="mt-4 mx-4 text-2xl">Today</a>
+                <a href="../../cbhi.php" class="mt-4 mx-4 text-2xl">Dashboard</a>
                 <a href="check.php">
-                    <?php $v_c=0; $v_v=0; foreach($consult as $check): $v_c += $check->checked; $v_v += $check->verified; endforeach; $v_check =$v_c;?>
+                    <?php $v_c_today=0; foreach($consult as $check): if($check->day == $today && $check->checked ==1){$v_c_today += $check->checked;$v_v_today += $check->verified; } endforeach; $c_today =$v_c_today;?>
                     <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; 
-                        <b class="text-3xl text-center" id="unchecked"><?= $v_check; ?></b> &nbsp;Unchecked
-                    </div>
-                </a>                
+                        <b class="text-3xl text-center" id="unchecked"><?= $c_today ?></b> &nbsp;Unchecked
+                    </div> 
+                </a>                 
                 <a href="not_verified.php">
                     <?php $v_v=0; foreach($consult as $check): $v_c = $check->checked;$v_v += $check->verified; endforeach; $v_check =$v_v;?>
+                    <?php $v_v_today=0; foreach($consult as $check): if($check->day == $today && $check->done ==0){$v_c_today = $check->checked;$v_v_today += $check->verified; } endforeach; $v_today =$v_v_today;?>
                     <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; 
-                        <b class="text-3xl text-center" id="unverified"><?= $v_check;  ?></b> &nbsp;Not Verified
+                        <b class="text-3xl text-center" id="unverified"><?= $v_today ?></b> &nbsp;Not Verified
                     </div>
                 </a>
+           
             </div>
             <hr style="border-top: 1px solid #52dcff;">
 
@@ -469,14 +537,15 @@ error_reporting(1|0);
             <div class="veri h-4/5 mb-8" style="background-color:#999; height:698px; overflow: hidden;">
                 <div class="check flex flex-row">
                     <div class="bg-indigo-100 mx-4 mt-2 medi-client rounded-md" style="background-color:#C9DFEC; height:680px; width: 460px; overflow: hidden;">
-                        <div class="flex flex-row rounded-md ">
+                        <div class="flex flex-row rounded-md">
                             <div class="w-100">
                                 <!-- <input type="text" class="search-btn" id="myInput" onkeyup='tableSearch()' placeholder="search client by code"> -->
                                 <!-- <input type="search" id="myInput" onkeyup='tableSearch()' class="w-100 rounded-md p-2 m-4 bg-indigo-50 medi-btn" placeholder="Searching..." autocomplete="off">        -->
                             </div>
                         </div>
-                        <?php $i=0; foreach($consult as $uncheck): $i++; if($uncheck->verified == 1){?>
-                        <div class="flex flex-row mx-4 my-2 medi-client rounded-md bg-white" style="opacity: 0.8;">
+                        <div id="datez">
+                        <?php //$i=0; foreach($consult as $uncheck): $i++; if($uncheck->done == 0 && $uncheck->day == date('Y-m-d')){?>
+                        <!-- <div class="flex flex-row mx-4 my-2 medi-client rounded-md bg-white" style="opacity: 0.8;background-color:#f00;">
                             <div class="w-20 flex flex-col">
                                 <input type="checkbox" name="" class="rounded-xl mx-4 mt-8 " id="">
                             </div>
@@ -491,25 +560,25 @@ error_reporting(1|0);
                                     <b><?= $uncheck->age; ?></b> &nbsp;CAT: <b class="text-md mr-2"><?= $uncheck->cat; ?></b></span>&nbsp;
                                 <span class="w-1/2 text-sm my-3 bg-blue-50">(Tot:<b style="color: red;">
                                 <?php 
-                                    $cup=0; $lab=0; $tot=0; 
-                                    $mqt=0; $mup=0; $mtot=0; 
-                                    $consoqt=0; $consup=0; $consotot=0; 
-                                    $soinqt=0; $soinup=0; $sointot=0; 
-                                    $hospqt=0; $hospup=0; $hosptot=0; 
+                                    // $cup=0; $lab=0; $tot=0; 
+                                    // $mqt=0; $mup=0; $mtot=0; 
+                                    // $consoqt=0; $consup=0; $consotot=0; 
+                                    // $soinqt=0; $soinup=0; $sointot=0; 
+                                    // $hospqt=0; $hospup=0; $hosptot=0; 
                     
-                                    foreach($uncheck->items->consultation as $consul): $cup+=$consul->cons_u_p; endforeach;
-                                    foreach($uncheck->items->laboratoire as $labo): $lab+=$labo->lab_u_p; endforeach;
-                                    foreach($uncheck->items->medicines as $meds): $mqt+=$meds->med_quantity; $mup+=$meds->med_u_p; endforeach;
-                                    foreach($uncheck->items->consommables as $cons): $consoqt+=$cons->conso_quantity; $consup+=$cons->conso_u_p;  endforeach;
-                                    foreach($uncheck->items->soins as $cons): $soinqt+=$cons->act_med_quantity; $soinup+=$cons->act_med_u_p;  endforeach;
-                                    foreach($uncheck->items->hospitalisation as $cons): $hospqt+=$cons->hosp_quantity; $hospup+=$cons->hosp_u_p;  endforeach;
+                                    // foreach($uncheck->items->consultation as $consul): $cup+=$consul->cons_u_p; endforeach;
+                                    // foreach($uncheck->items->laboratoire as $labo): $lab+=$labo->lab_u_p; endforeach;
+                                    // foreach($uncheck->items->medicines as $meds): $mqt+=$meds->med_quantity; $mup+=$meds->med_u_p; endforeach;
+                                    // foreach($uncheck->items->consommables as $cons): $consoqt+=$cons->conso_quantity; $consup+=$cons->conso_u_p;  endforeach;
+                                    // foreach($uncheck->items->soins as $cons): $soinqt+=$cons->act_med_quantity; $soinup+=$cons->act_med_u_p;  endforeach;
+                                    // foreach($uncheck->items->hospitalisation as $cons): $hospqt+=$cons->hosp_quantity; $hospup+=$cons->hosp_u_p;  endforeach;
                     
-                                    $mtot=$mqt*$mup;
-                                    $consotot=$consoqt*$consup; 
-                                    $sointot=$soinqt*$soinup; 
-                                    $hosptot=$hospqt*$hospup; 
+                                    // $mtot=$mqt*$mup;
+                                    // $consotot=$consoqt*$consup; 
+                                    // $sointot=$soinqt*$soinup; 
+                                    // $hosptot=$hospqt*$hospup; 
                     
-                                    $tot=$cup+$lab+$mtot+$consotot+$sointot+$hosptot; echo $tot;
+                                    // $tot=$cup+$lab+$mtot+$consotot+$sointot+$hosptot; echo $tot;
                                 ?>
                                 </b> Frw)</span>
                                 </div>
@@ -521,16 +590,17 @@ error_reporting(1|0);
                                 </button>
                                 <label class="text-1xl py-0 ml-3">
                                     <?php 
-                                        $med=count($uncheck->items->medicines); $conso=count($uncheck->items->consommables); 
-                                        $consul=count($uncheck->items->consultation); $lab= count($uncheck->items->laboratoire); 
-                                        $soins=count($uncheck->items->soins);$hosp= count($uncheck->items->hospitalisation); 
-                                        $tot =$med+$conso+$consul+$lab+$soins+$hosp;
+                                        // $med=count($uncheck->items->medicines); $conso=count($uncheck->items->consommables); 
+                                        // $consul=count($uncheck->items->consultation); $lab= count($uncheck->items->laboratoire); 
+                                        // $soins=count($uncheck->items->soins);$hosp= count($uncheck->items->hospitalisation); 
+                                        // $tot =$med+$conso+$consul+$lab+$soins+$hosp;
                                     ?>
                                     <?= $tot?>
                                 </label>
                             </div>
+                        </div> -->
+                        <?php //} endforeach ?>
                         </div>
-                        <?php } endforeach ?>
                     </div>
                     <div class="tableveri h-auto w-3/4 m-4 medi-client rounded-md border-red-200" style="background-color:#C9DFEC; height:678px;">                        
                             <div class="bg-white flex flex-col h-auto w-90 m-4 medi-client rounded-md border-red-200" id="content">       
@@ -564,6 +634,7 @@ error_reporting(1|0);
     </section >
     <script src="load/js/load.js"></script>
     <script type="application/javascript">
+        $('Document').ready(function(){ callDate(<?php echo json_encode(date('Y-m-d')); ?>,<?php echo json_encode($consult); ?>);});
         function tableSearch() {
             let input, filter, table, tr, td, txtValue;
 

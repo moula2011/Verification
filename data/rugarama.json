@@ -1,16 +1,80 @@
 [
     {
         "id": 1,
-        "client_id": "6",
-        "day": "2022-06-14",
+        "client_id": "32",
+        "day": "2022-06-20",
+        "voucher_no": 3,
         "insurance": "MUSA",
-        "chef": "SEREZA CELESTIN",
-        "bene_insu_code": "1199170002183021",
-        "bene": "MUKAMANA ROSINE",
-        "insurance_code": "1198980010455239",
-        "sex": "",
-        "age": "31",
+        "chef": "MURWANASHYAKA Jean Paul",
+        "bene_insu_code": "1199580042646013",
+        "bene": "ELIA NNE MUHAWENIMANA",
+        "insurance_code": "1199380156433039",
+        "sex": "F",
+        "age": "27",
         "cat": "2",
+        "dep": "Z",
+        "period": "June-2022",
+        "checked": 0,
+        "verified": 0,
+        "done": 0,
+        "served": 0,
+        "items": {
+            "medicines": [],
+            "consommables": [],
+            "consultation": [],
+            "laboratoire": [],
+            "soins": [],
+            "hospitalisation": [],
+            "ambulance": [],
+            "musa_tm": [
+                {
+                    "tm_type": "TM",
+                    "tm_order_id": 1,
+                    "tm_u_p": 200,
+                    "tm_quantity": 1,
+                    "tm_item": "MUSA-TM",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-19",
+                    "user": "1"
+                }
+            ],
+            "verification": {
+                "medicines": [],
+                "consommables": [],
+                "consultation": [],
+                "laboratoire": [],
+                "soins": [],
+                "hospitalisation": [],
+                "ambulance": [],
+                "musa_tm": [
+                    {
+                        "item_veri_type": "TM",
+                        "item_order_id": 1,
+                        "item_u_p": 200,
+                        "item_quantity": 1,
+                        "item": "MUSA-TM",
+                        "date": "2022-06-19",
+                        "time": "2022-06-20 06:33:27",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "client_id": "3",
+        "day": "2022-06-20",
+        "voucher_no": 3,
+        "insurance": "MUSA",
+        "chef": "MUHIRE ATHANASE",
+        "bene_insu_code": "",
+        "bene": "IRANKUNDA CHANCE",
+        "insurance_code": "1198480007334079",
+        "sex": "F",
+        "age": "5",
+        "cat": "1",
         "dep": "Z",
         "period": "June-2022",
         "checked": 1,
@@ -19,17 +83,137 @@
         "served": 1,
         "items": {
             "medicines": [],
-            "consommables": [],
+            "consommables": [
+                {
+                    "conso_type": "consommable",
+                    "conso_order_id": "27",
+                    "conso_u_p": "100",
+                    "conso_quantity": "1",
+                    "conso_item": "CARNET",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-20",
+                    "status": "finished",
+                    "insured": "0",
+                    "user": "1",
+                    "checked": 1,
+                    "verified": 0
+                }
+            ],
             "consultation": [
                 {
                     "cons_type": "consultation",
+                    "cons_order_id": "26",
                     "cons_u_p": "300",
                     "cons_quantity": 1,
                     "cons_item": "Consultation Infirmier (A2+A1)",
                     "cases": "0",
                     "service": "10",
                     "period": "June-2022",
-                    "date": "2022-06-14",
+                    "date": "2022-06-20",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "laboratoire": [],
+            "soins": [],
+            "hospitalisation": [],
+            "ambulance": [],
+            "musa_tm": [
+                {
+                    "tm_type": "TM",
+                    "tm_order_id": 1,
+                    "tm_u_p": 0,
+                    "tm_quantity": 1,
+                    "tm_item": "MUSA-TM",
+                    "cases": null,
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-20",
+                    "user": "1"
+                }
+            ],
+            "verification": {
+                "medicines": [],
+                "consommables": [
+                    {
+                        "item_veri_type": "consommables",
+                        "item_order_id": "27",
+                        "item_u_p": "100",
+                        "item_quantity": "1",
+                        "item": "CARNET",
+                        "date": "2022-06-20",
+                        "time": "2022-06-20 06:44:55",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ],
+                "consultation": [
+                    {
+                        "item_veri_type": "consultation",
+                        "item_order_id": "26",
+                        "item_u_p": "300",
+                        "item_quantity": 1,
+                        "item": "Consultation Infirmier (A2+A1)",
+                        "date": "2022-06-20",
+                        "time": "2022-06-20 06:35:15",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ],
+                "laboratoire": [],
+                "soins": [],
+                "hospitalisation": [],
+                "ambulance": [],
+                "musa_tm": [
+                    {
+                        "item_veri_type": "TM",
+                        "item_order_id": 1,
+                        "item_u_p": 0,
+                        "item_quantity": 1,
+                        "item": "MUSA-TM",
+                        "date": "2022-06-20",
+                        "time": "2022-06-20 06:33:50",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ]
+            }
+        },
+        "id": 2
+    },
+    {
+        "client_id": "12",
+        "day": "2022-06-20",
+        "insurance": "MUSA",
+        "chef": "MUKARWIBASIRA SAFINA",
+        "bene_insu_code": "1194270000277005",
+        "bene": "MUKARWIBASIRA SAFINA",
+        "insurance_code": "1194270000277005",
+        "sex": "F",
+        "age": "80",
+        "cat": "2",
+        "dep": "Z",
+        "period": "June-2022",
+        "checked": 0,
+        "verified": 1,
+        "done": 1,
+        "served": 1,
+        "items": {
+            "medicines": [],
+            "consommables": [],
+            "consultation": [
+                {
+                    "cons_type": "consultation",
+                    "cons_order_id": "25",
+                    "cons_u_p": "300",
+                    "cons_quantity": 1,
+                    "cons_item": "Consultation Infirmier (A2+A1)",
+                    "cases": "0",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-20",
                     "status": "finished",
                     "insured": "1",
                     "user": "1"
@@ -44,32 +228,713 @@
                 "consultation": [
                     {
                         "item_veri_type": "consultation",
+                        "item_order_id": "25",
                         "item_u_p": "300",
                         "item_quantity": 1,
                         "item": "Consultation Infirmier (A2+A1)",
-                        "date": "2022-06-14",
-                        "time": "2022-06-14 18:40:39",
+                        "date": "2022-06-20",
+                        "time": "2022-06-20 06:34:44",
                         "amounted": 0,
-                        "comment": "Consultation Infirmier (A2+A1)"
+                        "comment": ""
                     }
                 ],
                 "laboratoire": [],
                 "soins": [],
                 "hospitalisation": []
             }
+        },
+        "id": 3
+    },
+    {
+        "client_id": "7",
+        "day": "2022-06-20",
+        "voucher_no": 3,
+        "insurance": "MUSA",
+        "chef": "NSENGIYUMVA SIMON",
+        "bene_insu_code": "1200170101559098",
+        "bene": "MWIZA LIDIVINE",
+        "insurance_code": "1196680064371130",
+        "sex": "",
+        "age": "21",
+        "cat": "3",
+        "dep": "Z",
+        "period": "June-2022",
+        "checked": 1,
+        "verified": 1,
+        "done": 0,
+        "served": 1,
+        "items": {
+            "medicines": [],
+            "consommables": [
+                {
+                    "conso_type": "consommable",
+                    "conso_order_id": "30",
+                    "conso_u_p": "100",
+                    "conso_quantity": "1",
+                    "conso_item": "TRANSFER",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-20",
+                    "status": "finished",
+                    "insured": "0",
+                    "user": "1",
+                    "checked": 1,
+                    "verified": 0
+                }
+            ],
+            "consultation": [
+                {
+                    "cons_type": "consultation",
+                    "cons_order_id": "29",
+                    "cons_u_p": "0",
+                    "cons_quantity": 1,
+                    "cons_item": "Consultation Babyl",
+                    "cases": "0",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-20",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "laboratoire": [],
+            "soins": [],
+            "hospitalisation": [],
+            "ambulance": [],
+            "musa_tm": [
+                {
+                    "tm_type": "TM",
+                    "tm_order_id": 1,
+                    "tm_u_p": 200,
+                    "tm_quantity": 1,
+                    "tm_item": "MUSA-TM",
+                    "period": "June-2022",
+                    "date": "2022-06-20",
+                    "user": "1"
+                }
+            ],
+            "verification": {
+                "medicines": [],
+                "consommables": [
+                    {
+                        "item_veri_type": "consommables",
+                        "item_order_id": "30",
+                        "item_u_p": "100",
+                        "item_quantity": "1",
+                        "item": "TRANSFER",
+                        "date": "2022-06-20",
+                        "time": "2022-06-20 08:09:10",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ],
+                "consultation": [
+                    {
+                        "item_veri_type": "consultation",
+                        "item_order_id": "29",
+                        "item_u_p": "0",
+                        "item_quantity": 1,
+                        "item": "Consultation Babyl",
+                        "date": "2022-06-20",
+                        "time": "2022-06-20 06:48:30",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ],
+                "laboratoire": [],
+                "soins": [],
+                "hospitalisation": [],
+                "ambulance": [],
+                "musa_tm": [
+                    {
+                        "item_veri_type": "TM",
+                        "item_order_id": 1,
+                        "item_u_p": 200,
+                        "item_quantity": 1,
+                        "item": "MUSA-TM",
+                        "date": "2022-06-20",
+                        "time": "2022-06-20 06:46:15",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ]
+            },
+            "reference": "Nyamirambo"
+        },
+        "id": 4
+    },
+    {
+        "id": 1,
+        "client_id": "87",
+        "day": "2022-06-19",
+        "voucher_no": 2,
+        "insurance": "MUSA",
+        "chef": "twagiramungu j berchmas ",
+        "bene_insu_code": "1196870000998139",
+        "bene": "Mukamana leoncie ",
+        "insurance_code": "1197980002248055",
+        "sex": "F",
+        "age": "54",
+        "cat": "3",
+        "dep": "HZ",
+        "period": "June-2022",
+        "checked": 1,
+        "verified": 1,
+        "done": 0,
+        "served": 1,
+        "items": {
+            "medicines": [],
+            "consommables": [],
+            "consultation": [],
+            "laboratoire": [],
+            "soins": [],
+            "hospitalisation": [],
+            "ambulance": [],
+            "musa_tm": [
+                {
+                    "tm_type": "TM",
+                    "tm_order_id": 1,
+                    "tm_u_p": 200,
+                    "tm_quantity": 1,
+                    "tm_item": "MUSA-TM",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-19",
+                    "user": "1"
+                }
+            ],
+            "verification": {
+                "medicines": [],
+                "consommables": [],
+                "consultation": [],
+                "laboratoire": [],
+                "soins": [],
+                "hospitalisation": [],
+                "ambulance": [],
+                "musa_tm": [
+                    {
+                        "item_veri_type": "TM",
+                        "item_order_id": 1,
+                        "item_u_p": 200,
+                        "item_quantity": 1,
+                        "item": "MUSA-TM",
+                        "date": "2022-06-19",
+                        "time": "2022-06-19 18:40:37",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ]
+            }
         }
     },
     {
-        "client_id": "12",
-        "day": "2022-06-14",
+        "client_id": "78",
+        "day": "2022-06-19",
+        "voucher_no": 2,
         "insurance": "MUSA",
-        "chef": "MUKARWIBASIRA SAFINA",
-        "bene_insu_code": "1194270000277005",
-        "bene": "MUKARWIBASIRA SAFINA",
-        "insurance_code": "1194270000277005",
+        "chef": "nyambwana saidi",
+        "bene_insu_code": "1199370006599037",
+        "bene": "masenge salima",
+        "insurance_code": "1195580000660039",
         "sex": "F",
-        "age": "80",
+        "age": "29",
+        "cat": "3",
+        "dep": "HD",
+        "period": "June-2022",
+        "checked": 1,
+        "verified": 1,
+        "done": 0,
+        "served": 1,
+        "items": {
+            "medicines": [],
+            "consommables": [],
+            "consultation": [
+                {
+                    "cons_type": "consultation",
+                    "cons_order_id": "25",
+                    "cons_u_p": "300",
+                    "cons_quantity": 1,
+                    "cons_item": "Consultation Infirmier (A2+A1)",
+                    "cases": "0",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-20",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "laboratoire": [],
+            "soins": [],
+            "hospitalisation": [],
+            "ambulance": [],
+            "musa_tm": [
+                {
+                    "tm_type": "TM",
+                    "tm_order_id": 1,
+                    "tm_u_p": 200,
+                    "tm_quantity": 1,
+                    "tm_item": "MUSA-TM",
+                    "period": "June-2022",
+                    "date": "2022-06-19",
+                    "user": "1"
+                }
+            ],
+            "verification": {
+                "medicines": [],
+                "consommables": [],
+                "consultation": [
+                    {
+                        "item_veri_type": "consultation",
+                        "item_order_id": "25",
+                        "item_u_p": "300",
+                        "item_quantity": 1,
+                        "item": "Consultation Infirmier (A2+A1)",
+                        "date": "2022-06-20",
+                        "time": "2022-06-20 06:34:44",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ],
+                "laboratoire": [],
+                "soins": [],
+                "hospitalisation": [],
+                "ambulance": [],
+                "musa_tm": [
+                    {
+                        "item_veri_type": "TM",
+                        "item_order_id": 1,
+                        "item_u_p": 200,
+                        "item_quantity": 1,
+                        "item": "MUSA-TM",
+                        "date": "2022-06-19",
+                        "time": "2022-06-19 18:42:19",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ]
+            }
+        },
+        "id": 2
+    },
+    {
+        "client_id": "100",
+        "day": "2022-06-20",
+        "voucher_no": 3,
+        "insurance": "MUSA",
+        "chef": "Nyirarenzaho Marie Consolee",
+        "bene_insu_code": "1195770000578030",
+        "bene": "Nyirarenzaho Marie Consolee",
+        "insurance_code": "1195770000578030",
+        "sex": "F",
+        "age": "65",
+        "cat": "3",
+        "dep": "HD",
+        "period": "June-2022",
+        "checked": 1,
+        "verified": 1,
+        "done": 0,
+        "served": 1,
+        "items": {
+            "medicines": [
+                {
+                    "med_type": "med",
+                    "med_order_id": "37",
+                    "med_u_p": "18",
+                    "med_quantity": "5",
+                    "med_item": "NEEDLE HYPO UU 21 G",
+                    "med_id": "665",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-20",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1",
+                    "posologie": "TBD",
+                    "checked": 1,
+                    "verified": 0
+                },
+                {
+                    "med_type": "med",
+                    "med_order_id": "38",
+                    "med_u_p": "36",
+                    "med_quantity": "5",
+                    "med_item": "AMOXY CAPSULES 250 MG",
+                    "med_id": "662",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-20",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1",
+                    "posologie": "TBD",
+                    "checked": 1,
+                    "verified": 0
+                },
+                {
+                    "med_type": "med",
+                    "med_order_id": "39",
+                    "med_u_p": "576",
+                    "med_quantity": "15",
+                    "med_item": "CHLOREMPHENIRAMINE SYRUP",
+                    "med_id": "660",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-20",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1",
+                    "posologie": "TBD",
+                    "checked": 1,
+                    "verified": 0
+                }
+            ],
+            "consommables": [
+                {
+                    "conso_type": "consommable",
+                    "conso_order_id": "40",
+                    "conso_u_p": "1224",
+                    "conso_quantity": "1",
+                    "conso_item": "\tFil RsynthT(0)SPR 1\/",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-20",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1",
+                    "checked": 1,
+                    "verified": 0
+                },
+                {
+                    "conso_type": "consommable",
+                    "conso_order_id": "41",
+                    "conso_u_p": "230",
+                    "conso_quantity": "1",
+                    "conso_item": "\tsonde d aspiration",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-20",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1",
+                    "checked": 1,
+                    "verified": 0
+                }
+            ],
+            "consultation": [
+                {
+                    "cons_type": "consultation",
+                    "cons_order_id": "32",
+                    "cons_u_p": "300",
+                    "cons_quantity": 1,
+                    "cons_item": "Consultation Infirmier (A2+A1)",
+                    "cases": "0",
+                    "service": "1",
+                    "period": "June-2022",
+                    "date": "2022-06-20",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "laboratoire": [],
+            "soins": [],
+            "hospitalisation": [
+                {
+                    "hosp_type": "hospitalisation",
+                    "hosp_order_id": "34",
+                    "hosp_u_p": "180",
+                    "hosp_quantity": "1",
+                    "hosp_item": "hospitalisation salle commune ",
+                    "entry_date": "2022-06-20",
+                    "exit_date": "2022-06-20",
+                    "time": "2022-06-20 08:06:40",
+                    "service": "1",
+                    "status": "finished",
+                    "period": "June-2022",
+                    "date": " 2022-06-20",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "ambulance": [],
+            "musa_tm": [
+                {
+                    "tm_type": "TM",
+                    "tm_order_id": 1,
+                    "tm_u_p": 200,
+                    "tm_quantity": 1,
+                    "tm_item": "MUSA-TM",
+                    "period": "June-2022",
+                    "date": "2022-06-20",
+                    "user": "1"
+                }
+            ],
+            "verification": {
+                "medicines": [
+                    {
+                        "item_veri_type": "medicines",
+                        "item_order_id": "37",
+                        "item_u_p": "18",
+                        "item_quantity": "5",
+                        "item": "NEEDLE HYPO UU 21 G",
+                        "date": "2022-06-20",
+                        "time": "2022-06-20 17:27:38",
+                        "amounted": 0,
+                        "comment": ""
+                    },
+                    {
+                        "item_veri_type": "medicines",
+                        "item_order_id": "38",
+                        "item_u_p": "36",
+                        "item_quantity": "5",
+                        "item": "AMOXY CAPSULES 250 MG",
+                        "date": "2022-06-20",
+                        "time": "2022-06-20 17:27:46",
+                        "amounted": 0,
+                        "comment": ""
+                    },
+                    {
+                        "item_veri_type": "medicines",
+                        "item_order_id": "39",
+                        "item_u_p": "576",
+                        "item_quantity": "15",
+                        "item": "CHLOREMPHENIRAMINE SYRUP",
+                        "date": "2022-06-20",
+                        "time": "2022-06-20 17:27:55",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ],
+                "consommables": [
+                    {
+                        "item_veri_type": "consommables",
+                        "item_order_id": "40",
+                        "item_u_p": "1224",
+                        "item_quantity": "1",
+                        "item": "\tFil RsynthT(0)SPR 1\/",
+                        "date": "2022-06-20",
+                        "time": "2022-06-20 17:39:19",
+                        "amounted": 0,
+                        "comment": ""
+                    },
+                    {
+                        "item_veri_type": "consommables",
+                        "item_order_id": "41",
+                        "item_u_p": "230",
+                        "item_quantity": "1",
+                        "item": "\tsonde d aspiration",
+                        "date": "2022-06-20",
+                        "time": "2022-06-20 17:39:29",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ],
+                "consultation": [
+                    {
+                        "item_veri_type": "consultation",
+                        "item_order_id": "32",
+                        "item_u_p": "300",
+                        "item_quantity": 1,
+                        "item": "Consultation Infirmier (A2+A1)",
+                        "date": "2022-06-20",
+                        "time": "2022-06-20 08:19:29",
+                        "amounted": 0,
+                        "comment": ""
+                    },
+                    {
+                        "item_veri_type": "consultation",
+                        "item_order_id": "52",
+                        "item_u_p": "300",
+                        "item_quantity": 1,
+                        "item": "Consultation Infirmier (A2+A1)",
+                        "date": "2022-06-21",
+                        "time": "2022-06-21 05:53:31",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ],
+                "laboratoire": [
+                    {
+                        "item_veri_type": "laboratoire",
+                        "item_order_id": "51",
+                        "item_u_p": "270",
+                        "item_quantity": 1,
+                        "item": "GE\/RAME",
+                        "date": "2022-06-21",
+                        "time": "2022-06-21 05:51:25",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ],
+                "soins": [],
+                "hospitalisation": [
+                    {
+                        "item_veri_type": "hospitalisation",
+                        "item_order_id": "34",
+                        "item_u_p": "180",
+                        "item_quantity": "1",
+                        "item": "hospitalisation salle commune ",
+                        "date": " 2022-06-20",
+                        "time": "2022-06-20 08:06:40",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ],
+                "ambulance": [],
+                "musa_tm": [
+                    {
+                        "item_veri_type": "TM",
+                        "item_order_id": 1,
+                        "item_u_p": 200,
+                        "item_quantity": 1,
+                        "item": "MUSA-TM",
+                        "date": "2022-06-20",
+                        "time": "2022-06-20 08:17:52",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ]
+            }
+        },
+        "id": 5,
+        "2022-06-21": {
+            "laboratoire": [
+                {
+                    "lab_type": "laboratoire",
+                    "lab_order_id": "51",
+                    "lab_u_p": "270",
+                    "lab_quantity": 1,
+                    "lab_item": "GE\/RAME",
+                    "cases": null,
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-21",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "consultation": [
+                {
+                    "cons_type": "consultation",
+                    "cons_order_id": "52",
+                    "cons_u_p": "300",
+                    "cons_quantity": 1,
+                    "cons_item": "Consultation Infirmier (A2+A1)",
+                    "cases": "0",
+                    "service": "10",
+                    "period": "June-2022",
+                    "date": "2022-06-21",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ]
+        }
+    },
+    {
+        "client_id": "45",
+        "day": "2022-06-20",
+        "voucher_no": 4,
+        "insurance": "MUSA",
+        "chef": "Nsengiyumva Ezakarie ",
+        "bene_insu_code": "1199870100359034",
+        "bene": "Nyirahabimana liliane ",
+        "insurance_code": "1196580001309013",
+        "sex": "F",
+        "age": "23",
         "cat": "2",
+        "dep": "HD",
+        "period": "June-2022",
+        "checked": 1,
+        "verified": 1,
+        "done": 1,
+        "served": 1,
+        "items": {
+            "medicines": [],
+            "consommables": [],
+            "consultation": [
+                {
+                    "cons_type": "consultation",
+                    "cons_order_id": "44",
+                    "cons_u_p": "300",
+                    "cons_quantity": 1,
+                    "cons_item": "Consultation Infirmier (A2+A1)",
+                    "cases": "0",
+                    "service": "1",
+                    "period": "June-2022",
+                    "date": "2022-06-21",
+                    "status": "finished",
+                    "insured": "1",
+                    "user": "1"
+                }
+            ],
+            "laboratoire": [],
+            "soins": [],
+            "hospitalisation": [],
+            "ambulance": [],
+            "musa_tm": [
+                {
+                    "tm_type": "TM",
+                    "tm_order_id": 1,
+                    "tm_u_p": 200,
+                    "tm_quantity": 1,
+                    "tm_item": "MUSA-TM",
+                    "period": "June-2022",
+                    "date": "2022-06-20",
+                    "user": "1"
+                }
+            ],
+            "verification": {
+                "medicines": [],
+                "consommables": [],
+                "consultation": [
+                    {
+                        "item_veri_type": "consultation",
+                        "item_order_id": "44",
+                        "item_u_p": "300",
+                        "item_quantity": 1,
+                        "item": "Consultation Infirmier (A2+A1)",
+                        "date": "2022-06-21",
+                        "time": "2022-06-21 05:01:17",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ],
+                "laboratoire": [],
+                "soins": [],
+                "hospitalisation": [],
+                "ambulance": [],
+                "musa_tm": [
+                    {
+                        "item_veri_type": "TM",
+                        "item_order_id": 1,
+                        "item_u_p": 200,
+                        "item_quantity": 1,
+                        "item": "MUSA-TM",
+                        "date": "2022-06-20",
+                        "time": "2022-06-20 15:26:02",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ]
+            }
+        },
+        "id": 6
+    },
+    {
+        "client_id": "3111",
+        "day": "2022-06-20",
+        "insurance": "MUSA",
+        "chef": "MAZIMPAKA JEAN BAPTISTE",
+        "bene_insu_code": "1199580027353041",
+        "bene": "MAZIMPAKA JUNIOR CHRISTIAN\t1",
+        "insurance_code": "1195980000744080",
+        "sex": "M",
+        "age": "26",
+        "cat": "3",
         "dep": "Z",
         "period": "June-2022",
         "checked": 1,
@@ -92,72 +957,75 @@
                 "hospitalisation": []
             }
         },
-        "id": 2
+        "id": 7
     },
     {
-        "client_id": "3",
-        "day": "2022-06-14",
+        "client_id": "10",
+        "day": "2022-06-20",
         "insurance": "MUSA",
-        "chef": "MUHIRE ATHANASE",
-        "bene_insu_code": "",
-        "bene": "IRANKUNDA CHANCE",
-        "insurance_code": "1198480007334079",
+        "chef": "MUKASHAWIGA MARIE",
+        "bene_insu_code": "1196370000998078",
+        "bene": "MUKASHAWIGA MARIE",
+        "insurance_code": "1196370000998078",
         "sex": "F",
-        "age": "5",
-        "cat": "1",
+        "age": "59",
+        "cat": "2",
         "dep": "Z",
+        "period": "June-2022",
+        "checked": 0,
+        "verified": 0,
+        "done": 0,
+        "served": 0,
+        "items": {
+            "medicines": [],
+            "consommables": [],
+            "consultation": [],
+            "laboratoire": [],
+            "soins": [],
+            "hospitalisation": [],
+            "verification": {
+                "medicines": [],
+                "consommables": [],
+                "consultation": [],
+                "laboratoire": [],
+                "soins": [],
+                "hospitalisation": []
+            }
+        },
+        "id": 8
+    },
+    {
+        "client_id": "48",
+        "day": "2022-06-21",
+        "voucher_no": 9,
+        "insurance": "MUSA",
+        "chef": "Nsanzuwera Francais ",
+        "bene_insu_code": "",
+        "bene": "Muhawenimana  sandrine ",
+        "insurance_code": "1195680000446002",
+        "sex": "F",
+        "age": "11",
+        "cat": "2",
+        "dep": "HZ",
         "period": "June-2022",
         "checked": 1,
         "verified": 1,
-        "done": 1,
+        "done": 0,
         "served": 1,
         "items": {
-            "medicines": [
-                {
-                    "med_type": "med",
-                    "med_order_id": "58027",
-                    "med_u_p": "36",
-                    "med_quantity": "5",
-                    "med_item": "AMOXY CAPSULES 250 MG",
-                    "med_id": "662",
-                    "service": "10",
-                    "period": "June-2022",
-                    "date": "2022-06-14",
-                    "status": "finished",
-                    "insured": "1",
-                    "user": "1",
-                    "posologie": "TBD",
-                    "checked": 1,
-                    "verified": 0
-                }
-            ],
-            "consommables": [
-                {
-                    "conso_type": "consommable",
-                    "conso_order_id": "58028",
-                    "conso_u_p": "57.6",
-                    "conso_quantity": "1",
-                    "conso_item": "\tseringe de 5ml+aigui",
-                    "service": "10",
-                    "period": "June-2022",
-                    "date": "2022-06-14",
-                    "status": "finished",
-                    "insured": "1",
-                    "user": "1",
-                    "checked": 1,
-                    "verified": 0
-                }
-            ],
+            "medicines": [],
+            "consommables": [],
             "consultation": [
                 {
                     "cons_type": "consultation",
+                    "cons_order_id": "59",
                     "cons_u_p": "300",
                     "cons_quantity": 1,
                     "cons_item": "Consultation Infirmier (A2+A1)",
                     "cases": "0",
                     "service": "10",
                     "period": "June-2022",
-                    "date": "2022-06-14",
+                    "date": "2022-06-21",
                     "status": "finished",
                     "insured": "1",
                     "user": "1"
@@ -166,103 +1034,106 @@
             "laboratoire": [
                 {
                     "lab_type": "laboratoire",
-                    "lab_order_id": "58026",
-                    "lab_u_p": "1000",
+                    "lab_order_id": "60",
+                    "lab_u_p": "270",
                     "lab_quantity": 1,
-                    "lab_item": "Crachat BK",
+                    "lab_item": "GE\/RAME",
                     "cases": null,
                     "service": "10",
                     "period": "June-2022",
-                    "date": "2022-06-14",
+                    "date": "2022-06-21",
                     "status": "finished",
                     "insured": "1",
                     "user": "1"
-                }
-            ],
-            "soins": [
+                },
                 {
-                    "act_med_type": "soins",
-                    "act_med_order_id": "58029",
-                    "act_med_u_p": "240",
-                    "act_med_quantity": "1",
-                    "act_med_item": "Ablation des fils",
+                    "lab_type": "laboratoire",
+                    "lab_order_id": "61",
+                    "lab_u_p": "1013",
+                    "lab_quantity": 1,
+                    "lab_item": "Test de grossesse",
+                    "cases": null,
                     "service": "10",
                     "period": "June-2022",
-                    "date": "2022-06-14",
+                    "date": "2022-06-21",
                     "status": "finished",
                     "insured": "1",
                     "user": "1"
                 }
             ],
+            "soins": [],
             "hospitalisation": [],
+            "ambulance": [],
+            "musa_tm": [
+                {
+                    "tm_type": "TM",
+                    "tm_order_id": 1,
+                    "tm_u_p": 200,
+                    "tm_quantity": 1,
+                    "tm_item": "MUSA-TM",
+                    "period": "June-2022",
+                    "date": "2022-06-21",
+                    "user": "1"
+                }
+            ],
             "verification": {
-                "medicines": [
-                    {
-                        "item_veri_type": "medicines",
-                        "item_order_id": "58027",
-                        "item_u_p": "36",
-                        "item_quantity": "5",
-                        "item": "AMOXY CAPSULES 250 MG",
-                        "date": "2022-06-14",
-                        "time": "2022-06-14 19:53:38",
-                        "amounted": 0,
-                        "comment": ""
-                    }
-                ],
-                "consommables": [
-                    {
-                        "item_veri_type": "consommables",
-                        "item_order_id": "58028",
-                        "item_u_p": "57.6",
-                        "item_quantity": "1",
-                        "item": "\tseringe de 5ml+aigui",
-                        "date": "2022-06-14",
-                        "time": "2022-06-14 19:53:56",
-                        "amounted": 0,
-                        "comment": ""
-                    }
-                ],
+                "medicines": [],
+                "consommables": [],
                 "consultation": [
                     {
                         "item_veri_type": "consultation",
-                        "item_u_p": "200",
-                        "item_quantity": "1",
-                        "item": "Consultation Infirmier (A2 A1)",
-                        "date": "2022-06-14",
-                        "time": "2022-06-14 18:46:48",
-                        "amounted": "100",
-                        "comment": "Consultation Infirmier (A2 A1)"
+                        "item_order_id": "59",
+                        "item_u_p": "300",
+                        "item_quantity": 1,
+                        "item": "Consultation Infirmier (A2+A1)",
+                        "date": "2022-06-21",
+                        "time": "2022-06-21 09:43:28",
+                        "amounted": 0,
+                        "comment": ""
                     }
                 ],
                 "laboratoire": [
                     {
                         "item_veri_type": "laboratoire",
-                        "item_order_id": "58026",
-                        "item_u_p": "1000",
+                        "item_order_id": "60",
+                        "item_u_p": "270",
                         "item_quantity": 1,
-                        "item": "Crachat BK",
-                        "date": "2022-06-14",
-                        "time": "2022-06-14 19:53:10",
+                        "item": "GE\/RAME",
+                        "date": "2022-06-21",
+                        "time": "2022-06-21 12:49:29",
                         "amounted": 0,
                         "comment": ""
-                    }
-                ],
-                "soins": [
+                    },
                     {
-                        "item_veri_type": "soins",
-                        "item_order_id": "58029",
-                        "item_u_p": "240",
-                        "item_quantity": "1",
-                        "item": "Ablation des fils",
-                        "date": "2022-06-14",
-                        "time": "2022-06-14 19:54:04",
+                        "item_veri_type": "laboratoire",
+                        "item_order_id": "61",
+                        "item_u_p": "1013",
+                        "item_quantity": 1,
+                        "item": "Test de grossesse",
+                        "date": "2022-06-21",
+                        "time": "2022-06-21 12:49:37",
                         "amounted": 0,
                         "comment": ""
                     }
                 ],
-                "hospitalisation": []
+                "soins": [],
+                "hospitalisation": [],
+                "ambulance": [],
+                "musa_tm": [
+                    {
+                        "item_veri_type": "TM",
+                        "item_order_id": 1,
+                        "item_u_p": 200,
+                        "item_quantity": 1,
+                        "item": "MUSA-TM",
+                        "date": "2022-06-21",
+                        "time": "2022-06-21 09:41:49",
+                        "amounted": 0,
+                        "comment": ""
+                    }
+                ]
             }
         },
-        "id": 3
+        "id": 12
     }
 ]

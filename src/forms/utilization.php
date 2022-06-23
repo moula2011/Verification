@@ -62,7 +62,7 @@ include('./../../link.php');
         <br />
         Prisoner<br />
       </strong></td>
-      <td width="54"><strong><br />
+      <td width="54" style="color:red;"><strong><br />
         <br />
         Transfer Case<br />
       </strong></td>
@@ -155,7 +155,9 @@ include('./../../link.php');
     <?php 
       $i=0; foreach($consult as $util):  $i++;
       foreach($util->items->verification->consultation  as $consult):endforeach;
+      foreach($util->items->consommables  as $consum):endforeach;
       foreach($util->items->verification->hospitalisation as $hosp):endforeach;
+      if(empty($util->items->consommables))
     ?>
     <tr>
       <td class="medi-btn text-center"><?= $i?></td>
@@ -179,9 +181,9 @@ include('./../../link.php');
       <td class="medi-btn p-2 text-center"><?php if($util->dep == "HD"){echo $dep=1 ;}else{echo 0;} ?></td>
       <td class="medi-btn p-2 text-center"><?php if($hosp->item_quantity <= 0){echo $outp = 1 ;}else{echo 0;} ?></td>
       <td class="medi-btn p-2 text-center"><?php if($hosp->item_quantity != 0 ){echo $inp=1 ;}else{echo 0 ;} ?></td>
-      <td><?= 0;?></td>
-      <td><?= 0;?></td>
-      <td><?= 0;?></td>
+      <td><?= 0;//prison?></td>
+      <td><?php if(empty($util->items->consommables)){echo 0;}else{ if($consum->conso_item == "TRANSFER"){$trans=1; echo $trans; }else{echo 0;}}//transfert?></td>
+      <td><?= 0;//emergency?></td>
       <td><?= 0;?></td>
       <td><?= 0;?></td>
       <td><?= 0;?></td>

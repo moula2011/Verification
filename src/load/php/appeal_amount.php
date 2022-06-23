@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(1|0);
 include 'link.php';
 $consult =json_decode(file_get_contents('../../../data/rugarama.json'));
 
@@ -17,47 +17,13 @@ foreach($consult as $check):
     $days_done_to_veri += $check->done;
     $served += $check->served;
     $done += $check->done; 
-    foreach($check->items->consultation as $consul):
-        if($check->period == $period){ 
-            $cup+=$consul->cons_u_p; 
-        }
-    endforeach;
-
-    foreach($check->items->laboratoire as $labo): 
-        if($check->period == $period){ 
-            $lab+=$labo->lab_u_p; 
-        }
-    endforeach;
-    foreach($check->items->medicines as $meds): 
-        if($check->period == $period){ 
-            $mqt+=$meds->med_quantity; 
-            $mup+=$meds->med_u_p; 
-        }
-    endforeach;
-    foreach($check->items->consommables as $cons): 
-        if($check->period == $period){ 
-            $consoqt+=$cons->conso_quantity; 
-            $consup+=$cons->conso_u_p; 
-        } 
-    endforeach;
-    foreach($check->items->soins as $soin): 
-        if($check->period == $period){ 
-            $soinqt+=$soin->act_med_quantity; 
-            $soinup+=$soin->act_med_u_p;  
-        }
-    endforeach;
-    foreach($check->items->hospitalisation as $hosp): 
-        if($check->period == $period){ 
-            $hospqt+=$hosp->hosp_quantity; 
-            $hospup+=$hosp->hosp_u_p;  
-        }
-    endforeach;
     foreach($check->items->verification->consultation as $veri):if($check->period == $period){ $veriamounted+=$veri->amounted;}endforeach;
     foreach($check->items->verification->medicines as $veri):if($check->period == $period){ $veriamounted+=$veri->amounted;}endforeach;
     foreach($check->items->verification->consommables as $veri):if($check->period == $period){ $veriamounted+=$veri->amounted;}endforeach;
     foreach($check->items->verification->laboratoire as $veri):if($check->period == $period){ $veriamounted+=$veri->amounted;}endforeach;
     foreach($check->items->verification->soins as $veri):if($check->period == $period){ $veriamounted+=$veri->amounted;}endforeach;
     foreach($check->items->verification->hospitalisation as $veri):if($check->period == $period){ $veriamounted+=$veri->amounted;}endforeach;
+    foreach($check->items->verification->ambulance as $veri):if($check->period == $period){ $veriamounted+=$veri->amounted;}endforeach;
 endforeach; 
     echo $veriamounted;
 ?>

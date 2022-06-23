@@ -1,4 +1,5 @@
 <?php
+error_reporting(1|0);
 
 include 'link.php';
 $consult =json_decode(file_get_contents('../../../data/rugarama.json'));

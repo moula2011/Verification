@@ -147,119 +147,128 @@
                                                     <td>
                                                         <?php 
                                                             $k=0;$k=0;
-                                                            foreach($uncheck->items->consultation as $consu):endforeach; 
+                                                            foreach($uncheck->items->consultation as $consu): 
                                                                 if($uncheck->checked == 1 && $consu->insured == 1){
                                                                     $k++;
                                                                     echo '&nbsp;<input type="hidden" name="checkup[]" value="'.$consu->cons_item.'" class="ml-2" id="'.$consu->cons_item.'">
                                                                     <b> '.$k.'-</b>
-                                                                    <label style="width: 86px; height: 20px;" for="'.$consu->cons_item.'" class="text-md ml-2 mt-3 text-black medi_limit_span_check ">';
-                                                                    if($uncheck->checked == 1 && $consu->insured == 1){$consul=count($uncheck->items->consultation); }
-                                                                    echo 'Consult...:<b class="text-md ml-2">'.$consul; 
-                                                                    echo '</b></label>';
-                                                                    echo '<label for="'.$consu->cons_item.'" class="w-8 text-md my-2 ">
-                                                                    (<b>Tot: </b><b style="color: red;">'.$consu->cons_u_p.'</b> Rwf)
+                                                                    <label style="width: 196px; height: 20px;" for="'.$consu->cons_item.'" class="text-md ml-2 mt-3 text-black medi_limit_span_check ">';
+                                                                    echo $consu->cons_item; 
+                                                                    echo '</label>';
+                                                                    echo '<label for="'.$consu->cons_item.'" class="w-28 text-md my-2 ml-3 ">
+                                                                    (<b>U-P: </b><b style="color: red;">'.$consu->cons_u_p.'</b> Rwf)
                                                                     </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                                                                     echo'<br>';
 
-                                                                }
-                                                            
+                                                                }else{echo 0;}
+                                                            endforeach;
                                                         ?> 
                                                     </td>
                                                     <td>
                                                         <?php 
-                                                            foreach($uncheck->items->medicines as $meds): endforeach;
-                                                            if($uncheck->checked == 1 && $meds->insured == 1){$med=count($uncheck->items->medicines);
-                                                                $k++;
-                                                                echo '&nbsp;<input type="hidden" name="checkup[]" value="'.$meds->med_item.'" class="ml-2" id="'.$meds->med_item.'">
-                                                                <b> '.$k.'-</b>
-                                                                <label style="width: 86px; height: 20px;" for="'.$meds->med_item.'" class="text-md ml-2 mt-3 text-black medi_limit_span_check ">';
-                                                                echo'Medic...:<b class="text-md ml-2">'.$med; 
-                                                                echo '</label>';
-                                                                echo '<label for="'.$meds->med_item.'" class="w-28 text-md my-2 ml-3 ">
-                                                                (<b>Tot: </b><b style="color: red;">'.$meds->med_u_p.'</b> Rwf)
-                                                                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-                                                                echo'<br>';
-                                                            }
-                                                        ?>                                                                                
-                                                    </td>
-
-                                                    <td class="">
-                                                        <?php 
-                                                            foreach($uncheck->items->consommables as $consoms): endforeach;
-                                                                if($uncheck->checked == 1 && $consoms->insured == 1){$conso= count($uncheck->items->consommables);
-                                                                    $k++;
-                                                                    echo '<input type="hidden" name="checkup[]" value="'.$consoms->conso_item.'" class=" mr-1 my-1" id="'.$consoms->conso_item.'">
+                                                            if($uncheck->checked == 1){
+                                                                foreach($uncheck->items->medicines as $meds): 
+                                                                    // if($meds->checked == 1){ 
+                                                                        $k++;
+                                                                    echo '&nbsp;<input type="hidden" name="checkup[]" value="'.$meds->med_item.'" class="ml-2" id="'.$meds->med_item.'">
                                                                     <b> '.$k.'-</b>
-                                                                    <label style="width: 86px; height: 20px;" for="'.$consoms->conso_item.'" class="text-md mt-2 text-black medi_limit_span_check ">';
-                                                                    echo'Consom...:<b class="text-md ml-2">'.$conso;
+                                                                    <label style="width: 196px; height: 20px;" for="'.$meds->med_item.'" class="text-md ml-2 mt-3 text-black medi_limit_span_check ">';
+                                                                    echo $meds->med_item; 
                                                                     echo '</label>';
-                                                                    echo '<label for="'.$consoms->conso_item.'" class="text-md mt-2 ml-3 ">
-                                                                    (<b>Tot: </b><b style="color: red;">'.$consoms->conso_u_p.'</b> Rwf)
-                                                                    </label>';
-                                                                    echo'<br>';
-                                                                }
-                                                            
-                                                        ?>
+                                                                    echo '<label for="'.$meds->med_item.'" class="w-28 text-md my-2 ml-3 ">
+                                                                    (<b>'.$meds->med_quantity.'</b>) (<b>U-P: </b><b style="color: red;">'.$meds->med_u_p.'</b> Rwf)
+                                                                    </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+                                                                    // }
+                                                                echo'<br>';
+
+                                                                endforeach;
+                                                            }else{echo 0;}
+                                                        ?>                                                                                
                                                     </td>
                                                 </tr >
                                                 <tr class="">
-                                                    <td>
-                                                        <?php 
-                                                            $k=0;$k=0;
-                                                            foreach($uncheck->items->laboratoire as $labo):  endforeach; 
-                                                            if($uncheck->checked == 1 && $labo->insured == 1){$lab= count($uncheck->items->laboratoire);
-                                                                $k++;
-                                                                echo '&nbsp;<input type="hidden" name="checkup[]" value="'.$labo->lab_item.'" class="ml-2" id="'.$labo->lab_item.'">
-                                                                <b> '.$k.'-</b>
-                                                                <label style="width: 86px; height: 20px;" for="'.$labo->lab_item.'" class="text-md ml-2 mt-3 text-black medi_limit_span_check ">';
-                                                                echo 'labo...:<b class="text-md ml-2">'.$lab; 
-                                                                echo '</b></label>';
-                                                                echo '<label for="'.$labo->lab_item.'" class="w-8 text-md my-2 ">
-                                                                (<b>Tot: </b><b style="color: red;">'.$labo->lab_u_p.'</b> Rwf)
-                                                                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-                                                                echo'<br>';
-
-                                                            }
-                                                            
-                                                        ?> 
-                                                    </td>
-                                                    <td>
-                                                        <?php 
-                                                            foreach($uncheck->items->soins as $soins):  endforeach;
-                                                            if($uncheck->checked == 1 && $soins->insured == 1){$soin=count($uncheck->items->soins);
-                                                                $k++;
-                                                                echo '&nbsp;<input type="hidden" name="checkup[]" value="'.$soins->act_med_item.'" class="ml-2" id="'.$soins->act_med_item.'">
-                                                                <b> '.$k.'-</b>
-                                                                <label style="width: 86px; height: 20px;" for="'.$soins->act_med_item.'" class="text-md ml-2 mt-3 text-black medi_limit_span_check ">';
-                                                                echo'Medic...:<b class="text-md ml-2">'.$soin; 
-                                                                echo '</label>';
-                                                                echo '<label for="'.$soins->act_med_item.'" class="w-28 text-md my-2 ml-3 ">
-                                                                (<b>Tot: </b><b style="color: red;">'.$soins->act_med_u_p.'</b> Rwf)
-                                                                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-                                                                echo'<br>';
-                                                            }
-                                                        ?>                                                                                
-                                                    </td>
-
                                                     <td class="">
                                                         <?php 
-                                                            foreach($uncheck->items->hospitalisation as $hosp): endforeach;
-                                                                if($uncheck->checked == 1 && $hosp->insured == 1){$hosps= count($uncheck->items->hospitalisation);
+                                                            foreach($uncheck->items->consommables as $consoms): 
+                                                                if($uncheck->checked == 1 && $consoms->insured == 1){
                                                                     $k++;
-                                                                    echo '<input type="hidden" name="checkup[]" value="'.$hosp->hosp_item.'" class=" mr-1 my-1" id="'.$hosp->hosp_item.'">
+                                                                    echo '<input type="hidden" name="checkup[]" value="'.$consoms->conso_item.'" class="ml-2 mr-1 my-1" id="'.$consoms->conso_item.'">
                                                                     <b> '.$k.'-</b>
-                                                                    <label style="width: 86px; height: 20px;" for="'.$hosp->hosp_item.'" class="text-md mt-2 text-black medi_limit_span_check ">';
-                                                                    echo'Consom...:<b class="text-md ml-2">'.$hosps;
+                                                                    <label for="'.$consoms->conso_item.'" class="text-md ml-2 mt-2 text-black medi_limit_span_check ">';
+                                                                    echo $consoms->conso_item; 
                                                                     echo '</label>';
-                                                                    echo '<label for="'.$hosp->hosp_item.'" class="text-md mt-2 ml-3 ">
-                                                                    (<b>Tot: </b><b style="color: red;">'.$hosp->hosp_u_p.'</b> Rwf)
+                                                                    echo '<label for="'.$consoms->conso_item.'" class="text-md mt-2 ml-3 ">
+                                                                    (<b>'.$consoms->conso_quantity.'</b>) (<b>U-P: </b><b style="color: red;">'.$consoms->conso_u_p.'</b> Rwf)
                                                                     </label>';
                                                                     echo'<br>';
                                                                 }
-                                                            
+                                                            endforeach;
                                                         ?>
                                                     </td>
-                                                </tr >
+                                                    <td class="">
+                                                        <?php 
+                                                            if($uncheck->checked == 1){
+                                                                foreach($uncheck->items->laboratoire as $labo): 
+                                                                    // if($labo->checked == 1){ 
+                                                                        $k++;
+                                                                    echo '<input type="hidden" name="checkup[]" value="'.$labo->lab_item.'" class="ml-2 mr-1 my-1" id="'.$labo->lab_item.'">
+                                                                    <b> '.$k.'-</b>
+                                                                    <label for="'.$labo->lab_item.'" class="text-md ml-2 mt-2 text-black medi_limit_span_check ">';
+                                                                    echo $labo->lab_item; 
+                                                                    echo '</label>';
+                                                                    echo '<label for="'.$labo->lab_item.'" class="text-md mt-2 ml-3 ">
+                                                                    (<b>U-P: </b><b style="color: red;">'.$labo->lab_u_p.'</b> Rwf)
+                                                                </label>';
+                                                            // }
+                                                                echo'<br>';
+                                                                endforeach;
+                                                            }else{echo 0;}
+                                                        ?>
+                                                    </td>
+                                                </tr>
+                                                <tr class="">
+                                                    <td class="">
+                                                        <?php 
+                                                            if($uncheck->checked == 1){
+                                                                foreach($uncheck->items->soins as $soins): 
+                                                                    // if($soins->checked == 1){ 
+                                                                        $k++;
+                                                                    echo '<input type="hidden" name="checkup[]" value="'.$soins->act_med_item.'" class="ml-2 mr-1 my-1" id="'.$soins->act_med_item.'">
+                                                                    <b> '.$k.'-</b>
+                                                                    <label for="'.$soins->act_med_item.'" class="text-md ml-2 mt-2 text-black medi_limit_span_check ">';
+                                                                    echo $soins->act_med_item; 
+                                                                    echo '</label>';
+                                                                    echo '<label for="'.$soins->act_med_item.'" class="text-md mt-2 ml-3 ">
+                                                                    (<b>'.$soins->act_med_quantity.'</b>) (<b>U-P: </b><b style="color: red;">'.$soins->act_med_u_p.'</b> Rwf)
+                                                                </label>';
+                                                            // }
+                                                                echo'<br>';
+
+                                                                endforeach;
+                                                            }else{echo 0;}
+                                                        ?>
+                                                    </td>
+                                                    <td class="">
+                                                        <?php 
+                                                            if($uncheck->checked == 1){
+                                                                foreach($uncheck->items->hospitalisation as $hosp): 
+                                                                    // if($hosp->checked == 1){ 
+                                                                        $k++;
+                                                                    echo '<input type="hidden" name="checkup[]" value="'.$hosp->hosp_item.'" class="ml-2 mr-1 my-1" id="'.$hosp->hosp_item.'">
+                                                                    <b> '.$k.'-</b>
+                                                                    <label for="'.$hosp->hosp_item.'" class="text-md ml-2 mt-2 text-black medi_limit_span_check ">';
+                                                                    echo $hosp->hosp_item; 
+                                                                    echo '</label>';
+                                                                    echo '<label for="'.$hosp->hosp_item.'" class="text-md mt-2 ml-3 ">
+                                                                    (<b>'.$hosp->hosp_quantity.'</b>)(<b>U-P: </b><b style="color: red;">'.$hosp->hosp_u_p.'</b> Rwf)
+                                                                </label>';
+                                                            // }
+                                                                echo'<br>';
+                                                                endforeach;
+                                                            }else{echo 0;}
+                                                        ?>
+                                                    </td>
+                                                </tr>
                                             </table>
                                         </div>
                                             
