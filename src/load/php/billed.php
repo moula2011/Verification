@@ -12,6 +12,7 @@ $period=$_REQUEST['period'];
     $soinqt=0; $soinup=0; $sointot=0; $un_soinqt=0; $un_soinup=0; $un_sointot=0; 
     $hospqt=0; $hospup=0; $hosptot=0;$un_hospqt=0; $un_hospup=0; $un_hosptot=0;$unveri_tot=0; 
     $ambuqt=0; $ambuup=0; $ambutot=0;
+    $tmqt=0; $tmup=0; $tmtot=0;
     $veriqt=0; $veriup=0; $veritot=0;$served=0; 
     $veriamounted=0;$done=0;$days_left=0;$days_done_to_veri=0;
 
@@ -27,11 +28,12 @@ $period=$_REQUEST['period'];
         foreach($check->items->hospitalisation as $hosp):if($check->period == $period && $hosp->insured !=0){ $hospqt+=$hosp->hosp_quantity; $hospup+=$hosp->hosp_u_p; } endforeach;
         //============ Ambulance ==========================
         foreach($check->items->ambulance as $ambu):if($check->period == $period){ $ambuqt+=$ambu->ambu_quantity; $ambuup+=$ambu->ambu_u_p; } endforeach;
+        foreach($check->items->musa_tm as $tm):if($check->period == $period){ $tmup+=$tm->tm_u_p; } endforeach;
     endforeach;   
 
-    $mtot=$mqt*$mup;$consotot=$consoqt*$consup;$sointot=$soinqt*$soinup;$hosptot=$hospqt*$hospup;$ambutot=$ambuqt*$ambuup; 
+    $mtot=$mqt*$mup;$consotot=$consoqt*$consup;$sointot=$soinqt*$soinup;$hosptot=$hospqt*$hospup;$ambutot=$ambuqt*$ambuup;$tmtot=$tmup; 
     
-    $tot=$cup+$lab+$mtot+$consotot+$sointot+$hosptot+$ambutot; 
+    $tot=$cup+$lab+$mtot+$consotot+$sointot+$hosptot+$ambutot-$tmtot; 
 
     echo $tot ;
 

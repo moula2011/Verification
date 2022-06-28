@@ -535,7 +535,7 @@ error_reporting(1|0);
 
             <!-- ================== ni hano boby itangirira ===================================-->
 
-            <div class="veri h-4/5 mb-8" style="background-color:#999; height:698px; overflow: hidden;">
+            <div class="veri h-4/5 mb-8" style="background-color:whitesmoke; height:698px; overflow: hidden;">
                 <div class="check flex flex-row">
                     <div class="bg-indigo-100 mx-4 mt-2 medi-client rounded-md" style="background-color:#C9DFEC; height:680px; width: 460px; overflow: hidden;">
                         <div class="flex flex-row rounded-md">

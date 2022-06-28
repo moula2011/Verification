@@ -151,7 +151,7 @@ error_reporting(1|0)
 
             <!--=============================== page zosee zifite ibyaruguru============================= -->
             <?php 
-                $cup=0;$un_cup=0; $lab=0;$un_lab=0; $tot=0; 
+                $cup=0;$un_cup=0; $lab=0;$un_lab=0; $tot=0; $tmup=0;$tmtot=0;
                 $mqt=0; $mup=0; $mtot=0; $un_mqt=0; $un_mup=0; $un_mtot=0; 
                 $consoqt=0; $consup=0; $consotot=0; $un_consoqt=0; $un_consup=0; $un_consotot=0; 
                 $soinqt=0; $soinup=0; $sointot=0; $un_soinqt=0; $un_soinup=0; $un_sointot=0; 
@@ -185,12 +185,13 @@ error_reporting(1|0)
                     //============ Ambulance ==========================
                     foreach($check->items->ambulance as $ambu): if($check->day == $today && $check->done == 0){ $un_ambuqt+=$ambu->ambu_quantity; $un_ambuup+=$ambu->ambu_u_p; } endforeach;
                     foreach($check->items->ambulance as $ambu):if($check->day == $today){ $ambuqt+=$ambu->ambu_quantity; $ambuup+=$ambu->ambu_u_p; } endforeach;
+                    foreach($check->items->musa_tm as $tm):if($check->day == $today){ $tmup+=$tm->tm_u_p; } endforeach;
 
                 endforeach;   
             
-                $mtot=$mqt*$mup; $consotot=$consoqt*$consup; $sointot=$soinqt*$soinup; $hosptot=$hospqt*$hospup; $ambutot=$ambuqt*$ambuup;  
+                $mtot=$mqt*$mup; $consotot=$consoqt*$consup; $sointot=$soinqt*$soinup; $hosptot=$hospqt*$hospup; $ambutot=$ambuqt*$ambuup; $tmtot =$tmup;
                 
-                $tot=$cup+$lab+$mtot+$consotot+$sointot+$hosptot+$ambutot; 
+                $tot=$cup+$lab+$mtot+$consotot+$sointot+$hosptot+$ambutot-$tmtot; 
                 if($tot !=0)
                 $deducted = $veriamounted*100/$tot;
                 else
