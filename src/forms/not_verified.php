@@ -516,9 +516,10 @@ error_reporting(1|0);
             <div class="flex flex-row w-3/5 " style="border-top: 1px solid #52dcff;">
                 <a href="../../cbhi.php" class="mt-4 mx-4 text-2xl">Dashboard</a>
                 <a href="check.php">
+                    <?php $v_c=0; foreach($consult as $check): $v_c += $check->checked;$v_v += $check->verified; endforeach; $v_check =$v_c;?>
                     <?php $v_c_today=0; foreach($consult as $check): if($check->day == $today && $check->checked ==1){$v_c_today += $check->checked;$v_v_today += $check->verified; } endforeach; $c_today =$v_c_today;?>
                     <div class="medi-magic medi-magic-btn my-2 mx-2 p-1 bg-gradient-to-r bg-gray-light rounded-md">&nbsp; 
-                        <b class="text-3xl text-center" id="unchecked"><?= $c_today ?></b> &nbsp;Unchecked
+                        <b class="text-3xl text-center" id="checked"><?= $c_today ?></b> &nbsp;Unchecked
                     </div> 
                 </a>                 
                 <a href="not_verified.php">

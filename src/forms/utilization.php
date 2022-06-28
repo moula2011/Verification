@@ -9,21 +9,20 @@ include('./../../link.php');
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/css/main.css">
-    <link rel="stylesheet" href="src/css/medi-style.css">
-    <link rel="icon" href="img/favicon.ico">
-    <script src="jquery-3.3.1.min.js"></script>
-    <title>.::CBHI::.</title>
-
-<title>DATA COLLECTION TOOL ON UTMS-AUGUST 2019</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/css/main.css">
+  <link rel="stylesheet" href="src/css/medi-style.css">
+  <link rel="icon" href="img/favicon.ico">
+  <script src="jquery-3.3.1.min.js"></script>
+  <title>.::CBHI::.</title>
 </head>
 
 <body>
   <?php
     $consult =json_decode(file_get_contents('../../data/rugarama.json'));
+    $drugs =json_decode(file_get_contents('../../data/drugs.json'));
   ?>
 <div style="width:142%; margin: 2px;">
   <table width="0" style="margin: 20px;font-size:15px; border-collapse: collapse;"  border="1" cellspacing="0" cellpadding="3">
@@ -155,16 +154,20 @@ include('./../../link.php');
     <?php 
       $i=0; foreach($consult as $util):  $i++;
       foreach($util->items->verification->consultation  as $consult):endforeach;
-      foreach($util->items->consommables  as $consum):endforeach;
       foreach($util->items->verification->hospitalisation as $hosp):endforeach;
-      if(empty($util->items->consommables))
+      foreach($util->items->verification->consommables as $conso):endforeach;
+      foreach($util->items->verification->ambulance as $ambu):endforeach;
+      foreach($util->items->verification->laboratoire as $labo):endforeach;
+      foreach($util->items->verification->laboratoire as $labo):endforeach;
+      foreach($util->items->verification->musa_tm as $musa):endforeach;
+      
     ?>
     <tr>
       <td class="medi-btn text-center"><?= $i?></td>
       <td class="medi-btn p-2"><?= $util->day?></td>
       <td class="medi-btn p-2"><?= $util->bene?></td>
-      <td class="medi-btn p-2"><?php if($util->sex == "M") {echo $m=1;}?></td>
-      <td class="medi-btn p-2"><?php if($util->sex == "F") {echo $f=1;}?></td>
+      <td class="medi-btn p-2"><?php if($util->sex == "M") {echo $m=1;}else{echo 0;}?></td>
+      <td class="medi-btn p-2"><?php if($util->sex == "F") {echo $f=1;}else{echo 0;}?></td>
       <td class="medi-btn p-2"><?php if($consult->cases == "0") {echo 1;}else{echo 0;}?></td>
       <td class="medi-btn p-2"><?php if($consult->cases == "1") {echo 1;}else{echo 0;}?></td>
       <td class="medi-btn p-2"><?php if($util->served == "1") {echo $patot=1;}else{echo 0;}?></td>
@@ -182,18 +185,18 @@ include('./../../link.php');
       <td class="medi-btn p-2 text-center"><?php if($hosp->item_quantity <= 0){echo $outp = 1 ;}else{echo 0;} ?></td>
       <td class="medi-btn p-2 text-center"><?php if($hosp->item_quantity != 0 ){echo $inp=1 ;}else{echo 0 ;} ?></td>
       <td><?= 0;//prison?></td>
-      <td><?php if(empty($util->items->consommables)){echo 0;}else{ if($consum->conso_item == "TRANSFER"){$trans=1; echo $trans; }else{echo 0;}}//transfert?></td>
+      <td><?php if (!empty($util->items->verification->consommables )) { if($conso->item == "TRANSFER"){echo $trans = 1;}else{echo 0;}} else {echo 0;}//transfert?></td>
       <td><?= 0;//emergency?></td>
+      <td><?php if(!empty($util->items->verification->ambulance )) {echo $ambul = 1;}else {echo 0;}?></td>
+      <td><?php if (!empty($util->items->verification->consommables )) { if($conso->item == "TRANSFER"){echo $trans = 1;}else{echo 0;}} else {echo 0;}//transfert?></td>
+      <td><?=0;?></td>
       <td><?= 0;?></td>
       <td><?= 0;?></td>
       <td><?= 0;?></td>
+      <td><?php if (!empty($hosp->item_quantity )){echo $hosp =1;}else{echo 0;}?></td>
       <td><?= 0;?></td>
       <td><?= 0;?></td>
-      <td><?= 0;?></td>
-      <td><?= 0;?></td>
-      <td><?= 0;?></td>
-      <td><?= 0;?></td>
-      <td><?= 0;?></td>
+      <td><?php if (!empty($util->items->verification->laboratoire) ){echo $labo =1;}else{echo 0;}?></td>
       <td><?= 0;?></td>
       <td><?= 0;?></td>
       <td><?= 0;?></td>
@@ -202,7 +205,7 @@ include('./../../link.php');
       <td><?= 0;?></td>
       <td><?= 0;?></td>
       <td>&nbsp;</td>
-      <td><?= 0;?></td>
+      <td><?php if (!empty($util->items->verification->musa_tm)){ if($musa->tm_u_p !=0){$tm = $musa->tm_u_p; echo $tm;}else{ echo 0; }}?></td>
       <td>&nbsp;</td>
     </tr>
     <?php  ?>
