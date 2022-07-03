@@ -4,6 +4,7 @@ ini_set('memory_limit', '5000M');
 ini_set('max_execution_time', 0);
 error_reporting(1|0);
 include('./../../link.php'); 
+$period = $_GET['period'];
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -43,10 +44,10 @@ include('./../../link.php');
         Application<br />
         Number<br />
       </strong></td>
-      <td colspan="3"><strong>#Patients/    Distribution by Age  </strong></td>
-      <td colspan="4"><strong>#Patients/    Distribution by Ubudehe Category </strong></td>
+      <td colspan="3"><strong>#Patients/    Distribution by Age</strong></td>
+      <td colspan="4"><strong>#Patients/    Distribution by Ubudehe Category</strong></td>
       <td width="45"><strong>Z<br />
-        (Zone) </strong></td>
+        (Zone)</strong></td>
       <td width="39"><strong>HZ<br />
         (Hors Zone)</strong></td>
       <td width="48"><strong><br />
@@ -54,9 +55,9 @@ include('./../../link.php');
         (Hors<br />
         District)</strong></td>
       <td width="51"><strong><br />
-        Out Patients </strong></td>
+        Out Patients</strong></td>
       <td width="45"><strong><br />
-        In Patient </strong></td>
+        In Patient</strong></td>
       <td width="50"><strong><br />
         <br />
         Prisoner<br />
@@ -82,14 +83,14 @@ include('./../../link.php');
       <td width="33"><strong><br />
         MRI Case<br />
       </strong></td>
-      <td width="88"><strong> Days of Hospitalization<br />
+      <td width="88"><strong>Days of Hospitalization<br />
         <br />
         <br />
         <br />
       </strong></td>
       <td width="66"><strong>Medicines    subjected of stock out <br />
         (to be specified)</strong></td>
-      <td width="68"><strong>Number    of patients who did not received all drugs prescribed </strong></td>
+      <td width="68"><strong>Number    of patients who did not received all drugs prescribed</strong></td>
       <td width="72"><strong>Laboratory    Tests not provided <br />
         (to be specified)</strong></td>
       <td width="66"><strong>Number    of patients who did not received all laboratory tests precribed</strong></td>
@@ -152,7 +153,9 @@ include('./../../link.php');
       <td>&nbsp;</td>
     </tr>
     <?php 
-      $i=0; foreach($consult as $util):  $i++;
+      $i=0; foreach($consult as $util):
+        if($util->period == $period){
+        $i++;
       foreach($util->items->verification->consultation  as $consult):endforeach;
       foreach($util->items->verification->hospitalisation as $hosp):endforeach;
       foreach($util->items->verification->consommables as $conso):endforeach;
@@ -173,7 +176,7 @@ include('./../../link.php');
       <td class="medi-btn p-2"><?php if($util->served == "1") {echo $patot=1;}else{echo 0;}?></td>
       <td class="medi-btn p-2"><?= $util->insurance_code?></td>
       <td class="medi-btn p-2 text-center"><?php if($util->age < 5){echo $age=1 ;}else{echo 0;} ?></td>
-      <td class="medi-btn p-2 text-center"><?php if($util->age <19){echo $age=1 ;}else{echo 0;} ?></td>
+      <td class="medi-btn p-2 text-center"><?php if($util->age >= 5 && $util->age <= 19){echo $age=1 ;}else{echo 0;} ?></td>
       <td class="medi-btn p-2 text-center"><?php if($util->age >= 20){echo $age=1 ;}else{echo 0;} ?></td>
       <td class="medi-btn p-2 text-center"><?php if($util->cat == 1){echo $cat=1 ;}else{echo 0;} ?></td>
       <td class="medi-btn p-2 text-center"><?php if($util->cat == 2){echo $cat=1 ;}else{echo 0;} ?></td>
@@ -209,7 +212,7 @@ include('./../../link.php');
       <td>&nbsp;</td>
     </tr>
     <?php  ?>
-    <?php endforeach; ?>
+    <?php } endforeach; ?>
     <tr>
       <td colspan="42"></td>
       <td></td>

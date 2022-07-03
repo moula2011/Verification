@@ -4,7 +4,38 @@ $consult =json_decode(file_get_contents('data/rugarama.json'));
 $drugs =json_decode(file_get_contents('data/drugs.json'));
 $consums =json_decode(file_get_contents('data/consums.json'));
 $acts =json_decode(file_get_contents('data/acts.json'));
-$calender =json_decode(file_get_contents('data/calender.json'));
+        $calender ='data'.DIRECTORY_SEPARATOR.'calender.json';
+        if(file_exists($calender)){
+            $calender =json_decode(file_get_contents('data/calender.json'));
+        }else{
+            $data=["dates"=>[],"periods"=>[],"holidays"=>[]];
+
+            $qry = mysqli_query($link,"SELECT DISTINCT date FROM orders ORDER BY date DESC");
+            if(!$qry){ die('Error :'.mysqli_error($link)); }
+            while($row = mysqli_fetch_array($qry,MYSQLI_ASSOC)){                
+                array_push($data["dates"], $row['date']);                
+            }
+
+            $qry2 = mysqli_query($link,"SELECT DISTINCT period FROM orders");
+            if(!$qry2){ die('Error :'.mysqli_error($link)); }
+            while($row1 = mysqli_fetch_array($qry2,MYSQLI_ASSOC)){                
+                array_push($data["periods"], $row1['period']);                
+            }
+
+            $qry3 = mysqli_query($link,"SELECT date,name FROM holidays ORDER BY date");
+            if(!$qry3){ die('Error :'.mysqli_error($link)); }
+            while($row2 = mysqli_fetch_array($qry3,MYSQLI_ASSOC)){            
+                $holide = $row2['date'].': '.$row2['name'];
+                array_push($data["holidays"], $holide);                
+            }
+
+            $json = json_encode($data,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+            $fh = fopen($calender, 'w');
+            fwrite($fh,$json);
+            fclose($fh);
+            // echo $json;
+        }        
+
 error_reporting(1|0)
 ?> 
 
@@ -99,15 +130,21 @@ error_reporting(1|0)
         <div class="absolute inset-x-12 h-20 top-0 bg-white" style="opacity: 0.8;">
             <div class="medi-unique flex flex-row" style="top: 25px; height: 50px; width: 720px;">
                 <div class="uppercase tracking-wide text-md text-black-500 ">
-                    <label for="" class="m-2">MONTH:</label>
+                    <label for="" class="m-2">MONTH: </label>
                     <select class="form-select mt-2 px-12 py-2 medi-btn rounded-md" style="width: 172px; height: 30px;" onchange='call(this.value,<?php echo json_encode($consult); ?>)'>
                         <?php
                             echo '<option value="">select month...</option>';
-                            foreach($calender as $per):
-                                foreach($per->period as $peri):
-                                    $period = $peri->month;
+                            // foreach($calender as $per):
+                            //     foreach($per->period as $peri):
+                            //         $period = $peri->month;
+                            //         echo '<option value="'.$period.'">'.$period.'</option>';
+                            //     endforeach ; 
+                            // endforeach ; 
+                            foreach($calender->periods as $period):
+                                // foreach($per->period as $peri):
+                                    // $period = $peri->month;
                                     echo '<option value="'.$period.'">'.$period.'</option>';
-                                endforeach ; 
+                                // endforeach ; 
                             endforeach ; 
                         ?>                        
                     </select>
@@ -118,12 +155,9 @@ error_reporting(1|0)
                     <select class="form-select mt-2 px-12 py-2 medi-btn rounded-md" style=" height: 30px; width:320px;">
                         <?php
                             echo '<option value="">select holidays...</option>';
-                            foreach($calender as $per):
-                                foreach($per->holidays as $day):
-                                    $days = $day->day;
-                                    echo '<option value="'.$days.'">'.$days.'</option>';
-                                endforeach ; 
-                            endforeach ; 
+                                foreach($calender->holidays as $holiday):                                    
+                                    echo '<option value="'.$holiday.'">'.$holiday.'</option>';
+                                endforeach ;                             
                         ?>        
                     </select>
                 </div>
@@ -190,8 +224,9 @@ error_reporting(1|0)
                 endforeach;   
             
                 $mtot=$mqt*$mup; $consotot=$consoqt*$consup; $sointot=$soinqt*$soinup; $hosptot=$hospqt*$hospup; $ambutot=$ambuqt*$ambuup; $tmtot =$tmup;
+                $ambu_percet=$ambutot*0.1; $gtt=($tmtot+$ambu_percet);
                 
-                $tot=$cup+$lab+$mtot+$consotot+$sointot+$hosptot+$ambutot-$tmtot; 
+                $tot=$cup+$lab+$mtot+$consotot+$sointot+$hosptot+$ambutot-$gtt; 
                 if($tot !=0)
                 $deducted = $veriamounted*100/$tot;
                 else
@@ -338,21 +373,21 @@ error_reporting(1|0)
                                 <h1 class="text-2xl text-center" >Pricing</h1>
                             </div>
                             <div class="flex flex-row gap-2 ml-3 w-full"  style="border: 2px solid #52dcff;">
-                                <a href="src/forms/drug.php" class="w-1/4">
+                                <a href="src/forms/drug.php" style="width: 30%;">
                                     <div class="medi-magic medi-magic-btn m-6 py-4 bg-gradient-to-r bg-gray-light rounded-md" >
                                         <?php $num=0;$anum=0; foreach($drugs as $drug): if($drug->verified == 0 AND $drug->insured == 1){ $num +=1;}else{$anum +=1;} endforeach?>
                                         <?php if($num > 0){?><b class=" text-2xl ml-6" style="color: red;"><?= $num?></b> DRUG<?php if($num > 1){echo "S";}?>
                                         <?php }else{?><b class=" text-2xl ml-4" style="color: blue;"><?= $anum?></b> DRUG<?php if($anum > 1){echo "S";}?><?php }?>
                                     </div>
                                 </a>
-                                <a href="src/forms/consum.php" class="w-1/4">
+                                <a href="src/forms/consum.php" style="width: 30%;">
                                     <div class="medi-magic medi-magic-btn m-6 py-4 bg-gradient-to-r bg-gray-light rounded-md" >
                                         <?php $num=0;$anum=0; foreach($consums as $consum): if($consum->verified == 0 AND $consum->insured == 1){ $num +=1;}else{$anum +=1;} endforeach?>
                                         <?php if($num > 0){?><b class=" text-2xl ml-6" style="color: red;"><?= $num?></b> ITEM<?php if($num > 1){echo "S";}?>
                                         <?php }else{?><b class=" text-2xl ml-4" style="color: blue;"><?= $anum?></b> ITEM<?php if($anum > 1){echo "S";}?><?php }?>
                                     </div>
                                 </a>
-                                <a href="src/forms/medical_act.php" class="w-1/4">
+                                <a href="src/forms/medical_act.php" style="width: 30%;"> 
                                     <div class="medi-magic medi-magic-btn m-6 py-4 bg-gradient-to-r bg-gray-light rounded-md" >
                                     <?php $num=0;$anum=0; foreach($acts as $act): if($act->verified == 0 AND $act->insured == 1){ $num +=1;}else{$anum +=1;} endforeach?>
                                         <?php if($num > 0){?><b class=" text-2xl ml-6" style="color: red;"><?= $num?></b> ITEM<?php if($num > 1){echo "S";}?>

@@ -16,6 +16,8 @@ error_reporting(1|0);
     <?php 
         $consult =json_decode(file_get_contents('../../data/rugarama.json'));
         $consums =json_decode(file_get_contents('../../data/consums.json'));
+        require('consult.class.php');
+
     ?>
     <div class="medi-menu bg-opacity-50 p-2.5 bg-blue-400 bg-medimenu">
         <div class="pt-0 float-left flex">
@@ -101,7 +103,8 @@ error_reporting(1|0);
                         <?php $num=0; foreach($consums as $consum): if($consum->verified == 0){ $num +=1;} ?>
                         <?php  endforeach?>
                         <b class=" text-2xl ml-6" style="color: red;"><?= $num?></b> CONSUMABLE<?php if($num > 1){ echo"S";}?>
-                    </label>                    
+                    </label>       
+                    <form action="consum.php" method="post">           
                     <table class="w-90 m-2 medi-btn">
                         <thead class="bg-white ">
                             <tr class="medi-btn" style="background-color:#CCC; height: 50px;">
@@ -125,14 +128,35 @@ error_reporting(1|0);
                                     <td class="text-center"><?php if($consum->insured == 1){ echo "Yes";}else{echo "NOT";}?></td>
                                     <td class="text-center"><?= $consum->unit_price?></td>
                                     <td class="text-center"><?= $consum->unit_price?></td>
+                                    <input class="ml-6" type="hidden" name="consid" value="<?=$consum->item_id ?>">
+
                                     <td class="medi-btn">
-                                        <button class="p-1 px-3 m-2 medi-btn rounded-md" style=" background-color:#66CDAA ; color:whitesmoke;">+</button>
+                                        <button name="consum" class="p-1 px-3 m-2 medi-btn rounded-md" style=" background-color:#66CDAA ; color:whitesmoke;">+</button>
                                     </td>
                                 </tr>
                             </tbody>
-                        <?php } endforeach ?>
-                    </table>
+                        <?php } endforeach; ?>
+                </table>
+                </form>  
                 </div>
+                <?php
+                    $rug = new Consult('../../data/consums.json');
+
+                    if(isset($_POST['consum'])){  
+                        $drid = $_POST['consid'];
+                        foreach($consums as $consum){
+                            echo $consum->item_id;
+                            foreach($drug as $hosp):
+                            
+                                if($drug->prod_id == $drid){
+                                    // echo $drid;
+                                    // $rug->updateprice($drid,"verified",1);
+                                }
+                            endforeach;
+                        }
+
+                    }
+                ?>
                 <div class="bg-white flex flex-col m-4 medi-client rounded-md border-red-200" style="width: 850px; height:657px; overflow: auto;">
                     <label for="" class="m-2 ml-6" style="opacity: 0.7;">
                         <b class=" text-2xl">VERIFIED CONSUMABLES  </b>
@@ -164,7 +188,7 @@ error_reporting(1|0);
                                     <td class="text-center"><?= $consum->unit_price?></td>
                                     <td class="text-center"><?= $consum->unit_price?></td>
                                     <td class="medi-btn">
-                                        <button class="p-1 px-3 m-2 medi-btn rounded-md" style=" background-color:#66CDAA ; color:whitesmoke;">+</button>
+                                        <!-- <button class="p-1 px-3 m-2 medi-btn rounded-md" style=" background-color:#66CDAA ; color:whitesmoke;">+</button> -->
                                     </td>
                                 </tr>
                             </tbody>

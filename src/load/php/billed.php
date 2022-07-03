@@ -18,7 +18,7 @@ $period=$_REQUEST['period'];
 
     foreach($consult as $check): 
         $days_done_to_veri += $check->done;
-        $served += $check->served;
+        $served += $check->served; 
         $done += $check->done; 
         foreach($check->items->consultation as $consul):if($check->period == $period && $consul->insured !=0){ $cup+=$consul->cons_u_p;} endforeach;
         foreach($check->items->laboratoire as $labo): if($check->period == $period && $labo->insured !=0){ $lab+=$labo->lab_u_p; } endforeach;
@@ -31,9 +31,9 @@ $period=$_REQUEST['period'];
         foreach($check->items->musa_tm as $tm):if($check->period == $period){ $tmup+=$tm->tm_u_p; } endforeach;
     endforeach;   
 
-    $mtot=$mqt*$mup;$consotot=$consoqt*$consup;$sointot=$soinqt*$soinup;$hosptot=$hospqt*$hospup;$ambutot=$ambuqt*$ambuup;$tmtot=$tmup; 
+    $mtot=$mqt*$mup;$consotot=$consoqt*$consup;$sointot=$soinqt*$soinup;$hosptot=$hospqt*$hospup;$ambutot=$ambuqt*$ambuup;$tmtot=$tmup;$ambu_percet=$ambutot*10/100; 
     
-    $tot=$cup+$lab+$mtot+$consotot+$sointot+$hosptot+$ambutot-$tmtot; 
+    $tot=$cup+$lab+$mtot+$consotot+$sointot+$hosptot+$ambutot-$tmtot-$ambu_percet; 
 
     echo $tot ;
 

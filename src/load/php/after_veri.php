@@ -38,9 +38,9 @@ $period=$_REQUEST['period'];
 
     endforeach;   
 
-    $mtot=$mqt*$mup;$consotot=$consoqt*$consup;$sointot=$soinqt*$soinup;$hosptot=$hospqt*$hospup;$ambutot=$ambuqt*$ambuup; $tmtot=$tmup; 
+    $mtot=$mqt*$mup;$consotot=$consoqt*$consup;$sointot=$soinqt*$soinup;$hosptot=$hospqt*$hospup;$ambutot=$ambuqt*$ambuup; $tmtot=$tmup; $ambu_percet=$ambutot*10/100;
     $veriamounted=$coveriamounted+$meveriamounted+$converiamounted+$laveriamounted+$soveriamounted+$hoveriamounted;
-    $tot=$cup+$lab+$mtot+$consotot+$sointot+$hosptot+$ambutot-$tmtot; 
+    $tot=$cup+$lab+$mtot+$consotot+$sointot+$hosptot+$ambutot-$tmtot-$ambu_percet; 
     $after_amount = $tot - $veriamounted;
 
     echo $after_amount;

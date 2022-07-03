@@ -1,19 +1,18 @@
 [
     {
         "id": 1,
-        "client_id": "32",
-        "day": "2022-06-28",
-        "voucher_no": 1,
+        "client_id": "34",
+        "day": "2022-07-03",
         "insurance": "MUSA",
-        "chef": "MURWANASHYAKA Jean Paul",
-        "bene_insu_code": "1199580042646013",
-        "bene": "ELIA NNE MUHAWENIMANA",
-        "insurance_code": "1199380156433039",
+        "chef": "HABARUGIRA GILBERT",
+        "bene_insu_code": "1200370195731073",
+        "bene": "AKIMANA CHRISTIN E",
+        "insurance_code": "1197680096881026",
         "sex": "F",
-        "age": "27",
-        "cat": "2",
+        "age": "19",
+        "cat": "3",
         "dep": "Z",
-        "period": "June-2022",
+        "period": "July-2022",
         "checked": 1,
         "verified": 1,
         "done": 0,
@@ -28,8 +27,23 @@
                     "conso_quantity": "1",
                     "conso_item": "CARNET",
                     "service": "1",
-                    "period": "June-2022",
-                    "date": "2022-06-28",
+                    "period": "July-2022",
+                    "date": "2022-07-03",
+                    "status": "finished",
+                    "insured": "0",
+                    "user": "1",
+                    "checked": 1,
+                    "verified": 0
+                },
+                {
+                    "conso_type": "consommable",
+                    "conso_order_id": "3",
+                    "conso_u_p": "100",
+                    "conso_quantity": "1",
+                    "conso_item": "FICHE MUSSA",
+                    "service": "1",
+                    "period": "July-2022",
+                    "date": "2022-07-03",
                     "status": "finished",
                     "insured": "0",
                     "user": "1",
@@ -37,51 +51,20 @@
                     "verified": 0
                 }
             ],
-            "consultation": [
-                {
-                    "cons_type": "consultation",
-                    "cons_order_id": null,
-                    "cons_u_p": "300",
-                    "cons_quantity": 1,
-                    "cons_item": "Consultation Infirmier (A2+A1)",
-                    "cases": "0",
-                    "service": "1",
-                    "period": "June-2022",
-                    "date": "2022-06-28",
-                    "status": "finished",
-                    "insured": "1",
-                    "user": "1"
-                }
-            ],
-            "laboratoire": [
-                {
-                    "lab_type": "laboratoire",
-                    "lab_order_id": "5",
-                    "lab_u_p": "270",
-                    "lab_quantity": 1,
-                    "lab_item": "GE\/RAME",
-                    "cases": null,
-                    "service": "1",
-                    "period": "June-2022",
-                    "date": "2022-06-28",
-                    "status": "finished",
-                    "insured": "1",
-                    "user": "1"
-                }
-            ],
+            "consultation": [],
+            "laboratoire": [],
             "soins": [],
             "hospitalisation": [],
             "ambulance": [],
             "musa_tm": [
                 {
                     "tm_type": "TM",
-                    "tm_order_id": 1,
+                    "tm_order_id": "4",
                     "tm_u_p": 200,
                     "tm_quantity": 1,
                     "tm_item": "MUSA-TM",
-                    "service": "1",
-                    "period": "June-2022",
-                    "date": "2022-06-28",
+                    "period": "July-2022",
+                    "date": "2022-07-03",
                     "user": "1"
                 }
             ],
@@ -94,154 +77,24 @@
                         "item_u_p": "100",
                         "item_quantity": "1",
                         "item": "CARNET",
-                        "date": "2022-06-28",
-                        "time": "2022-06-28 06:58:48",
+                        "date": "2022-07-03",
+                        "time": "2022-07-03 16:54:34",
                         "amounted": 0,
                         "comment": ""
-                    }
-                ],
-                "consultation": [
-                    {
-                        "item_veri_type": "consultation",
-                        "item_order_id": null,
-                        "item_u_p": "300",
-                        "item_quantity": 1,
-                        "item": "Consultation Infirmier (A2+A1)",
-                        "date": "2022-06-28",
-                        "time": "2022-06-28 06:59:26",
-                        "amounted": 0,
-                        "comment": ""
-                    }
-                ],
-                "laboratoire": [
-                    {
-                        "item_veri_type": "laboratoire",
-                        "item_order_id": "5",
-                        "item_u_p": "270",
-                        "item_quantity": 1,
-                        "item": "GE\/RAME",
-                        "date": "2022-06-28",
-                        "time": "2022-06-28 07:17:04",
-                        "amounted": 0,
-                        "comment": "" 
-                    }
-                ],
-                "soins": [],
-                "hospitalisation": [],
-                "ambulance": [],
-                "musa_tm": [
-                    {
-                        "item_veri_type": "TM",
-                        "item_order_id": 1,
-                        "item_u_p": 200,
-                        "item_quantity": 1,
-                        "item": "MUSA-TM",
-                        "date": "2022-06-28",
-                        "time": "2022-06-28 06:58:32",
-                        "amounted": 0,
-                        "comment": ""
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "client_id": "45",
-        "day": "2022-06-28",
-        "voucher_no": 2,
-        "insurance": "MUSA",
-        "chef": "Nsengiyumva Ezakarie ",
-        "bene_insu_code": "1199870100359034",
-        "bene": "Nyirahabimana liliane ",
-        "insurance_code": "1196580001309013",
-        "sex": "F",
-        "age": "23",
-        "cat": "2",
-        "dep": "HD",
-        "period": "June-2022",
-        "checked": 1,
-        "verified": 1,
-        "done": 0,
-        "served": 1,
-        "items": {
-            "medicines": [],
-            "consommables": [
-                {
-                    "conso_type": "consommable",
-                    "conso_order_id": "7",
-                    "conso_u_p": "100",
-                    "conso_quantity": "1",
-                    "conso_item": "CARNET",
-                    "service": "1",
-                    "period": "June-2022",
-                    "date": "2022-06-28",
-                    "status": "finished",
-                    "insured": "0",
-                    "user": "1",
-                    "checked": 1,
-                    "verified": 0
-                }
-            ],
-            "consultation": [
-                {
-                    "cons_type": "consultation",
-                    "cons_order_id": null,
-                    "cons_u_p": "300",
-                    "cons_quantity": 1,
-                    "cons_item": "Consultation Infirmier (A2+A1)",
-                    "cases": "0",
-                    "service": "1",
-                    "period": "June-2022",
-                    "date": "2022-06-28",
-                    "status": "finished",
-                    "insured": "1",
-                    "user": "1"
-                }
-            ],
-            "laboratoire": [],
-            "soins": [],
-            "hospitalisation": [],
-            "ambulance": [],
-            "musa_tm": [
-                {
-                    "tm_type": "TM",
-                    "tm_order_id": 1,
-                    "tm_u_p": 200,
-                    "tm_quantity": 1,
-                    "tm_item": "MUSA-TM",
-                    "period": "June-2022",
-                    "date": "2022-06-28",
-                    "user": "1"
-                }
-            ],
-            "verification": {
-                "medicines": [],
-                "consommables": [
+                    },
                     {
                         "item_veri_type": "consommables",
-                        "item_order_id": "7",
+                        "item_order_id": "3",
                         "item_u_p": "100",
                         "item_quantity": "1",
-                        "item": "CARNET",
-                        "date": "2022-06-28",
-                        "time": "2022-06-28 07:22:53",
+                        "item": "FICHE MUSSA",
+                        "date": "2022-07-03",
+                        "time": "2022-07-03 16:54:43",
                         "amounted": 0,
                         "comment": ""
                     }
                 ],
-                "consultation": [
-                    {
-                        "item_veri_type": "consultation",
-                        "item_order_id": null,
-                        "item_u_p": "300",
-                        "item_quantity": 1,
-                        "item": "Consultation Infirmier (A2+A1)",
-                        "date": "2022-06-28",
-                        "time": "2022-06-28 07:23:36",
-                        "amounted": 0,
-                        "comment": ""
-                    }
-                ],
+                "consultation": [],
                 "laboratoire": [],
                 "soins": [],
                 "hospitalisation": [],
@@ -249,18 +102,18 @@
                 "musa_tm": [
                     {
                         "item_veri_type": "TM",
-                        "item_order_id": 1,
+                        "item_order_id": "4",
                         "item_u_p": 200,
                         "item_quantity": 1,
                         "item": "MUSA-TM",
-                        "date": "2022-06-28",
-                        "time": "2022-06-28 07:22:40",
+                        "date": "2022-07-03",
+                        "time": "2022-07-03 16:54:44",
                         "amounted": 0,
                         "comment": ""
                     }
                 ]
             }
         },
-        "id": 2
+        "voucher_no": 1
     }
 ]

@@ -1,60 +1,28 @@
-[
-    {
-        "days":[
-            {"day":"Monday"},{"day":"Tuesday"},{"day":"Wednesday"},{"day":"Thursday"},
-            {"day":"Friday"},{"day":"Saturday"},{"day":"Sunday"}
-        ],
-        "num_days":[
-            {"day":"01"},{"day":"02"},{"day":"03"},{"day":"04"},
-            {"day":"05"},{"day":"06"},{"day":"07"},{"day":"08"},
-            {"day":"09"},{"day":"10"},{"day":"11"},{"day":"12"},
-            {"day":"13"},{"day":"14"},{"day":"15"},{"day":"16"},
-            {"day":"17"},{"day":"18"},{"day":"19"},{"day":"20"},
-            {"day":"21"},{"day":"22"},{"day":"23"},{"day":"24"},
-            {"day":"25"},{"day":"26"},{"day":"27"},{"day":"28"},
-            {"day":"29"},{"day":"30"},{"day":"31"}
-        ],
-        "num_months":[
-            {"month":"01"},{"month":"02"},{"month":"03"},{"month":"04"},
-            {"month":"05"},{"month":"06"},{"month":"07"},{"month":"08"},
-            {"month":"09"},{"month":"10"},{"month":"11"},{"month":"12"}
-        ],        
-        "months":[
-            {"month":"January"},
-            {"month":"February"},
-            {"month":"March"},
-            {"month":"April"},
-            {"month":"May"},
-            {"month":"June"},
-            {"month":"July"},
-            {"month":"August"},
-            {"month":"September"},
-            {"month":"October"},
-            {"month":"November"},
-            {"month":"December"}
-        ],
-        "period":[
-            {"month":"January-2022"},
-            {"month":"February-2022"},
-            {"month":"March-2022"},
-            {"month":"April-2022"},
-            {"month":"May-2022"},
-            {"month":"June-2022"},
-            {"month":"July-2022"},
-            {"month":"August-2022"},
-            {"month":"September-2022"},
-            {"month":"October-2022"},
-            {"month":"November-2022"},
-            {"month":"December-2022"}
-        ],
-        "holidays":[
-            {"day":"01-01 - New Year's Day"},
-            {"day":"01-02 - Hereo's Day"},
-            {"day":"01-05 - Worker's Day"},
-            {"day":"01-07 - Independence Day"},
-            {"day":"01-02 - Worker's Day"},
-            {"day":"01-02 - Worker's Day"},
-            {"day":"01-02 - Worker's Day"}
-        ]
-    }
-]
+{
+    "dates": [
+        "2022-07-03",
+        "2022-07-02"
+    ],
+    "periods": [
+        "July-2022"
+    ],
+    "holidays": [
+        "01-01: New Year's Day",
+        "01-02: Heroes' Day",
+        "01-05: Worker's Day",
+        "01-07: Independence Day",
+        "02-05: Worker's Day (in lieu)",
+        "03-01: New Year's Holiday",
+        "03-05: Eid Ul Fitr",
+        "04-07: Liberation Day",
+        "05-08: Umuganura Day",
+        "07-04: Genocide Against The Tutsi Memorial Day",
+        "10-07: Eid El Haj",
+        "15-04: Good Friday",
+        "15-08: Assumption Day",
+        "18-04: Easter Monday",
+        "25-12: Christmas Day",
+        "26-12: Christmas Boxing Day",
+        "27-12: Christmas Day (in lieu)"
+    ]
+}

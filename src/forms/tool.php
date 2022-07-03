@@ -1,6 +1,8 @@
 <?php 
 include('./../../link.php'); 
 error_reporting(1|0);
+$period = $_GET['period'];
+
 ?>
 <html lang="en">
 <head>
@@ -106,7 +108,12 @@ error_reporting(1|0);
                             <th class="medi-btn">AMOUNT DEDUCTED</th>
                             <th class="medi-btn">EXPLANATION OF DEDUCTION</th>
                         </tr>
-                        <?php foreach($consult as $tool): $i=0; $deduct = 0; $qtty = 0; $amount = 0; ?>
+                        <?php 
+                            foreach($consult as $tool): 
+                                if($tool->period == $period){
+                                
+                                $i=0; $deduct = 0; $qtty = 0; $amount = 0; 
+                        ?>
 
                         <?php 
                             
@@ -121,13 +128,14 @@ error_reporting(1|0);
                             <td class="medi-btn p-2"><?= $veri->date?></td>
                             <td class="medi-btn text-center"><?= $tool->insurance_code?></td>
                             <td class="medi-btn text-center p-2"><?= $tool->bene?></td>
-                            <td class="medi-btn text-center"><?= $deduct ?></td>
+                            <td class="medi-btn text-center"><?= round($amount,1) ?></td>
                             <td class="medi-btn text-center" style="width: 700px ;"><?= $veri->comment ?></td>
                         </tr>
                         <?php } endforeach; ?>
                         <?php 
                             
-                            foreach($tool->items->verification->medicines as $veri): 
+                            foreach($tool->items->verification->medicines as $veri):
+
                                 if($veri->amounted !=0){$i++;
                                     $qtty = $veri->item_quantity;
                                     $amount = $veri->amounted;
@@ -138,7 +146,7 @@ error_reporting(1|0);
                             <td class="medi-btn p-2"><?= $veri->date?></td>
                             <td class="medi-btn text-center"><?= $tool->insurance_code?></td>
                             <td class="medi-btn text-center p-2"><?= $tool->bene?></td>
-                            <td class="medi-btn text-center"><?= $deduct ?></td>
+                            <td class="medi-btn text-center"><?= round($amount,1) ?></td>
                             <td class="medi-btn text-center" style="width: 700px ;"><?= $veri->comment ?></td>
                         </tr>
                         <?php } endforeach; ?>
@@ -155,7 +163,7 @@ error_reporting(1|0);
                             <td class="medi-btn p-2"><?= $veri->date?></td>
                             <td class="medi-btn text-center"><?= $tool->insurance_code?></td>
                             <td class="medi-btn text-center p-2"><?= $tool->bene?></td>
-                            <td class="medi-btn text-center"><?= $deduct ?></td>
+                            <td class="medi-btn text-center"><?= round($amount,1) ?></td>
                             <td class="medi-btn text-center" style="width: 700px ;"><?= $veri->comment ?></td>
                         </tr>
                         <?php } endforeach; ?>
@@ -172,7 +180,7 @@ error_reporting(1|0);
                             <td class="medi-btn p-2"><?= $veri->date?></td>
                             <td class="medi-btn text-center"><?= $tool->insurance_code?></td>
                             <td class="medi-btn text-center p-2"><?= $tool->bene?></td>
-                            <td class="medi-btn text-center"><?= $deduct ?></td>
+                            <td class="medi-btn text-center"><?= round($amount,1) ?></td>
                             <td class="medi-btn text-center" style="width: 700px ;"><?= $veri->comment ?></td>
                         </tr>
                         <?php } endforeach; ?>
@@ -190,7 +198,7 @@ error_reporting(1|0);
                             <td class="medi-btn p-2"><?= $veri->date?></td>
                             <td class="medi-btn text-center"><?= $tool->insurance_code?></td>
                             <td class="medi-btn text-center p-2"><?= $tool->bene?></td>
-                            <td class="medi-btn text-center"><?= $deduct ?></td>
+                            <td class="medi-btn text-center"><?= round($amount,1) ?></td>
                             <td class="medi-btn text-center" style="width: 700px ;"><?= $veri->comment ?></td>
                         </tr>
                         <?php } endforeach; ?>
@@ -207,24 +215,26 @@ error_reporting(1|0);
                             <td class="medi-btn p-2"><?= $veri->date?></td>
                             <td class="medi-btn text-center"><?= $tool->insurance_code?></td>
                             <td class="medi-btn text-center p-2"><?= $tool->bene?></td>
-                            <td class="medi-btn text-center"><?= $deduct ?></td>
+                            <td class="medi-btn text-center"><?= round($amount,1) ?></td>
                             <td class="medi-btn text-center" style="width: 700px ;"><?= $veri->comment ?></td>
                         </tr>
                         <?php } endforeach; ?>
-                        <?php endforeach; ?>
+                        <?php } endforeach; ?>
                         <tr>
                             <td colspan="4" class="medi-btn text-center" style="background-color:#ccc">Total</td>
                             <td colspan="" class="medi-btn text-center" style="background-color:#ccc">
                             <?php 
                                 foreach($consult as $tool): 
+                                if($tool->period == $period){
+
                                     $deductt = 0; $qty = 0; $amt = 0; $tot_amt =0;
-                                    foreach($tool->items->verification->consultation as $veri):$qty = $veri->item_quantity;$amt = $veri->amounted;$deductt = $qty*$amt;$cotot_amt += $deductt;endforeach;
-                                    foreach($tool->items->verification->medicines as $veri):$qty = $veri->item_quantity;$amt = $veri->amounted;$deductt = $qty*$amt;$metot_amt += $deductt;endforeach;
-                                    foreach($tool->items->verification->consommables as $veri):$qty = $veri->item_quantity;$amt = $veri->amounted;$deductt = $qty*$amt;$contot_amt += $deductt;endforeach;
-                                    foreach($tool->items->verification->laboratoire as $veri):$qty = $veri->item_quantity;$amt = $veri->amounted;$deductt = $qty*$amt;$latot_amt += $deductt;endforeach;
-                                    foreach($tool->items->verification->soins as $veri):$qty = $veri->item_quantity;$amt = $veri->amounted;$deductt = $qty*$amt;$sotot_amt += $deductt;endforeach;
-                                    foreach($tool->items->verification->hospitalisation as $veri):$qty = $veri->item_quantity;$amt = $veri->amounted;$deductt = $qty*$amt;$hotot_amt += $deductt;endforeach;
-                                endforeach;
+                                    foreach($tool->items->verification->consultation as $veri):$amt = $veri->amounted;$cotot_amt += $amt;endforeach;
+                                    foreach($tool->items->verification->medicines as $veri):$amt = $veri->amounted;$metot_amt += $amt;endforeach;
+                                    foreach($tool->items->verification->consommables as $veri):$amt = $veri->amounted;$contot_amt += $amt;endforeach;
+                                    foreach($tool->items->verification->laboratoire as $veri):$amt = $veri->amounted;$latot_amt += $amt;endforeach;
+                                    foreach($tool->items->verification->soins as $veri):$amt = $veri->amounted;$sotot_amt += $amt;endforeach;
+                                    foreach($tool->items->verification->hospitalisation as $veri):$amt = $veri->amounted;$hotot_amt += $amt;endforeach;
+                                } endforeach;
                                 echo $tot_amt = $cotot_amt+$metot_amt+$contot_amt+$latot_amt+$sotot_amt+$hotot_amt; 
                             ?>
                             </td>

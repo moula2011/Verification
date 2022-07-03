@@ -1,5 +1,6 @@
 <?php 
 include('./../../link.php'); 
+$calender =json_decode(file_get_contents('../../data/calender.json'));
 error_reporting(1|0);
 ?>
 <html lang="en">
@@ -70,6 +71,18 @@ error_reporting(1|0);
              let soins = 0;
              let hosp = 0;
              let tot_items = 0;
+
+             $.get('../load/php/check/check.php?date='+date,function(data){
+                $('#checked').html(data);
+            });  
+
+            $.get('../load/php/check/verify.php?date='+date,function(data){
+                    $('#unverified').html(data); 
+                });
+            $.get('../load/php/check/checklist.php?date='+date,function(data){
+                $('#checklist').html(data); 
+            });   
+
              $('#datez').html('');         
              $.map(data,(dat) => {
                     consul = dat.items.consultation.length;
@@ -485,14 +498,9 @@ error_reporting(1|0);
                     <select class="form-select mt-2 px-12 py-2 medi-btn rounded-md" style="width: 172px; height: 30px;" onchange='callDate(this.value,<?php echo json_encode($consult); ?>)'>
                         <?php
                             echo '<option value="">select date...</option>';
-                        
-                        $qry=mysqli_query($link,"SELECT DISTINCT date FROM orders WHERE checked=0 ORDER BY date DESC");
-                        if(!$qry){ die('Error :'.mysqli_error($link)); }
-                        while($row=mysqli_fetch_assoc($qry)){
-                            $date=$row['date'];
-                            echo '<option value="'.$date.'">'.$date.'</option>';
-                            
-                        } 
+                            foreach($calender->dates as $date):                              
+                                    echo '<option value="'.$date.'">'.$date.'</option>';                                
+                            endforeach ; 
                         ?>                        
                     </select>
                 </div>
@@ -500,18 +508,18 @@ error_reporting(1|0);
                     <label for="" class="m-2">Holidays:</label>
                     <select class="form-select mt-2 px-12 py-2 medi-btn rounded-md" style=" height: 30px; width:320px;">
                     <?php
-                            $qry=mysqli_query($link,"SELECT DISTINCT date,name FROM holidays ORDER BY date");
-                            if(!$qry){ die('Error :'.mysqli_error($link)); }
-                            while($row=mysqli_fetch_assoc($qry)){
-                                $holiday=$row['date'];
-                                $name=$row['name'];
-                                echo '<option value="'.$holiday.'">'.$holiday.' - '.$name.'</option>';
-                            }
+                            echo '<option value="">select holidays...</option>';
+                            foreach($calender->holidays as $holiday):                                    
+                                echo '<option value="'.$holiday.'">'.$holiday.'</option>';
+                            endforeach ;   
                         ?>        
                     </select>
                 </div>
             </div>
         </div>  
+        
+        <?php $today = date('Y-m-d');?>
+
         <div class="medi-container absolute inset-x-12 top-28 bg-white rounded-xl overflow-hidden md:w-100">
             <div class="flex flex-row w-3/5 " style="border-top: 1px solid #52dcff;">
                 <a href="../../cbhi.php" class="mt-4 mx-4 text-2xl">Dashboard</a>
@@ -535,7 +543,7 @@ error_reporting(1|0);
 
             <!-- ================== ni hano boby itangirira ===================================-->
 
-            <div class="veri h-4/5 mb-8" style="background-color:whitesmoke; height:698px; overflow: hidden;">
+            <div class="veri h-4/5 mb-8" style="background-color:#999; height:698px; overflow: hidden;">
                 <div class="check flex flex-row">
                     <div class="bg-indigo-100 mx-4 mt-2 medi-client rounded-md" style="background-color:#C9DFEC; height:680px; width: 460px; overflow: hidden;">
                         <div class="flex flex-row rounded-md">

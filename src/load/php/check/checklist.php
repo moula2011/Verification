@@ -17,7 +17,7 @@
             <div class="w-16 bg-white rounded-md mr-2">
                 <input value="<?= $uncheck->client_id?>"  type="checkbox" class="mx-4 mt-8 " name="checku[]" id="checkall">
             </div>
-            <div class="flex flex-col" style="width: 806px; background-color:#E3E4FA;opacity:0.8;">
+            <div class="flex flex-col" style="width: 806px; background-color:#E3E4FA;opacity:0.8;" onclick='showData(<?php echo $uncheck->client_id; ?>,<?php echo json_encode($uncheck->items); ?>)'>
                 <div class="w-100  flex flex-row">
                     <span class="w-6 text-1xl ml-6 mt-2"> <b></b></span>
                     <span class="w-128 text-2xl ml-1 mt-2"> <b><?= $uncheck->bene;  ?></b></span><br>
@@ -194,3 +194,180 @@
         }
     }
 ?>
+<script>
+    let showData = (id,items) => {
+        // console.log(id,items);
+        $('#con').html('');
+        $.map(items,(item,i) => { 
+                if(i==='consultation'){
+                    $.map(item,(it,ind)=>{ 
+                        $('#con').append(
+                            `<b>`+i+`:</b>&nbsp;`+it.cons_item+` (Tot:<b style="color: red;">`+it.cons_u_p+`</b> Rwf)<br>`
+                        );                       
+                    })
+                }
+
+                if(i==='laboratoire'){
+                    $.map(item,(it,ind)=>{ 
+                        $('#con').append(
+                            `<b>`+i+`:</b>&nbsp;`+it.lab_item+` (Tot:<b style="color: red;">`+it.lab_u_p+`</b> Rwf)<br>`
+                        );                       
+                    })
+                }
+
+                if(i==='medicines'){
+                    $.map(item,(it,ind)=>{ 
+                        $('#con').append(
+                            `<b>`+i+`:</b>&nbsp;`+it.med_item+` (Tot:<b style="color: red;">`+it.med_u_p+`</b> Rwf)<br>`
+                        );                       
+                    })
+                }
+
+                if(i==='consommables'){
+                    $.map(item,(it,ind)=>{ 
+                        $('#con').append(
+                            `<b>`+i+`:</b>&nbsp;`+it.conso_item+` (Tot:<b style="color: red;">`+it.conso_u_p+`</b> Rwf)<br>`
+                        );                        
+                    })
+                }
+
+                if(i==='soins'){
+                    $.map(item,(it,ind)=>{ 
+                        $('#con').append(
+                            `<b>`+i+`:</b>&nbsp;`+it.act_med_item+` (Tot:<b style="color: red;">`+it.act_med_u_p+`</b> Rwf)<br>`
+                        );                        
+                    })
+                }
+
+                if(i==='hospitalisation'){
+                    $.map(item,(it,ind)=>{ 
+                        $('#con').append(
+                            `<b>`+i+`:</b>&nbsp;`+it.hosp_item+` (Tot:<b style="color: red;">`+it.hosp_u_p+`</b> Rwf)<br>`
+                        );                        
+                    })
+                }
+
+                if(i==='ambulance'){
+                    $.map(item,(it,ind)=>{ 
+                        $('#con').append(
+                            `<b>`+i+`:</b>&nbsp;`+it.ambu_item+` (Tot:<b style="color: red;">`+it.ambu_u_p+`</b> Rwf)<br>`
+                        );                        
+                    })
+                }
+            });
+        //     $('#con').append(`<div class="w-100 flex flex-row" style="background-color:#D5D6EA;opacity:0.8;">                                            
+        //         <tr class="">
+        //             <td class="p-1">
+        //                 <?php 
+        //                     // $k=0;$k=0;
+        //                     // foreach($uncheck->items->consultation as $consu):endforeach; 
+        //                     // if($uncheck->checked == 1 && $consu->insured == 1){
+        //                     //     if($uncheck->checked == 1 && $consu->insured == 1){$consul=count($uncheck->items->consultation); }
+        //                     //     echo '(Tot:<b style="color: red;">'.$consu->cons_u_p.'</b> Rwf)';
+        //                     // }else
+        //                     // {
+        //                     //     echo '(Tot:<b style="color: red;">0</b> Rwf)';
+        //                     // }
+        //                 ?> 
+        //             </td>
+        //             <td>
+        //                 <?php 
+        //                     $k=0;$k=0;
+        //                     foreach($uncheck->items->laboratoire as $labo):  endforeach; 
+        //                     if($uncheck->checked == 1 && $labo->insured == 1){$lab= count($uncheck->items->laboratoire);
+        //                         $k++;
+        //                         echo '&nbsp;<input type="hidden" name="checkup[]" value="'.$labo->lab_item.'" class="ml-2" id="'.$labo->lab_item.'">
+        //                         <b> '.$k.'-</b>
+        //                         <label style="width: 86px; height: 20px;" for="'.$labo->lab_item.'" class="text-md ml-2 mt-3 text-black medi_limit_span_check ">';
+        //                         echo 'labo...:<b class="text-md ml-2">'.$lab; 
+        //                         echo '</b></label>';
+        //                         echo '<label for="'.$labo->lab_item.'" class="w-8 text-md my-2 ">
+        //                         (<b>Tot: </b><b style="color: red;">'.$labo->lab_u_p.'</b> Rwf)
+        //                         </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+        //                         echo'<br>';
+
+        //                     }
+                            
+        //                 ?> 
+        //             </td>
+        //             <td class="p-1">
+        //                 <?php 
+        //                     foreach($uncheck->items->medicines as $meds): endforeach;
+        //                     if($uncheck->checked == 1 && $meds->insured == 1){$med=count($uncheck->items->medicines);
+        //                         echo '(<b>'.$med.'</b>)(Tot:<b style="color: red;">'.$meds->med_u_p.'</b> Rwf)';
+        //                     }else
+        //                     {
+        //                         echo '(Tot:<b style="color: red;">0</b> Rwf)';
+        //                     }
+        //                 ?>                                                                                
+        //             </td>
+
+        //             <td class="">
+        //                 <?php 
+        //                     foreach($uncheck->items->consommables as $consoms): endforeach;
+        //                         if($uncheck->checked == 1 && $consoms->insured == 1){$conso= count($uncheck->items->consommables);
+        //                             $k++;
+        //                             echo '<input type="hidden" name="checkup[]" value="'.$consoms->conso_item.'" class=" mr-1 my-1" id="'.$consoms->conso_item.'">
+        //                             <b> '.$k.'-</b>
+        //                             <label style="width: 86px; height: 20px;" for="'.$consoms->conso_item.'" class="text-md mt-2 text-black medi_limit_span_check ">';
+        //                             echo'Consom...:<b class="text-md ml-2">'.$conso;
+        //                             echo '</label>';
+        //                             echo '<label for="'.$consoms->conso_item.'" class="text-md mt-2 ml-3 ">
+        //                             (<b>Tot: </b><b style="color: red;">'.$consoms->conso_u_p.'</b> Rwf)
+        //                             </label>';
+        //                             echo'<br>';
+        //                         }
+                            
+        //                 ?>
+        //             </td>
+
+        //             <td>
+        //                 <?php 
+        //                     foreach($uncheck->items->soins as $soins):  endforeach;
+        //                     if($uncheck->checked == 1 && $soins->insured == 1){$soin=count($uncheck->items->soins);
+        //                         $k++;
+        //                         echo '&nbsp;<input type="hidden" name="checkup[]" value="'.$soins->act_med_item.'" class="ml-2" id="'.$soins->act_med_item.'">
+        //                         <b> '.$k.'-</b>
+        //                         <label style="width: 86px; height: 20px;" for="'.$soins->act_med_item.'" class="text-md ml-2 mt-3 text-black medi_limit_span_check ">';
+        //                         echo'Medic...:<b class="text-md ml-2">'.$soin; 
+        //                         echo '</label>';
+        //                         echo '<label for="'.$soins->act_med_item.'" class="w-28 text-md my-2 ml-3 ">
+        //                         (<b>Tot: </b><b style="color: red;">'.$soins->act_med_u_p.'</b> Rwf)
+        //                         </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+        //                         echo'<br>';
+        //                     }
+        //                 ?>                                                                                
+        //             </td>
+
+        //             <td class="">
+        //                 <?php 
+        //                     foreach($uncheck->items->hospitalisation as $hosp): endforeach;
+        //                         if($uncheck->checked == 1 && $hosp->insured == 1){$hosps= count($uncheck->items->hospitalisation);
+        //                             $k++;
+        //                             echo '<input type="hidden" name="checkup[]" value="'.$hosp->hosp_item.'" class=" mr-1 my-1" id="'.$hosp->hosp_item.'">
+        //                             <b> '.$k.'-</b>
+        //                             <label style="width: 86px; height: 20px;" for="'.$hosp->hosp_item.'" class="text-md mt-2 text-black medi_limit_span_check ">';
+        //                             echo'Consom...:<b class="text-md ml-2">'.$hosps;
+        //                             echo '</label>';
+        //                             echo '<label for="'.$hosp->hosp_item.'" class="text-md mt-2 ml-3 ">
+        //                             (<b>Tot: </b><b style="color: red;">'.$hosp->hosp_u_p.'</b> Rwf)
+        //                             </label>';
+        //                             echo'<br>';
+        //                         }
+                            
+        //                 ?>
+        //             </td>
+        //             <td class="">
+        //                 <?php 
+        //                     foreach($uncheck->items->ambulance as $ambu): endforeach;
+        //                         if($uncheck->checked == 1 && $ambu->insured == 1){$ambus= count($uncheck->items->ambulance);
+        //                             echo '('.$ambu->ambu_quantity.'KM )(<b>Tot: </b><b style="color: red;">'.$ambu->ambu_u_p.'</b> Rwf)';
+        //                         }
+                            
+        //                 ?>
+        //             </td>
+        //         </tr >
+        //     </table>
+        // </div>`);
+                            }
+</script>

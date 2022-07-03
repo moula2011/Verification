@@ -194,6 +194,7 @@
             }
         }
 
+
         public function updatecheckedmed($client_id,$item,$item_value,$name){
             foreach($this->stored_data as $key =>$stored_client){
                 if($stored_client['client_id']==$client_id || $stored_client['med_item']==$name){
@@ -210,6 +211,48 @@
                 $this->storeData(); 
             }
         }
+        //=========================update Pricing===============================
+            public function updateprice($client_id,$item,$item_value){
+                foreach($this->stored_data as $key =>$stored_client){
+                    if($stored_client['prod_id']==$client_id){
+                        $this->stored_data[$key][$item]=$item_value; 
+                    }
+                    $this->storeData(); 
+                }
+            }
+
+            public function updateitem($client_id,$item,$item_value){
+                foreach($this->stored_data as $key =>$stored_client){
+                    if($stored_client['item_id']==$client_id){
+                        $this->stored_data[$key][$item]=$item_value; 
+                    }
+                    $this->storeData(); 
+                }
+            }
+        //=========================end update Pricing===========================
+        //============Moustafa unverified=====================================
+        public function unverified($client_id,$item,$type,$item_value,$it){
+            foreach($this->stored_data as $key =>$stored_client){
+                if($stored_client['client_id']==$client_id){
+                    if($this->stored_data[$key][$item]['verification'][$type]==null){
+                        $this->stored_data[$key][$item]['verification'][$type]=$item_value;
+                    }else{ 
+                        // $this->stored_data[$key][$item]['verification'][$type]=$item_value;                       
+                        //---------------------------------kkkkkkkkkkkk----------------------------
+                        foreach($this->stored_data[$key][$item]['verification'][$type] as $k => $v){                                                 
+                            if($v['item']==$it){
+                                $this->stored_data[$key][$item]['verification'][$type][$k]=$item_value[0];                                
+                            }else{
+                                 
+                            }                                                                                  
+                        }
+                        //---------------------------------kkkkkkkkkkkk----------------------------                 
+                    }
+                }
+                $this->storeData(); 
+            }
+        }
+        //=============Aho irangirira ==========================================
 
         public function deleteClient($id){
 

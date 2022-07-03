@@ -57,7 +57,7 @@
 		}
 
 		$verifier=$_SESSION['user_id'];
-		$xy=mysqli_query($link,"UPDATE orders SET verified=1,verifier=$verifier WHERE client_id=$id AND date='$date'");
+		$xy=mysqli_query($link,"UPDATE orders SET verified=1,verifier=$verifier WHERE client_id=$id AND date='$date'AND order_id = $oid");
 		if(!$xy){die('Sorry, Could not Update Data on line 60 :'.mysqli_error($link));}
 
 		////////////////////////////////////////////
@@ -72,7 +72,7 @@ $cxv=mysqli_query ($link,"UPDATE verification SET quantity=$qtty, unityp=$up  WH
   $proyducz= "SELECT * FROM verification WHERE client_id=$id AND orders_id=$oid";
   $retyvast = mysqli_query($link,$proyducz);
 if(! $retyvast ) {   die('Could not get data2: ' . mysqli_error($link));    }                         
-while($rowyz = mysqli_fetch_array($retyvast, MYSQLI_ASSOC))
+while($rowyz = mysqli_fetch_array($retyvast, MYSQLI_ASSOC)) 
 	   {	
 	   $unityx=$rowyz['unityp'];		
 		$qtyyx=$rowyz['quantity'];

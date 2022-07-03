@@ -7,7 +7,7 @@
         "date": "2018-11-12",
         "insured": "1",
         "qtty": "9900",
-        "verified": "1"
+        "verified": 0
     },
     {
         "id": 2,
@@ -17,7 +17,7 @@
         "date": "2022-03-23",
         "insured": "1",
         "qtty": "9900",
-        "verified": "1"
+        "verified": 0
     },
     {
         "id": 3,
@@ -27,7 +27,7 @@
         "date": "2017-08-10",
         "insured": "1",
         "qtty": "9900",
-        "verified": "1"
+        "verified": 0
     },
     {
         "id": 4,
@@ -147,7 +147,7 @@
         "date": "2021-10-14",
         "insured": "1",
         "qtty": "9900",
-        "verified": "1"
+        "verified": 1
     },
     {
         "id": 16,
@@ -157,7 +157,7 @@
         "date": "2022-03-23",
         "insured": "1",
         "qtty": "9900",
-        "verified": "1"
+        "verified": 1
     },
     {
         "id": 17,
@@ -227,7 +227,7 @@
         "date": "2022-03-14",
         "insured": "1",
         "qtty": "9900",
-        "verified": "1"
+        "verified": 1
     },
     {
         "id": 24,

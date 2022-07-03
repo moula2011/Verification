@@ -3,6 +3,8 @@ ini_set('memory_limit', '5000M');
 ini_set('max_execution_time', 0);
 error_reporting(1 | 0);
 include('./../../link.php');
+$period = $_GET['period'];
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -157,19 +159,13 @@ include('./../../link.php');
     </tr></strong>
     </tr>
     <?php 
-      $i=0;$labo=0; 
-      $mqt=0; $mup=0; $mtot=0;
-      foreach($consult as $invoice):  $i++;
-      foreach($invoice->items->consultation  as $cons):endforeach;
-      foreach($invoice->items->laboratoire as $labo): $labos+=$labo->lab_u_p;  endforeach;
-      foreach($invoice->items->verification->consultation  as $consult):endforeach;
-      foreach($invoice->items->verification->hospitalisation as $hosp):endforeach;
-      $mtot=$mqt*$mup;
-      foreach($invoice->items->medicines as $meds): $mqt+=$meds->med_quantity; $mup+=$meds->med_u_p; 
-     ?>
+      $i=0; foreach($consult as $invoice): 
+        if($invoice->period == $period){
+          $i++;
+    ?>
     <tr>
       <td class="medi-btn text-center"><?= $i?></td>
-      <td class="medi-btn p-2 text-center"><?= $invoice->voucher_no?></td>
+      <td class="medi-btn p-2 text-center"><?= 0?></td>
       <td class="medi-btn p-2 text-center"><?= $invoice->client_id?></td>
       <td class="medi-btn p-2 text-center"><?= $invoice->day?></td>
       <td class="medi-btn p-2 text-center"><?= $invoice->cat?></td>
@@ -179,12 +175,28 @@ include('./../../link.php');
       <td class="medi-btn p-2"><?= $invoice->sex?></td>
       <td class="medi-btn p-2"><?= $invoice->chef?></td>
       <td class="medi-btn p-2"><?= $invoice->insurance_code?></td>
-      <td class="medi-btn p-2"><?= $cons->cons_u_p ?></td>
-      <td class="medi-btn p-2"><?php if($labos !=0){echo $labos;}else{echo 0;} ?></td>
-      <td class="medi-btn p-2"><?php if($mtot !=0){echo $mtot;}else{echo 0;} ?></td>
+
+      <?php
+        foreach($invoice->items->consultation  as $cons): $consu=$cons->cons_u_p;  endforeach;$consutot+=$consu;
+        foreach($invoice->items->laboratoire as $labo): if($invoice->client_id != 0){ $lab+=$labo->lab_u_p; } endforeach;
+        foreach($invoice->items->hospitalisation as $hosp): if($invoice->client_id != 0){ $lab+=$labo->lab_u_p; } endforeach;
+        foreach($invoice->items->verification->consultation  as $consult):endforeach;
+        foreach($invoice->items->hospitalisation as $hosp): if($invoice->client_id != 0){ $hospqt=$hosp->hosp_quantity; $hospup=$hosp->hosp_u_p; $hosp_tot+=$hospqt*$hospup;} endforeach;
+        foreach($invoice->items->ambulance as $ambu):if($invoice->client_id != 0){ $ambuqt=$ambu->ambu_quantity; $af_ambuup=$ambu->ambu_u_p; $ambutot+=$ambuqt*$af_ambuup; } endforeach;
+        foreach($check->items->verification->medicines as $meds):  if($check->client_id != 0){  $af_mqt=$meds->item_quantity; $af_mup=$meds->item_u_p; $af_mtot+=$af_mqt*$af_mup;$meded+=$meds->amounted;} endforeach;
+        foreach($check->items->verification->consommables as $cons): if($invoice->client_id != 0){ $af_consoqt=$cons->item_quantity; $af_consup=$cons->item_u_p; $af_consotot+=$af_consoqt*$af_consup;$consoded+=$cons->amounted; } endforeach;
+      ?>
+      <td class="medi-btn p-2"><?= $consu ?></td>
+      <td class="medi-btn p-2"><?= $lab ?></td>
+      <td class="medi-btn p-2"><?= 0 ?></td>
+      <td class="medi-btn p-2"><?= $hosp_tot ?></td>
+      <td class="medi-btn p-2"><?= 0 ?></td>
+      <td class="medi-btn p-2"><?= $ambutot ?></td>
+      <td class="medi-btn p-2"><?= $af_consotot ?></td>
+      <td class="medi-btn p-2"><?= $af_mtot?></td>
     </tr>
 
-    <?php endforeach; endforeach;?>
+    <?php }endforeach; ?>
     <tr>
       <td bgcolor="#CCCCCC">&nbsp;</td>
       <td bgcolor="#CCCCCC">&nbsp;</td>
@@ -195,9 +207,9 @@ include('./../../link.php');
       <td bgcolor="#CCCCCC">&nbsp;</td>
       <td bgcolor="#CCCCCC">&nbsp;</td>
       <td bgcolor="#CCCCCC"><strong>TOTAL</strong></td>
-      <td></td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
+      <td><?=$consutot?></td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>

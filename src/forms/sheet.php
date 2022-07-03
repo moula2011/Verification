@@ -13,61 +13,39 @@
 
 <body>
   <?php $today = date('Y-m-d'); $per = date("F-Y", strtotime($today));?>
-  <?php 
-    $cup=0;$un_cup=0; $lab=0;$un_lab=0; $tot=0; 
-    $mqt=0; $mup=0; $mtot=0; $un_mqt=0; $un_mup=0; $un_mtot=0; 
-    $consoqt=0; $consup=0; $consotot=0; $un_consoqt=0; $un_consup=0; $un_consotot=0; 
-    $soinqt=0; $soinup=0; $sointot=0; $un_soinqt=0; $un_soinup=0; $un_sointot=0; 
-    $hospqt=0; $hospup=0; $hosptot=0;$un_hospqt=0; $un_hospup=0; $un_hosptot=0;$unveri_tot=0; 
-    $veriqt=0; $veriup=0; $veritot=0;$served=0; 
-    $veriamounted=0;$done=0;$days_left=0;$days_done_to_veri=0;
-
+  <?php
     foreach($consult as $check):if($check->day == $today){ $days_done_to_veri += $check->done; $served += $check->served; $done += $check->done;}
-        foreach($check->items->consultation as $consul):if($check->day == $today){ $cup+=$consul->cons_u_p;} endforeach;
-        foreach($check->items->laboratoire as $labo): if($check->day == $today){ $lab+=$labo->lab_u_p; } endforeach;
-        foreach($check->items->medicines as $meds):  if($check->day == $today){  $mqt+=$meds->med_quantity; $mup+=$meds->med_u_p; } endforeach;
-        foreach($check->items->consommables as $cons): if($check->day == $today){ $consoqt+=$cons->conso_quantity; $consup+=$cons->conso_u_p; } endforeach;
-        foreach($check->items->soins as $soin): if($check->day == $today){ $soinqt+=$soin->act_med_quantity; $soinup+=$soin->act_med_u_p; } endforeach;
-        foreach($check->items->hospitalisation as $hosp):if($check->day == $today){ $hospqt+=$hosp->hosp_quantity; $hospup+=$hosp->hosp_u_p; } endforeach;
-        //============= verification ======================
-        foreach($check->items->verification->consultation as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
-        foreach($check->items->verification->medicines as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
-        foreach($check->items->verification->consommables as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
-        foreach($check->items->verification->laboratoire as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
-        foreach($check->items->verification->soins as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
-        foreach($check->items->verification->hospitalisation as $veri):if($check->day == $today){ $veriamounted+=$veri->amounted;}endforeach;
-        //============ Not verified =======================
-        foreach($check->items->consultation as $consul): if($check->day == $today && $check->done == 0){$un_cup+=$consul->cons_u_p;} endforeach;
-        foreach($check->items->laboratoire as $labo): if($check->day == $today && $check->done == 0){$un_lab+=$labo->lab_u_p;} endforeach;
-        foreach($check->items->medicines as $meds): if($check->day == $today && $check->done == 0){ $un_mqt+=$meds->med_quantity; $un_mup+=$meds->med_u_p; } endforeach;
-        foreach($check->items->consommables as $cons): if($check->day == $today && $check->done == 0){ $un_consoqt+=$cons->conso_quantity; $un_consup+=$cons->conso_u_p; } endforeach;
-        foreach($check->items->soins as $soin): if($check->day == $today && $check->done == 0){ $un_soinqt+=$soin->act_med_quantity; $un_soinup+=$soin->act_med_u_p; }  endforeach;
-        foreach($check->items->hospitalisation as $hosp): if($check->day == $today && $check->done == 0){ $un_hospqt+=$hosp->hosp_quantity; $un_hospup+=$hosp->hosp_u_p; } endforeach;
+      //====================================Billed====================================================
+      foreach($check->items->consultation as $consul):if($check->day == $today && $consul->insured !=0){ $cup+=$consul->cons_u_p;} endforeach;
+      foreach($check->items->laboratoire as $labo): if($check->day == $today && $labo->insured !=0){ $lab+=$labo->lab_u_p; } endforeach;
+      foreach($check->items->medicines as $meds):  if($check->day == $today && $meds->insured !=0){  $mqt=$meds->med_quantity; $mup=$meds->med_u_p; $mtot+=$mqt*$mup;} endforeach;
+      foreach($check->items->consommables as $cons): if($check->day == $today && $cons->insured !=0){ $consoqt+=$cons->conso_quantity; $consup+=$cons->conso_u_p; $consotot+=$consoqt*$consup; } endforeach;
+      foreach($check->items->soins as $soin): if($check->day == $today && $soin->insured !=0){ $soinqt=$soin->act_med_quantity; $soinup=$soin->act_med_u_p; $sointot+=$soinqt*$soinup;} endforeach;
+      foreach($check->items->hospitalisation as $hosp):if($check->day == $today && $hosp->insured !=0){ $hospqt=$hosp->hosp_quantity; $hospup=$hosp->hosp_u_p;$hosptot+=$hospqt*$hospup; } endforeach;
 
-    endforeach;   
+      //=====================================after verification========================================
+      foreach($check->items->verification->consultation as $consul):if($check->day == $today){ $af_cup+=$consul->item_u_p;$conded+=$consul->amounted;} endforeach;
+      foreach($check->items->verification->laboratoire as $labo): if($check->day == $today){ $af_lab+=$labo->item_u_p;$laded+=$labo->amounted; } endforeach;
+      foreach($check->items->verification->medicines as $meds):  if($check->day == $today){  $af_mqt=$meds->item_quantity; $af_mup=$meds->item_u_p; $af_mtot+=$af_mqt*$af_mup;$meded+=$meds->amounted;} endforeach;
+      foreach($check->items->verification->consommables as $cons): if($check->day == $today){ $af_consoqt=$cons->item_quantity; $af_consup=$cons->item_u_p; $af_consotot+=$af_consoqt*$af_consup;$consoded+=$cons->amounted; } endforeach;
+      foreach($check->items->verification->soins as $soin): if($check->day == $today){ $af_soinqt=$soin->item_quantity; $af_soinup=$soin->item_u_p; $af_sointot+=$af_soinqt*$af_soinup; $soded+=$soin->amounted;} endforeach;
+      foreach($check->items->verification->hospitalisation as $hosp):if($check->day == $today){ $af_hospqt=$hosp->item_quantity; $af_hospup=$hosp->item_u_p; $af_hosptot+=$af_hospqt*$af_hospup; $hoded+=$hosp->amounted;} endforeach;
+      foreach($check->items->verification->ambulance as $ambu):if($check->day == $today){ $af_ambuqt=$ambu->item_quantity; $af_ambuup=$ambu->item_u_p; $af_ambutot+=$af_ambuqt*$af_ambuup;$ambded+=$ambu->amounted; } endforeach;
+      foreach($check->items->verification->musa_tm as $tm):if($check->day == $today ){ $af_tmup+=$tm->item_u_p; } endforeach;
+    endforeach;     
+    //====================================Billed====================================================
+    $af_tambu=$af_ambutot*0.1; $af_gtt=$af_tmup+$af_tambu;
 
-    $mtot=$mqt*$mup; $sointot=$soinqt*$soinup; $hosptot=$hospqt*$hospup; $consotot=$consoqt*$consup; 
-    
-    $tot=$cup+$lab+$mtot+$consotot+$sointot+$hosptot; 
-    if($tot !=0)
-    $deducted = $veriamounted*100/$tot;
-    else
-    $deducted = 0;
+    $gtt=$cup+$lab+$mtot+$consotot+$sointot+$hosptot+$af_ambutot;
+    $billed_amount=$gtt-$af_gtt;
 
-    $after_amount = $tot - $veriamounted;
-
-    if($v_check !=0)
-    $rate = $done*100/$v_check;
-    else
-    $rate=0;
-
-    $days_left=$served-$done;  
-    
-    $un_consotot=$un_consoqt*$un_consup; $un_hosptot=$un_hospqt*$un_hospup; $un_sointot=$un_soinqt*$un_soinup; $un_mtot=$un_mqt*$un_mup;
-
-    $unveri_tot=$un_cup+$un_lab+$un_mtot+$un_consotot+$un_sointot+$un_hosptot;
-
-?>
+    //=====================================after verification========================================
+    $af_tot=$af_cup; 
+    $af_co_pay=$af_tmup+$af_tambu;  $af_amount_bill=$af_tot-$af_gtt;
+    $af_medi_pro=$billed_amount+$af_mtot;
+    $totded=$conded+$laded+$meded+$consoded+$soded+$hoded;
+    $ded=$billed_amount-$totded;
+  ?>
   <table style="border-collapse:collapse; border:2px solid #000; width:50%" cellpadding="0" cellspacing="0" border="1">
     <tr style="border:2px solid #000;">
       <td style="padding-left:10px;" colspan="5">
@@ -86,8 +64,24 @@
           <col width="102" />
           <col width="95" />
           <tr>
-            <td colspan="2" width="181">Health Facility </td>
-            <td colspan="6" width="549">HC</td>
+            <td colspan="2" width="181">Health Facility</td>
+            <td colspan="6" width="549">
+              <?php 
+                $section = "SELECT * FROM address  LIMIT 1";// get the location 
+                $retval = mysqli_query($link,$section);
+                if(! $retval )
+                {
+                  die('Could not get data: ' . mysqli_error($link));
+                }    
+                while($row = mysqli_fetch_array($retval, MYSQLI_ASSOC))
+                {
+                  $district=$row['district'];
+                  $section1=$row['hc'];
+                  echo $row['hc'];
+                }
+              ?>
+              HC
+            </td>
           </tr>
           <tr>
             <td></td>
@@ -101,7 +95,22 @@
           </tr>
           <tr>
             <td colspan="2">CBHI Section</td>
-            <td colspan="6"></td>
+            <td colspan="6">
+              <?php 
+                $section = "SELECT * FROM address  LIMIT 1";// get the location 
+                $retval = mysqli_query($link,$section);
+                if(! $retval )
+                {
+                  die('Could not get data: ' . mysqli_error($link));
+                }    
+                while($row = mysqli_fetch_array($retval, MYSQLI_ASSOC))
+                {
+                  $district=$row['district'];
+                  $section1=$row['hc'];
+                  echo $row['hc'];
+                }
+              ?>
+            </td>
           </tr>
           <tr>
             <td></td>
@@ -114,34 +123,93 @@
             <td></td>
           </tr>
           <tr>
-            <td colspan="2">Administrative District </td>
-            <td colspan="6"></td>
+            <td colspan="2">Administrative District</td>
+            <td colspan="6">
+              <?php 
+                $section = "SELECT * FROM address  LIMIT 1";// get the location 
+                $retval = mysqli_query($link,$section);
+                if(! $retval )
+                {
+                  die('Could not get data: ' . mysqli_error($link));
+                }    
+                while($row = mysqli_fetch_array($retval, MYSQLI_ASSOC))
+                {
+                  $district=$row['district'];
+                  $section1=$row['hc'];
+                  echo $row['district'];
+                }
+              ?>
+            </td>
           </tr>
         </table>
         <br />
-
       </td>
     </tr>
+    <?php
+      $facyear= date("Y", strtotime($per));
+      $facmonth =mb_substr($per, 0, 3);
+      $where=mb_substr($per,9, 15);
+      switch ($facmonth)
+      {
+        case "Jan":
+            $facmonth="7";
+            break;
+        case "Feb":
+            $facmonth="8";
+            break;
+        case "Mar":
+            $facmonth="9";
+            break;
+        case "Apr":
+              $facmonth="10";
+              break;
+        case "May":
+              $facmonth="11";
+              break;
+        case "Jun":
+              $facmonth="12";
+              break;
+        case "Jul":
+              $facmonth="1";
+              break;
+        case "Aug":
+              $facmonth="2";
+              break;
+        case "Sep":
+              $facmonth="3";
+              break;
+        case "Oct":
+              $facmonth="4";
+              break;
+        case "Nov":
+              $facmonth="5";
+              break;
+        case "Dec":
+              $facmonth="6";
+              break;
+                
+        default:
+            echo "error:WRONG MONTH";
+      }
+    ?>
     <tr style="border:2px solid #000; padding-left:10px;">
       <td style="padding-left:10px;" colspan="2">
-        <table style="border-collapse:collapse;  " border="1" cellspacing="0" cellpadding="0">
+        <table style="border-collapse:collapse;margin-right: 60px;" border="1" cellspacing="0" cellpadding="0">
           <col width="81" />
           <col width="100" />
           <col width="92" />
           <col width="107" />
           <tr>
-            <td colspan="2" width="181">Invoice number / Provider  </td>
-            <td colspan="2" width="199">N<sup><u>o</u></sup> </td>
+            <td colspan="2" width="239" >Invoice number / Provider</td>
+            <td colspan="2" width="199">N<sup><u>o</u></sup><?=$facmonth;?> </td>
           </tr>
           <tr>
             <td colspan="2">Period</td>
-
-            <td colspan="2">
-            </td>
+            <td colspan="2"><?= $per?></td>
           </tr>
           <tr>
             <td colspan="2">Reception date</td>
-            <td colspan="2"><?= $per?></td>
+            <td colspan="2"><?= date('d-F-Y') ?></td>
           </tr>
           <tr>
             <td colspan="2">Number of Vouchers</td>
@@ -154,40 +222,37 @@
         <table cellspacing="0" style="border-collapse:collapse;" border="1" cellpadding="0">
           <tr>
             <td colspan="20" width="197">Amount billed</td>
-            <td width="69"><?= $tot?></td>
+            <td width="69"><?= $billed_amount?></td>
             <td width="75">Rwf</td>
           </tr>
           <tr>
             <td colspan="20">Amount after Verification</td>
-            <td><?= $after_amount?></td>
+            <td><?= $totded?></td>
             <td>Rwf</td>
           </tr>
           <tr>
-            <td colspan="20">Difference + or -     </td>
-            <td></td>
+            <td colspan="20">Difference + or -</td>
+            <td><?= $totded?></td>
             <td>Rwf</td>
           </tr>
           <tr>
-            <td colspan="20">RRA Taxes (3%) </td>
+            <td colspan="20">RRA Taxes (3%)</td>
             <td>0</td>
             <td>Rwf</td>
           </tr>
           <tr>
             <td colspan="20">Medical procedures</td>
-            <td>
-            </td>
+            <td><?= $af_medi_pro?></td>
             <td>Rwf</td>
           </tr>
           <tr>
             <td colspan="20">Drugs</td>
-            <td>
-            </td>
+            <td><?=$af_mtot?></td>
             <td>Rwf</td>
           </tr>
           <tr>
             <td colspan="20">Ambulance</td>
-            <td>
-            </td>
+            <td><?=$af_ambutot?></td>
             <td>Rwf</td>
           </tr>
         </table> <br />
@@ -197,8 +262,8 @@
       <td colspan="2">
         <table cellspacing="0" cellpadding="0">
           <tr>
-            <td colspan="2" width="181">Amount paid  (in figures):</td>
-            <td colspan="2" width="199"></td>
+            <td colspan="2" width="199">Amount paid (in figures):</td>
+            <td colspan="2" width="199"><?=$ded?></td>
           </tr>
         </table>
       </td>
@@ -209,7 +274,7 @@
           <col width="207" />
           <col width="69" />
           <tr>
-            <td colspan="4" width="473"> Amount paid (in words):</td>
+            <td colspan="4" width="473">Amount paid (in words):</td>
           </tr>
           <tr>
             <td></td>
@@ -234,39 +299,36 @@
             <td width="68">Acts &amp; <br />
               Materials</td>
             <td width="102">Ambulance</td>
-            <td width="95">Other<br />
-              Consumables</td>
+            <td width="95">Other<br />Consumables</td>
             <td width="207">Drugs</td>
             <td width="69">Co-payment</td>
             <td width="">Amount after<br /> Verification</td>
           </tr>
           <tr>
-            <td> Amount billed</td>
-            <td></td>
-            <td></td>
+            <td>Amount billed</td>
+            <td><?=$cup?></td>
+            <td><?=$lab?></td>
             <td>0</td>
-            <td> </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td> </td>
-            <td></td>
+            <td><?=$hosptot?> </td>
+            <td><?=$sointot?></td>
+            <td><?=$af_ambutot?></td>
+            <td><?=$consotot?></td>
+            <td><?=$mtot?></td>
+            <td><?=$af_co_pay?> </td>
+            <td><?=$billed_amount?></td>
           </tr>
           <tr>
             <td>Amount after verification</td>
-            <td></td>
-            <td></td>
+            <td><?=$af_cup?></td>
+            <td><?=$af_lab?></td>
             <td>0</td>
-            <td>
-            </td>
-            <td>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><?=$af_hosptot?> </td>
+            <td><?=$af_sointot?></td>
+            <td><?=$af_ambutot?></td>
+            <td><?=$af_consotot?></td>
+            <td><?=$af_mtot?></td>
+            <td><?=$af_co_pay?> </td>
+            <td><?=$ded?></td>
           </tr>
         </table>
         <br />
@@ -370,7 +432,7 @@
             <td colspan="3">&nbsp;</td>
           </tr>
           <tr>
-            <td colspan="4">CBHI Section Manager                                                                                                               </td>
+            <td colspan="4">CBHI Section Manager</td>
           </tr>
         </table>
       </td>
@@ -406,7 +468,7 @@
             <td></td>
           </tr>
           <tr>
-            <td colspan="2"> Branch supervisor </td>
+            <td colspan="2">Branch supervisor</td>
           </tr>
         </table>
       </td>

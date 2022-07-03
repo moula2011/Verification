@@ -16,6 +16,7 @@ error_reporting(1|0);
     <?php 
         $consult =json_decode(file_get_contents('../../data/rugarama.json'));
         $drugs =json_decode(file_get_contents('../../data/drugs.json'));
+        require('consult.class.php');
     ?>
     <div class="medi-menu bg-opacity-50 p-2.5 bg-blue-400 bg-medimenu">
         <div class="pt-0 float-left flex">
@@ -102,37 +103,59 @@ error_reporting(1|0);
                         <?php  endforeach?>
                         <b class=" text-2xl ml-6" style="color: red;"><?= $num?></b> DRUG<?php if($num > 1){echo "S";}?>
                     </label>
-                    <table class="w-90 m-4 medi-btn">
-                        <thead class="bg-white ">
-                            <tr class="medi-btn" style="background-color:#CCC; height: 50px;">
-                                <th class="h-30 medi-btn w-12">No</th>
-                                <th class="h-30 medi-btn w-50">DESIGNATION</th>
-                                <th class="h-30 medi-btn w-20">INSURED ?</th>
-                                <th class="h-30 medi-btn">PRIX PRECEDENT	</th>
-                                <th class="h-30 medi-btn">PRIX ACTUEL	</th>
-                                <th>Verify</th>
-                            </tr>
-                        </thead>
-                        <?php $i=0; foreach($drugs as $drug): if($drug->verified == 0){  $i++; ?>
-                            <tbody class="medi-btn">
-                                <?php if($i%2==0)
-                                echo'<tr>';
-                                else
-                                echo'<tr style="background-color:#C9DFEC;">';
-                                ?>
-                                    <td class=""><?= $i.' .'?></td>
-                                    <td class=""><?= $drug->description?></td>
-                                    <td class="text-center"><?php if($drug->insured == 1){ echo "Yes";}else{echo "NOT";}?></td>
-                                    <td class="text-center"><?= $drug->unit_price?></td>
-                                    <td class="text-center"><?= $drug->unit_price?></td>
-                                    <td class="medi-btn">
-                                        <button class="p-2 m-1 ml-6 medi-btn rounded-md" style=" background-color:#66CDAA ; color:whitesmoke;">+</button>
-                                    </td>
+                    <form action="drug.php" method="post">
+                        <table class="w-90 m-4 medi-btn">
+                            <thead class="bg-white ">
+                                <tr class="medi-btn" style="background-color:#CCC; height: 50px;">
+                                    <th class="h-30 medi-btn w-12">No</th>
+                                    <th class="h-30 medi-btn w-50">DESIGNATION</th>
+                                    <th class="h-30 medi-btn w-20">INSURED ?</th>
+                                    <th class="h-30 medi-btn">PRIX PRECEDENT	</th>
+                                    <th class="h-30 medi-btn">PRIX ACTUEL	</th>
+                                    <th>Verify</th>
                                 </tr>
-                            </tbody>
-                        <?php } endforeach ?>
-                    </table>
+                            </thead>
+                            <?php $i=0; foreach($drugs as $drug): if($drug->verified == 0){  $i++; ?>
+                                <tbody class="medi-btn">
+                                    <?php if($i%2==0)
+                                    echo'<tr>';
+                                    else
+                                    echo'<tr style="background-color:#C9DFEC;">';
+                                    ?>
+                                        <td class=""><?= $i.' .'?></td>
+                                        <td class=""><?= $drug->description?></td>
+                                        <td class="text-center"><?php if($drug->insured == 1){ echo "Yes";}else{echo "NOT";}?></td>
+                                        <td class="text-center"><?= $drug->unit_price?></td>
+                                        <td class="text-center"><?= $drug->unit_price?></td>
+                                        <input class="ml-6" type="hidden" name="drid" value="<?=$drug->prod_id?>">
+
+                                        <td class="medi-btn">
+                                            <button name="drugz" class="p-2 m-1 ml-6 medi-btn rounded-md" style=" background-color:#66CDAA ; color:whitesmoke;">+</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            <?php } endforeach ?>
+                        </table>
+                    </form>
                 </div>
+                <?php
+                    $rug = new Consult('../../data/drugs.json');
+
+                    if(isset($_POST['drugz'])){  
+                        $drid = $_POST['drid'];
+                        // echo $drid;
+                        foreach($drugs as $drug){
+                            // foreach($drug->items->verification->hospitalisation as $hosp):
+                            
+                                if($drug->prod_id == $drid){
+                                    // echo $drid;
+                                    $rug->updateprice($drid,"verified",1);
+                                }
+                            // endforeach;
+                        }
+
+                    }
+                ?>
                 <div class="bg-white flex flex-col m-4 medi-client rounded-md border-red-200" style="width: 850px; height:657px; overflow: auto;">
                     <label for="" class="m-2 ml-6" style="opacity: 0.7;">
                         <b class=" text-2xl">VERIFIED DRUGS  </b>
@@ -164,11 +187,13 @@ error_reporting(1|0);
                                     <td class="text-center"><?= $drug->unit_price?></td>
                                     <td class="text-center"><?= $drug->unit_price?></td>
                                     <td class="medi-btn">
-                                        <button class="p-2 m-1 ml-6 medi-btn rounded-md" style=" background-color:#66CDAA ; color:whitesmoke;">+</button>
+                                        <!-- <button class="p-2 m-1 ml-6 medi-btn rounded-md" style=" background-color:#66CDAA ; color:whitesmoke;">+</button> -->
                                     </td>
                                 </tr>
                             </tbody>
-                        <?php } endforeach ?>
+                        <?php } endforeach ;
+                            
+                        ?>
                     </table>
                 </div>
             </div>

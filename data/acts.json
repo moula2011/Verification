@@ -7,7 +7,7 @@
         "unit_price": "300",
         "date": "2021-08-14",
         "insured": "1",
-        "verified": "0"
+        "verified": "1"
     },
     {
         "id": 2,
@@ -747,7 +747,7 @@
         "unit_price": "50",
         "date": "2020-06-22",
         "insured": "1",
-        "verified": "0"
+        "verified": "1"
     },
     {
         "id": 76,
